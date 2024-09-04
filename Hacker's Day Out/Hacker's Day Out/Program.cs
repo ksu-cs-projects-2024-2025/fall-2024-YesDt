@@ -1,3 +1,3 @@
 ﻿
-using var game = new Hacker_s_Day_Out.Game1();
+using var game = new HackersDayOut.Game1();
 game.Run();
