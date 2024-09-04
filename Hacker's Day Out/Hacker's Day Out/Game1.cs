@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace Hacker_s_Day_Out
+namespace HackersDayOut
 {
     public class Game1 : Game
     {

@@ -7510,9 +7510,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dtyso\\source\\repos\\fall-2024-YesDt\\Hacker's Day Out\\Hacker's Day Out\\Hacker's Day Out.csproj",
-      "projectName": "Hacker's Day Out",
-      "projectPath": "C:\\Users\\dtyso\\source\\repos\\fall-2024-YesDt\\Hacker's Day Out\\Hacker's Day Out\\Hacker's Day Out.csproj",
+      "projectUniqueName": "C:\\Users\\dtyso\\source\\repos\\fall-2024-YesDt\\Hacker's Day Out\\Hacker's Day Out\\HackersDayOut.csproj",
+      "projectName": "HackersDayOut",
+      "projectPath": "C:\\Users\\dtyso\\source\\repos\\fall-2024-YesDt\\Hacker's Day Out\\Hacker's Day Out\\HackersDayOut.csproj",
       "packagesPath": "C:\\Users\\dtyso\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\dtyso\\source\\repos\\fall-2024-YesDt\\Hacker's Day Out\\Hacker's Day Out\\obj\\",
       "projectStyle": "PackageReference",

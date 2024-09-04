@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kfqJ3y+HtiiYmmGcJsuptiAWaNg83WTuGsxsUDPlW143+6kyk+AfuFTW37KqXj2gc67nLhGZ7feTW9ABNeYD1A==",
+  "dgSpecHash": "EKIGDCW3CQ0R2FVmoV2Y1ZbkqaJp6JqN6SYRG7xzVNb5lhRUJH4DkCRZh2sseMbib76CRIg+tY/vV3NT1LgNBQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\dtyso\\source\\repos\\fall-2024-YesDt\\Hacker's Day Out\\Hacker's Day Out\\Hacker's Day Out.csproj",
+  "projectFilePath": "C:\\Users\\dtyso\\source\\repos\\fall-2024-YesDt\\Hacker's Day Out\\Hacker's Day Out\\HackersDayOut.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dtyso\\.nuget\\packages\\libuv\\1.9.1\\libuv.1.9.1.nupkg.sha512",
     "C:\\Users\\dtyso\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\1.1.0\\microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512",
