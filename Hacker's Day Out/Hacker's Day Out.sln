@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34018.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hacker's Day Out", "Hacker's Day Out\Hacker's Day Out.csproj", "{CC459690-E6CC-490F-A2E6-C60ACD717C3F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC459690-E6CC-490F-A2E6-C60ACD717C3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC459690-E6CC-490F-A2E6-C60ACD717C3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC459690-E6CC-490F-A2E6-C60ACD717C3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC459690-E6CC-490F-A2E6-C60ACD717C3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B4DCEA2F-9F7A-42F5-9C0B-C2A19D8BF582}
+	EndGlobalSection
+EndGlobal
