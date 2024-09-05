@@ -35,3 +35,4 @@ C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\ob
 C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\obj\Debug\net6.0-windows\HackersDayOut.pdb
 C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\obj\Debug\net6.0-windows\HackersDayOut.genruntimeconfig.cache
 C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\obj\Debug\net6.0-windows\ref\HackersDayOut.dll
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Content\Title.xnb
