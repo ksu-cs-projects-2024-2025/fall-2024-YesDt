@@ -32,11 +32,11 @@ namespace HackersDayOut.StateManagement
 
         //public Cube cube;
 
-        public static int score;
+       // public static int score;
 
-        public static List<int> ScoreList = new List<int>();
+       // public static List<int> ScoreList = new List<int>();
 
-        public static int TotalCoinsCollected;
+        //public static int TotalCoinsCollected;
 
         private bool _isInitialized;
 
@@ -89,10 +89,10 @@ namespace HackersDayOut.StateManagement
         {
             SpriteBatch = new SpriteBatch(GraphicsDevice);
             //cube = new Cube(this.Game);
-            Font = _content.Load<SpriteFont>("menufont");
+            Font = _content.Load<SpriteFont>("MenuFont");
             BlankTexture = _content.Load<Texture2D>("blank");
 
-            // Tell each of the screens to load thier content 
+            // Tell each of the screens to load their content 
             foreach (var screen in _screens)
             {
                 screen.Activate();

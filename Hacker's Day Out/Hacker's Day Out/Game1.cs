@@ -1,4 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+﻿using HackersDayOut.Screens;
+using HackersDayOut.StateManagement;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -8,7 +10,7 @@ namespace HackersDayOut
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-
+        private readonly ScreenManager _screenManager;
         private SpriteFont _title;
 
         public Game1()
@@ -16,6 +18,21 @@ namespace HackersDayOut
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+
+            var screenFactory = new ScreenFactory();
+            Services.AddService(typeof(IScreenFactory), screenFactory);
+
+            _screenManager = new ScreenManager(this);
+            Components.Add(_screenManager);
+
+            AddInitialScreens();
+        }
+
+        private void AddInitialScreens()
+        {
+            _screenManager.gameState = GameState.LevelOne;
+            _screenManager.AddScreen(new MainMenuScreen(), null);
+
         }
 
         protected override void Initialize()
@@ -49,7 +66,7 @@ namespace HackersDayOut
 
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
-            _spriteBatch.DrawString(_title, "Hello World", new Vector2(270, 70), Color.Black);
+            //_spriteBatch.DrawString(_title, "Hello World", new Vector2(270, 70), Color.Black);
             _spriteBatch.End();
             base.Draw(gameTime);
         }
