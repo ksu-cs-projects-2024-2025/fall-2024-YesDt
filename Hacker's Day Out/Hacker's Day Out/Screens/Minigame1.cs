@@ -21,6 +21,7 @@ namespace HackersDayOut.Screens
         private ContentManager _content;
 
         private Texture2D _screen;
+        private Texture2D _success;
 
         private SpriteFont _objective;
         private SpriteFont _problem;
@@ -31,6 +32,8 @@ namespace HackersDayOut.Screens
 
         private KeyboardState _currentKeyboardState;
         private KeyboardState _previousKeyboardState;
+
+        private double _successTimer;
 
         public string MiniGameProblem;
 
@@ -51,10 +54,13 @@ namespace HackersDayOut.Screens
 
             
             succeeded = false;
+            _successTimer = 0;
+
 
             if (_content == null)
                 _content = new ContentManager(ScreenManager.Game.Services, "Content");
             _screen = _content.Load<Texture2D>("MinigameCompScreen");
+            _success = _content.Load<Texture2D>("Sprite_success");
             _objective = _content.Load<SpriteFont>("MG1objective");
             _problem = _content.Load<SpriteFont>("MG1problem");
             _answer = _content.Load<SpriteFont>("MG1answer");
@@ -223,6 +229,13 @@ namespace HackersDayOut.Screens
             {
                 succeeded = true;
             }
+
+            if (succeeded)
+            {
+                _successTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (_successTimer > 4) ScreenManager.RemoveScreen(this);
+
+            }
         }
 
         public override void Draw(GameTime gameTime)
@@ -235,6 +248,7 @@ namespace HackersDayOut.Screens
             _spriteBatch.DrawString(_objective, "COMPLETE THE LINE", new Vector2(50, 150), Color.Red);
             _spriteBatch.DrawString(_problem, MiniGameProblem, new Vector2(200, 250), Color.Black);
             _spriteBatch.DrawString(_answer, Answer, new Vector2(200, 350), Color.Black);
+            if (succeeded) _spriteBatch.Draw(_success, new Rectangle(500, -20, 200, 300), Color.White);
             _spriteBatch.End();
             base.Draw(gameTime);
         }
