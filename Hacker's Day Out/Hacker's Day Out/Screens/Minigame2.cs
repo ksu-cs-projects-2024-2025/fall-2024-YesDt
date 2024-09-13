@@ -10,22 +10,28 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using SharpDX.Direct2D1.Effects;
 using System.Reflection.Metadata;
+//using SharpDX.Direct2D1;
+using SharpDX.Direct3D9;
 
 namespace HackersDayOut.Screens
 {
     public class Minigame2 : GameScreen
     {
+
+
         private GraphicsDevice _graphics;
         private SpriteBatch _spriteBatch;
         private ContentManager _content;
 
         private Texture2D _screen;
         private Texture2D _success;
+        private Texture2D _button;
 
         private SpriteFont _objective;
         private SpriteFont _problem;
         private SpriteFont _answer;
 
+       
 
         private Random random = new Random();
 
@@ -37,6 +43,10 @@ namespace HackersDayOut.Screens
         private bool _isHovering;
 
         private double _successTimer;
+
+        private Button[] _buttons1;
+
+        private int _selectedButtonIndex = 0;
 
         public string MiniGameProblem;
 
@@ -57,7 +67,7 @@ namespace HackersDayOut.Screens
             succeeded = false;
             _successTimer = 0;
 
-
+            
             if (_content == null)
                 _content = new ContentManager(ScreenManager.Game.Services, "Content");
             _screen = _content.Load<Texture2D>("MinigameDoorScreen");
@@ -66,22 +76,25 @@ namespace HackersDayOut.Screens
             _problem = _content.Load<SpriteFont>("MG1problem");
             _answer = _content.Load<SpriteFont>("MG1answer");
 
+            _buttons1 = new Button[]
+             {
+                 new Button(new Vector2(100, 500)),
+                 new Button(new Vector2(50, 550)),
+                 new Button(new Vector2(100, 600)),
+                 new Button(new Vector2(150, 550))
+             };
+            foreach (var b in _buttons1) b.LoadContent(_content);
 
             RandomNum = random.Next(1, 3);
             if (RandomNum == 1)
             {
-                MiniGameProblem = "numlist = [1, 2, 3, 4, 5, 6] \n" +
-                    "Print('Divisible by 2:') + \n" +
-                    "for num in numlist: \n" +
-                    "   if num _ _ == 0 \n" +
-                    "       print(num)";
+                MiniGameProblem = "The hypothetical computing machine was made in 1936 by\n" +
+                    "Alan _________ ";
             }
             else
             {
-                MiniGameProblem = "num1 = 50 \n" +
-                    "num2 = 19 \n" +
-                    "result = _ _ _ \n" +
-                    "Print('50 + 19 =', result)";
+                MiniGameProblem = "The fastest algorithm to sort in Python is \n" +
+                    "_________ sort";
 
             }
 
@@ -103,10 +116,18 @@ namespace HackersDayOut.Screens
 
         public override void Draw(GameTime gameTime)
         {
-
+           
 
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
+            _spriteBatch.Draw(_screen, new Rectangle(0, 0, 800, 500), Color.White);
+            _spriteBatch.DrawString(_objective, "Find the correct word", new Vector2(50, 150), Color.Red);
+            _spriteBatch.DrawString(_problem, MiniGameProblem, new Vector2(200, 250), Color.Black);
+            foreach(var b in _buttons1)
+            {
+                b.Draw(gameTime, _spriteBatch);
+            }
+            //_spriteBatch.Draw(_button, new Vector2(100, 500), source, Color.White, 0f, new Vector2(116, 70), 0f, SpriteEffects.None, 0);
             _spriteBatch.End();
             base.Draw(gameTime);
         }

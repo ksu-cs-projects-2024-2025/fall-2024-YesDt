@@ -31,7 +31,7 @@ namespace HackersDayOut.Screens
 
         private void PlayGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
-            ScreenManager.AddScreen(new Minigame1(), e.PlayerIndex);
+            ScreenManager.AddScreen(new Minigame2(), e.PlayerIndex);
         }
 
         private void ControlsEntrySelected(object sender, PlayerIndexEventArgs e)
