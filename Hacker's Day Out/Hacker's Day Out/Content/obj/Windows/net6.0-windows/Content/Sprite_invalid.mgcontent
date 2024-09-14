@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/MinigameDoorScreen.png</SourceFile>
-  <SourceTime>2024-09-14T16:09:26.8187708-05:00</SourceTime>
-  <DestFile>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/bin/Windows/Content/MinigameDoorScreen.xnb</DestFile>
-  <DestTime>2024-09-14T16:10:11.1873736-05:00</DestTime>
+  <SourceFile>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_invalid.png</SourceFile>
+  <SourceTime>2024-09-14T16:06:01.5724657-05:00</SourceTime>
+  <DestFile>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/bin/Windows/Content/Sprite_invalid.xnb</DestFile>
+  <DestTime>2024-09-14T16:10:11.2813186-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T06:44:56-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

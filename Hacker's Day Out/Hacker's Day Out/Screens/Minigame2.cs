@@ -25,6 +25,7 @@ namespace HackersDayOut.Screens
 
         private Texture2D _screen;
         private Texture2D _success;
+        private Texture2D _invalid;
         private Texture2D _button;
         private Texture2D _debugCircle;
 
@@ -32,6 +33,7 @@ namespace HackersDayOut.Screens
         private SpriteFont _problem;
         private SpriteFont _answer1;
         private SpriteFont _answer2;
+       
 
         private SpriteFont _choice1;
         private SpriteFont _choice2;
@@ -61,18 +63,22 @@ namespace HackersDayOut.Screens
 
         private int _selectedButtonIndex = 0;
 
-        private string _button1 = " ";
-        private string _button2 = " ";
-        private string _button3 = " ";
-        private string _button4 = " ";
-        private string _button5 = " ";
-        private string _button6 = " ";
-        private string _button7 = " ";
-        private string _button8 = " ";
+        private string _button1 = "";
+        private string _button2 = "";
+        private string _button3 = "";
+        private string _button4 = "";
+        private string _button5 = "";
+        private string _button6 = "";
+        private string _button7 = "";
+        private string _button8 = "";
 
         public string MiniGameProblem;
 
-        public string Answer = " ";
+        public string Half1 = "";
+
+        public string Half2 = "";
+
+        public string Answer = "";
 
         public bool Succeeded;
 
@@ -81,6 +87,8 @@ namespace HackersDayOut.Screens
         public bool RightSelect;
 
         public int RandomNum;
+
+        public float InvalidAnswer = 0;
 
         public Minigame2()
         {
@@ -100,10 +108,12 @@ namespace HackersDayOut.Screens
                 _content = new ContentManager(ScreenManager.Game.Services, "Content");
             _screen = _content.Load<Texture2D>("MinigameDoorScreen");
             _success = _content.Load<Texture2D>("Sprite_success");
+            _invalid = _content.Load<Texture2D>("Sprite_invalid");
             _objective = _content.Load<SpriteFont>("MG2objective");
             _problem = _content.Load<SpriteFont>("MG2problem");
             _answer1 = _content.Load<SpriteFont>("MG2answer");
-            
+            _answer2 = _content.Load<SpriteFont>("MG2answer");
+
             _choice1 = _content.Load<SpriteFont>("MG2choice");
             _choice2 = _content.Load<SpriteFont>("MG2choice");
             _choice3 = _content.Load<SpriteFont>("MG2choice");
@@ -124,10 +134,10 @@ namespace HackersDayOut.Screens
 
             _buttons2 = new Button[]
              {
-                 new Button(new Vector2(700, 400)),
-                 new Button(new Vector2(600, 500)),
-                 new Button(new Vector2(800, 500)),
-                 new Button(new Vector2(700, 600))
+                 new Button(new Vector2(975, 400)),
+                 new Button(new Vector2(875, 500)),
+                 new Button(new Vector2(1075, 500)),
+                 new Button(new Vector2(975, 600))
              };
             foreach (var b in _buttons2) b.LoadContent(_content);
 
@@ -177,6 +187,7 @@ namespace HackersDayOut.Screens
         public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
         {
             base.Update(gameTime, otherScreenHasFocus, false);
+            
             if (!Succeeded)
             {
                 _previousKeyboardState = _currentKeyboardState;
@@ -184,27 +195,88 @@ namespace HackersDayOut.Screens
                 Keys[] keys = _currentKeyboardState.GetPressedKeys();
                 if (!LeftSelect && keys.Length > 0 && !_previousKeyboardState.IsKeyDown(keys[0]))
                 {
-                    switch(keys[0])
+                    switch (keys[0])
                     {
                         case Keys.W:
                             LeftSelect = true;
+                            _buttons1[0].IsPressed = true;
+                            Half1 = Half1 + _button1;
                             break;
                         case Keys.A:
                             LeftSelect = true;
+                            _buttons1[1].IsPressed = true;
+                            Half1 = Half1 + _button2;
                             break;
                         case Keys.D:
                             LeftSelect = true;
+                            _buttons1[2].IsPressed = true;
+                            Half1 = Half1 + _button3;
                             break;
                         case Keys.S:
                             LeftSelect = true;
+                            _buttons1[3].IsPressed = true;
+                            Half1 = Half1 + _button4;
                             break;
                         default:
                             break;
                     }
                 }
+                if (!RightSelect && keys.Length > 0 && !_previousKeyboardState.IsKeyDown(keys[0]))
+                {
+                    switch (keys[0])
+                    {
+                        case Keys.Up:
+                            RightSelect = true;
+                            _buttons2[0].IsPressed = true;
+                            Half2 = Half2 + _button5;
+                            break;
+                        case Keys.Left:
+                            RightSelect = true;
+                            _buttons2[1].IsPressed = true;
+                            Half2 = Half2 + _button6;
+                            break;
+                        case Keys.Right:
+                            RightSelect = true;
+                            _buttons2[2].IsPressed = true;
+                            Half2 = Half2 + _button7;
+                            break;
+                        case Keys.Down:
+                            RightSelect = true;
+                            _buttons2[3].IsPressed = true;
+                            Half2 = Half2 + _button8;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                if (LeftSelect && RightSelect)
+                {
+                    Answer = Answer + Half1 + Half2;
+                    if (RandomNum == 1 && Answer == "Turing") Succeeded = true;
+                    else if (RandomNum == 2 && Answer == "Insertion") Succeeded = true;
+                    else
+                    {
+                        InvalidAnswer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        if (InvalidAnswer > 2)
+                        {
+                            Answer = "";
+                            Half1 = "";
+                            Half2 = "";
+                            LeftSelect = false;
+                            RightSelect = false;
+                            InvalidAnswer = 0;
+                        }
+
+                    }
+                }
             }
 
-            
+            if (Succeeded)
+            {
+                _successTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (_successTimer > 4) ScreenManager.RemoveScreen(this);
+
+            }
         }
 
         public override void Draw(GameTime gameTime)
@@ -225,10 +297,21 @@ namespace HackersDayOut.Screens
             {
                 b.Draw(gameTime, _spriteBatch);
             }
-            _spriteBatch.DrawString(_choice1, _button1, new Vector2(52, 270), Color.Black);
-            _spriteBatch.DrawString(_choice2, _button2, new Vector2(-14, 335), Color.Black);
-            _spriteBatch.DrawString(_choice3, _button3, new Vector2(116, 335), Color.Black);
-            _spriteBatch.DrawString(_choice4, _button4, new Vector2(52, 400), Color.Black);
+            _spriteBatch.DrawString(_choice1, _button1, new Vector2(69, 270), Color.Black);
+            _spriteBatch.DrawString(_choice2, _button2, new Vector2(3, 335), Color.Black);
+            _spriteBatch.DrawString(_choice3, _button3, new Vector2(137, 335), Color.Black);
+            _spriteBatch.DrawString(_choice4, _button4, new Vector2(69, 400), Color.Black);
+            _spriteBatch.DrawString(_choice5, _button5, new Vector2(639, 270), Color.Black);
+            _spriteBatch.DrawString(_choice6, _button6, new Vector2(573, 335), Color.Black);
+            _spriteBatch.DrawString(_choice7, _button7, new Vector2(703, 335), Color.Black);
+            _spriteBatch.DrawString(_choice8, _button8, new Vector2(639, 400), Color.Black);
+
+            _spriteBatch.DrawString(_answer1, Half1, new Vector2(270, 360), Color.Black);
+            _spriteBatch.DrawString(_answer2, Half2, new Vector2(430, 360), Color.Black);
+
+            if (InvalidAnswer > 0) _spriteBatch.Draw(_invalid, new Rectangle(300, 400, 200, 110), Color.White);
+            if (Succeeded) _spriteBatch.Draw(_success, new Rectangle(500, -20, 200, 300), Color.White);
+
             _spriteBatch.End();
             base.Draw(gameTime);
         }
