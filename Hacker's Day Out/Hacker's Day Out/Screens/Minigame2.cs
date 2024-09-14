@@ -26,12 +26,23 @@ namespace HackersDayOut.Screens
         private Texture2D _screen;
         private Texture2D _success;
         private Texture2D _button;
+        private Texture2D _debugCircle;
 
         private SpriteFont _objective;
         private SpriteFont _problem;
-        private SpriteFont _answer;
+        private SpriteFont _answer1;
+        private SpriteFont _answer2;
 
-       
+        private SpriteFont _choice1;
+        private SpriteFont _choice2;
+        private SpriteFont _choice3;
+        private SpriteFont _choice4;
+        private SpriteFont _choice5;
+        private SpriteFont _choice6;
+        private SpriteFont _choice7;
+        private SpriteFont _choice8;
+
+
 
         private Random random = new Random();
 
@@ -46,13 +57,28 @@ namespace HackersDayOut.Screens
 
         private Button[] _buttons1;
 
+        private Button[] _buttons2;
+
         private int _selectedButtonIndex = 0;
+
+        private string _button1 = " ";
+        private string _button2 = " ";
+        private string _button3 = " ";
+        private string _button4 = " ";
+        private string _button5 = " ";
+        private string _button6 = " ";
+        private string _button7 = " ";
+        private string _button8 = " ";
 
         public string MiniGameProblem;
 
         public string Answer = " ";
 
-        public bool succeeded;
+        public bool Succeeded;
+
+        public bool LeftSelect;
+
+        public bool RightSelect;
 
         public int RandomNum;
 
@@ -64,7 +90,9 @@ namespace HackersDayOut.Screens
         {
             _graphics = ScreenManager.Game.GraphicsDevice;
             _spriteBatch = ScreenManager.SpriteBatch;
-            succeeded = false;
+            Succeeded = false;
+            LeftSelect = false;
+            RightSelect = false;
             _successTimer = 0;
 
             
@@ -72,31 +100,68 @@ namespace HackersDayOut.Screens
                 _content = new ContentManager(ScreenManager.Game.Services, "Content");
             _screen = _content.Load<Texture2D>("MinigameDoorScreen");
             _success = _content.Load<Texture2D>("Sprite_success");
-            _objective = _content.Load<SpriteFont>("MG1objective");
-            _problem = _content.Load<SpriteFont>("MG1problem");
-            _answer = _content.Load<SpriteFont>("MG1answer");
+            _objective = _content.Load<SpriteFont>("MG2objective");
+            _problem = _content.Load<SpriteFont>("MG2problem");
+            _answer1 = _content.Load<SpriteFont>("MG2answer");
+            
+            _choice1 = _content.Load<SpriteFont>("MG2choice");
+            _choice2 = _content.Load<SpriteFont>("MG2choice");
+            _choice3 = _content.Load<SpriteFont>("MG2choice");
+            _choice4 = _content.Load<SpriteFont>("MG2choice");
+            _choice5 = _content.Load<SpriteFont>("MG2choice");
+            _choice6 = _content.Load<SpriteFont>("MG2choice");
+            _choice7 = _content.Load<SpriteFont>("MG2choice");
+            _choice8 = _content.Load<SpriteFont>("MG2choice");
 
             _buttons1 = new Button[]
              {
-                 new Button(new Vector2(100, 500)),
-                 new Button(new Vector2(50, 550)),
-                 new Button(new Vector2(100, 600)),
-                 new Button(new Vector2(150, 550))
+                 new Button(new Vector2(100, 400)),
+                 new Button(new Vector2(0, 500)),
+                 new Button(new Vector2(200, 500)),
+                 new Button(new Vector2(100, 600))
              };
             foreach (var b in _buttons1) b.LoadContent(_content);
+
+            _buttons2 = new Button[]
+             {
+                 new Button(new Vector2(700, 400)),
+                 new Button(new Vector2(600, 500)),
+                 new Button(new Vector2(800, 500)),
+                 new Button(new Vector2(700, 600))
+             };
+            foreach (var b in _buttons2) b.LoadContent(_content);
+
+            //_debugCircle = _content.Load<Texture2D>("circle");
 
             RandomNum = random.Next(1, 3);
             if (RandomNum == 1)
             {
-                MiniGameProblem = "The hypothetical computing machine was made in 1936 by\n" +
+                MiniGameProblem = "The hypothetical computing \n" +
+                    "machine was made in 1936 by\n" +
                     "Alan _________ ";
+                _button1 = _button1 + "Jack";
+                _button2 = _button2 + "Tur";
+                _button3 = _button3 + "Harr";
+                _button4 = _button4 + "Jon";
+                _button5 = _button5 + "ing";
+                _button6 = _button6 + "son";
+                _button7 = _button7 + "es";
+                _button8 = _button8 + "ison";
             }
             else
             {
-                MiniGameProblem = "The fastest algorithm to sort in Python is \n" +
+                MiniGameProblem = "The fastest algorithm to sort \n " + "in Python is \n" +
                     "_________ sort";
-
+                _button1 = _button1 + "Inser";
+                _button2 = _button2 + "Qui";
+                _button3 = _button3 + "Bub";
+                _button4 = _button4 + "Mer";
+                _button5 = _button5 + "ge";
+                _button6 = _button6 + "ck";
+                _button7 = _button7 + "tion";
+                _button8 = _button8 + "ble";
             }
+            
 
         }
         public override void Deactivate()
@@ -112,6 +177,34 @@ namespace HackersDayOut.Screens
         public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
         {
             base.Update(gameTime, otherScreenHasFocus, false);
+            if (!Succeeded)
+            {
+                _previousKeyboardState = _currentKeyboardState;
+                _currentKeyboardState = Keyboard.GetState();
+                Keys[] keys = _currentKeyboardState.GetPressedKeys();
+                if (!LeftSelect && keys.Length > 0 && !_previousKeyboardState.IsKeyDown(keys[0]))
+                {
+                    switch(keys[0])
+                    {
+                        case Keys.W:
+                            LeftSelect = true;
+                            break;
+                        case Keys.A:
+                            LeftSelect = true;
+                            break;
+                        case Keys.D:
+                            LeftSelect = true;
+                            break;
+                        case Keys.S:
+                            LeftSelect = true;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+
+            
         }
 
         public override void Draw(GameTime gameTime)
@@ -121,13 +214,21 @@ namespace HackersDayOut.Screens
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
             _spriteBatch.Draw(_screen, new Rectangle(0, 0, 800, 500), Color.White);
-            _spriteBatch.DrawString(_objective, "Find the correct word", new Vector2(50, 150), Color.Red);
-            _spriteBatch.DrawString(_problem, MiniGameProblem, new Vector2(200, 250), Color.Black);
+            _spriteBatch.DrawString(_objective, "Find the correct word", new Vector2(70, 75), Color.Red);
+            _spriteBatch.DrawString(_problem, MiniGameProblem, new Vector2(100, 125), Color.Black);
             foreach(var b in _buttons1)
             {
                 b.Draw(gameTime, _spriteBatch);
+                //_spriteBatch.Draw(_debugCircle, new Vector2(40, 150), Color.Red);
             }
-            //_spriteBatch.Draw(_button, new Vector2(100, 500), source, Color.White, 0f, new Vector2(116, 70), 0f, SpriteEffects.None, 0);
+            foreach(var b in _buttons2)
+            {
+                b.Draw(gameTime, _spriteBatch);
+            }
+            _spriteBatch.DrawString(_choice1, _button1, new Vector2(52, 270), Color.Black);
+            _spriteBatch.DrawString(_choice2, _button2, new Vector2(-14, 335), Color.Black);
+            _spriteBatch.DrawString(_choice3, _button3, new Vector2(116, 335), Color.Black);
+            _spriteBatch.DrawString(_choice4, _button4, new Vector2(52, 400), Color.Black);
             _spriteBatch.End();
             base.Draw(gameTime);
         }

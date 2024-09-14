@@ -20,7 +20,7 @@ namespace HackersDayOut
     {
         //public Rectangle Bounds { get; private set; }
         private Texture2D _texture;
-        private Vector2 _position;
+        
 
         private double _animationTimer;
         private short _animationFrame;
@@ -30,9 +30,12 @@ namespace HackersDayOut
 
         public bool IsPressed = false;
 
+        public Vector2 Position;
+
+
         public Button(Vector2 position)
         {
-            this._position = position;
+            this.Position = position;
 
         }
 
@@ -63,7 +66,7 @@ namespace HackersDayOut
                 IsPressed = false;
             }
             //var color = IsSelected ? Color.LightSkyBlue : Color.White; 
-            spriteBatch.Draw(_texture, _position, source, Color.White);
+            spriteBatch.Draw(_texture, Position, source, Color.White, 0f, Position, 0.35f, SpriteEffects.None, 0);
         }
     }
 }
