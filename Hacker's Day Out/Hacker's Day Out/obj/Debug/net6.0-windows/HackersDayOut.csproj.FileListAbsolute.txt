@@ -52,3 +52,4 @@ C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bi
 C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Content\MG2objective.xnb
 C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Content\MG2problem.xnb
 C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Content\Sprite_invalid.xnb
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Content\Sprite_student.xnb
