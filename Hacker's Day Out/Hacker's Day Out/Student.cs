@@ -21,7 +21,8 @@ namespace HackersDayOut
         Idle = 0,
         Walking = 1,
         InteractingSide = 2,
-        InteractingUp = 3
+        InteractingUp = 3,
+
     }
 
     public class Student
@@ -30,6 +31,7 @@ namespace HackersDayOut
         private Texture2D _texture;
 
         private KeyboardState _currentKeyboardState;
+        private KeyboardState _priorKeyboardState;
 
         private BoundingRectangle _bounds;
 
@@ -42,6 +44,8 @@ namespace HackersDayOut
 
         private Vector2 _xDirection;
         private Vector2 _yDirection;
+
+        private bool _sayingHi = false;
         #endregion
 
         #region publicFields
@@ -86,7 +90,7 @@ namespace HackersDayOut
             _yDirection = new Vector2(0, 300 * (float)gameTime.ElapsedGameTime.TotalSeconds);
 
 
-            //priorKeyboardState = _currentKeyboardState;
+            _priorKeyboardState = _currentKeyboardState;
             _currentKeyboardState = Keyboard.GetState();
 
             CollisionHandling(rectangle);
@@ -127,12 +131,14 @@ namespace HackersDayOut
                  &&
                 !(_currentKeyboardState.IsKeyDown(Keys.S) ||
                 _currentKeyboardState.IsKeyDown(Keys.Down))
+                &&
+                (!_currentKeyboardState.IsKeyDown(Keys.H))
                 )
             {
                 action = Action.Idle;
             }
 
-            _bounds.X = Position.X - 32;
+            _bounds.X = Position.X - 48;
             _bounds.Y = Position.Y - 48;
             _feet.X = _bounds.X;
             _feet.Y = _bounds.Bottom + 8;
@@ -190,6 +196,8 @@ namespace HackersDayOut
                         _animationTimer -= 0.1;
                     }
                     break;
+
+
                 default:
                     _animationTimer += gameTime.ElapsedGameTime.TotalSeconds;
                     if (_animationTimer > 0.2 && _animationFrame != 3)
