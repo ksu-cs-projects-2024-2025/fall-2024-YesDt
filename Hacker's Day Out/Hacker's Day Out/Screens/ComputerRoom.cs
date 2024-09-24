@@ -9,6 +9,7 @@ using HackersDayOut.StateManagement;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
+using HackersDayOut.Collisions;
 
 namespace HackersDayOut.Screens
 {
@@ -19,12 +20,14 @@ namespace HackersDayOut.Screens
         private ContentManager _content;
 
         private Texture2D _compLab;
-
+        private Texture2D _overlay;
 
         private Student _student = new Student(new Vector2(200, 250));
 
         private float _pauseAlpha;
         private readonly InputAction _pauseAction;
+
+        private BoundingRectangle[] _boundaries;
 
         public Texture2D circle;
 
@@ -47,7 +50,18 @@ namespace HackersDayOut.Screens
 
             _student.LoadContent(_content);
             _compLab = _content.Load<Texture2D>("Sprite-comlabv1");
+            _overlay = _content.Load<Texture2D>("Sprite-comlabv1overlay");
             circle = _content.Load<Texture2D>("circle");
+
+
+            _boundaries = new BoundingRectangle[]
+                {
+                    new BoundingRectangle(50, -100, 40, 1000),
+                    new BoundingRectangle(0, 230, 1000, 14),
+                    new BoundingRectangle(140, 250, 180, 40),
+                
+                };
+
 
 
         }
@@ -103,39 +117,57 @@ namespace HackersDayOut.Screens
                 MediaPlayer.Resume();
 
                 _student.Update(gameTime);
+                foreach(var r in _boundaries)
+                {
+                    _student.CollisionHandling(r);
+                }
 
             }
         }
 
         public override void Draw(GameTime gameTime)
         {
-            //float playerX = MathHelper.Clamp(_student.Position.X, 300, 300);
-            //float offset = 300 - playerX;
+            float playerX = MathHelper.Clamp(_student.Position.X, 300, 630);
+            float offset = 300 - playerX;
+            Matrix transform;
 
-
-           // Matrix transform;
+            // Matrix transform;
 
             ScreenManager.GraphicsDevice.Clear(ClearOptions.Target, Color.CornflowerBlue, 0, 0);
 
             var spriteBatch = ScreenManager.SpriteBatch;
 
+
+            transform = Matrix.CreateTranslation(offset, 0, 0);
+           
+            spriteBatch.Begin(transformMatrix: transform);
+
             //transform = Matrix.CreateTranslation(offset, 0, 0);
             //_fireworks.Transform = transform;
             // spriteBatch.Begin(transformMatrix: transform);
 
-            spriteBatch.Begin();
-            spriteBatch.Draw(_compLab, new Rectangle(0, 0, 800, 500), Color.White);
+           // spriteBatch.Begin();
+            spriteBatch.Draw(_compLab, new Rectangle(0, 0, 1150, 500), Color.White);
+           
 
             //spriteBatch.Draw(_level, new Vector2(0, 0), null, Color.White, 0f, new Vector2(0, 0), 1.5f, SpriteEffects.None, 0f);
             _student.Draw(gameTime, spriteBatch);
-            //spriteBatch.Draw(circle, new Vector2(_student.Bounds.Left, _student.Bounds.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-            //spriteBatch.Draw(circle, new Vector2(_student.Bounds.Left, _student.Bounds.Top), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-            //spriteBatch.Draw(circle, new Vector2(_student.Bounds.Right, _student.Bounds.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-            //spriteBatch.Draw(circle, new Vector2(_student.Bounds.Right, _student.Bounds.Top), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-            //spriteBatch.Draw(circle, new Vector2(_student.FeetBounds.Left, _student.FeetBounds.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-            //spriteBatch.Draw(circle, new Vector2(_student.FeetBounds.Left, _student.FeetBounds.Top), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-            //spriteBatch.Draw(circle, new Vector2(_student.FeetBounds.Right, _student.FeetBounds.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-            //spriteBatch.Draw(circle, new Vector2(_student.FeetBounds.Right, _student.FeetBounds.Top), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(circle, new Vector2(_student.Bounds.Left, _student.Bounds.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(circle, new Vector2(_student.Bounds.Left, _student.Bounds.Top), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(circle, new Vector2(_student.Bounds.Right, _student.Bounds.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(circle, new Vector2(_student.Bounds.Right, _student.Bounds.Top), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(circle, new Vector2(_student.FeetBounds.Left, _student.FeetBounds.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(circle, new Vector2(_student.FeetBounds.Left, _student.FeetBounds.Top), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(circle, new Vector2(_student.FeetBounds.Right, _student.FeetBounds.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(circle, new Vector2(_student.FeetBounds.Right, _student.FeetBounds.Top), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            //spriteBatch.Draw(_overlay, new Rectangle(0, 1, 1150, 500), Color.White);
+            foreach (var c in _boundaries)
+            {
+                spriteBatch.Draw(circle, new Vector2(c.Left, c.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+                spriteBatch.Draw(circle, new Vector2(c.Left, c.Top), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+                spriteBatch.Draw(circle, new Vector2(c.Right, c.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+                spriteBatch.Draw(circle, new Vector2(c.Right, c.Top), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            }
 
             spriteBatch.End();
 
@@ -143,7 +175,7 @@ namespace HackersDayOut.Screens
             //spriteBatch.Begin();
 
 
-            
+
 
             //spriteBatch.Draw(circle, _platforms.Position, null, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
 

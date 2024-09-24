@@ -30,6 +30,8 @@ namespace HackersDayOut
         #region privateFields
         private Texture2D _texture;
 
+        private Texture2D _interactButton;
+
         private KeyboardState _currentKeyboardState;
         private KeyboardState _priorKeyboardState;
 
@@ -54,6 +56,10 @@ namespace HackersDayOut
 
         public bool Flipped;
 
+        public bool CanInteract1 = false;
+
+        public bool CanInteract2 = false;
+
         public Action action;
 
         public short AnimationFrame => _animationFrame;
@@ -64,6 +70,8 @@ namespace HackersDayOut
 
 
         public BoundingRectangle rectangle;
+
+        public BoundingCircle circle;
         #endregion
 
         public Student(Vector2 pos)
@@ -80,6 +88,7 @@ namespace HackersDayOut
         public void LoadContent(ContentManager content)
         {
             _texture = content.Load<Texture2D>("Sprite_student");
+            _interactButton = content.Load<Texture2D>("Sprite_interact");
 
 
         }
@@ -151,23 +160,40 @@ namespace HackersDayOut
             if (_feet.CollidesWith(rect))
             {
 
-                if (Position.Y > rect.Bottom && _bounds.Left > rect.Left && _bounds.Right < rect.Right) Position.Y -= 20;
-                if (Position.Y < rect.Bottom && _bounds.Left > rect.Left && _bounds.Right < rect.Right)
+                if (_bounds.Bottom < rect.Top && _bounds.Left > rect.Left && _bounds.Right < rect.Right) Position.Y -= 5;
+                else if (_bounds.Top < rect.Bottom && _bounds.Left > rect.Left && _bounds.Right < rect.Right)
                 {
-                    Position.Y += 20;
+                    Position.Y += 5;
                 }
-                else if (Position.X < rect.Right && _bounds.Right > rect.Right && _bounds.Bottom > rect.Top && _bounds.Top < rect.Bottom)
+                else if (_bounds.Left < rect.Right && _bounds.Right > rect.Right && _bounds.Bottom > rect.Top && _bounds.Top < rect.Bottom)
                 {
-                    Position.X += 20;
+                    Position.X += 5;
 
                 }
                 else if (_bounds.Right > rect.Left && _bounds.Left < rect.Left && _bounds.Bottom > rect.Top && _bounds.Top < rect.Bottom)
                 {
-                    Position.X -= 20;
+                    Position.X -= 5;
                 }
             }
 
 
+        }
+        public void InteractHandlingOne(BoundingCircle cir)
+        {
+            circle = cir;
+            if (_bounds.CollidesWith(cir))
+            {
+                CanInteract1 = true;
+            }
+        }
+
+        public void InteractHandlingTwo(BoundingCircle cir)
+        {
+            circle = cir;
+            if (_bounds.CollidesWith(cir))
+            {
+                CanInteract2 = true;
+            }
         }
         /// <summary>
         /// Draws the main character
@@ -224,7 +250,7 @@ namespace HackersDayOut
            
 
             var source = new Rectangle(_animationFrame * 149, (int)action * 386, 147, 385);
-
+            if (CanInteract1 || CanInteract2) spriteBatch.Draw(_interactButton, new Rectangle((int)Position.X + 5, (int)Position.Y - 20, 50, 50), Color.White);
             spriteBatch.Draw(_texture, Position, source, Color.White, 0f, new Vector2(80, 120), 0.75f, spriteEffects, 0); //new Vector2(76, 192)
 
 
