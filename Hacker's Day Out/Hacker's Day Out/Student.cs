@@ -40,7 +40,7 @@ namespace HackersDayOut
         private BoundingRectangle _feet;
 
         private double _animationTimer;
-
+        private double _interactTimer;
 
         private short _animationFrame;
 
@@ -104,45 +104,67 @@ namespace HackersDayOut
 
             CollisionHandling(rectangle);
 
-            if (_currentKeyboardState.IsKeyDown(Keys.A) ||
-                _currentKeyboardState.IsKeyDown(Keys.Left))
+            if(action != Action.InteractingUp || action != Action.InteractingSide)
             {
-                Position += -_xDirection;
-                action = Action.Walking;
-                Flipped = true;
+                if (_currentKeyboardState.IsKeyDown(Keys.A) ||
+               _currentKeyboardState.IsKeyDown(Keys.Left))
+                {
+                    Position += -_xDirection;
+                    action = Action.Walking;
+                    Flipped = true;
+                }
+                if (_currentKeyboardState.IsKeyDown(Keys.D) ||
+                    _currentKeyboardState.IsKeyDown(Keys.Right))
+                {
+                    Position += _xDirection;
+                    action = Action.Walking;
+                    Flipped = false;
+                }
+                if (_currentKeyboardState.IsKeyDown(Keys.W) ||
+                    _currentKeyboardState.IsKeyDown(Keys.Up))
+                {
+                    Position -= _yDirection;
+                    action = Action.Walking;
+                }
+                if (_currentKeyboardState.IsKeyDown(Keys.S) ||
+                    _currentKeyboardState.IsKeyDown(Keys.Down))
+                {
+                    Position += _yDirection;
+                    action = Action.Walking;
+                }
+
+                if ((CanInteract1) && _currentKeyboardState.IsKeyDown(Keys.E))
+                {
+                    action = Action.InteractingUp;
+                }
+
+                if ((CanInteract2) && _currentKeyboardState.IsKeyDown(Keys.E))
+                {
+                    action = Action.InteractingSide;
+                }
             }
-            if (_currentKeyboardState.IsKeyDown(Keys.D) ||
-                _currentKeyboardState.IsKeyDown(Keys.Right))
+            if(action == Action.InteractingSide || action == Action.InteractingUp)
             {
-                Position += _xDirection;
-                action = Action.Walking;
-                Flipped = false;
+                _interactTimer += gameTime.ElapsedGameTime.TotalSeconds;
+                if (_interactTimer > 3)
+                {
+                    action = Action.Idle;
+                }
             }
-            if (_currentKeyboardState.IsKeyDown(Keys.W) ||
-                _currentKeyboardState.IsKeyDown(Keys.Up))
-            {
-                Position -= _yDirection;
-                action = Action.Walking;
-            }
-            if (_currentKeyboardState.IsKeyDown(Keys.S) ||
-                _currentKeyboardState.IsKeyDown(Keys.Down))
-            {
-                Position += _yDirection;
-                action = Action.Walking;
-            }
+
             if (!(_currentKeyboardState.IsKeyDown(Keys.A) ||
-                _currentKeyboardState.IsKeyDown(Keys.Left)) &&
-                !(_currentKeyboardState.IsKeyDown(Keys.D) ||
-                _currentKeyboardState.IsKeyDown(Keys.Right))
-                 &&
-                !(_currentKeyboardState.IsKeyDown(Keys.W) ||
-                _currentKeyboardState.IsKeyDown(Keys.Up))
-                 &&
-                !(_currentKeyboardState.IsKeyDown(Keys.S) ||
-                _currentKeyboardState.IsKeyDown(Keys.Down))
-                &&
-                (!_currentKeyboardState.IsKeyDown(Keys.H))
-                )
+                   _currentKeyboardState.IsKeyDown(Keys.Left)) &&
+                   !(_currentKeyboardState.IsKeyDown(Keys.D) ||
+                   _currentKeyboardState.IsKeyDown(Keys.Right))
+                    &&
+                   !(_currentKeyboardState.IsKeyDown(Keys.W) ||
+                   _currentKeyboardState.IsKeyDown(Keys.Up))
+                    &&
+                   !(_currentKeyboardState.IsKeyDown(Keys.S) ||
+                   _currentKeyboardState.IsKeyDown(Keys.Down))
+                   &&
+                   (!_currentKeyboardState.IsKeyDown(Keys.H))
+                   )
             {
                 action = Action.Idle;
             }
@@ -223,6 +245,33 @@ namespace HackersDayOut
                     }
                     break;
 
+                case 2:
+                    _animationTimer += gameTime.ElapsedGameTime.TotalSeconds;
+                    if (_animationTimer > 0.15)
+                    {
+                        _animationFrame++;
+                        if (_animationFrame > 6)
+                        {
+                            _animationFrame = 0;
+
+                        }
+                        _animationTimer -= 0.15;
+                    }
+                    break;
+
+                case 3:
+                    _animationTimer += gameTime.ElapsedGameTime.TotalSeconds;
+                    if (_animationTimer > 0.15)
+                    {
+                        _animationFrame++;
+                        if (_animationFrame > 6)
+                        {
+                            _animationFrame = 0;
+
+                        }
+                        _animationTimer -= 0.15;
+                    }
+                    break;
 
                 default:
                     _animationTimer += gameTime.ElapsedGameTime.TotalSeconds;

@@ -31,6 +31,10 @@ namespace HackersDayOut.Screens
 
         public Texture2D circle;
 
+        public Texture2D circle2;
+
+        public Computer[] computers;
+
         public ComputerRoom()
         {
             TransitionOnTime = TimeSpan.FromSeconds(1.5);
@@ -58,10 +62,18 @@ namespace HackersDayOut.Screens
                 {
                     new BoundingRectangle(50, -100, 40, 1000),
                     new BoundingRectangle(0, 230, 1000, 14),
-                    new BoundingRectangle(140, 250, 180, 40),
-                
-                };
+                    new BoundingRectangle(140, 230, 200, 40),
+                    new BoundingRectangle(1100, -100, 40, 1000),
 
+                };
+            computers = new Computer[]
+            {
+                new Computer(new Vector2(200, 100)),
+            };
+            foreach(var c in computers)
+            {
+                c.LoadContent(_content);
+            }
 
 
         }
@@ -148,7 +160,11 @@ namespace HackersDayOut.Screens
 
            // spriteBatch.Begin();
             spriteBatch.Draw(_compLab, new Rectangle(0, 0, 1150, 500), Color.White);
-           
+            foreach (var c in computers)
+            {
+                c.Draw(gameTime, spriteBatch);
+            }
+
 
             //spriteBatch.Draw(_level, new Vector2(0, 0), null, Color.White, 0f, new Vector2(0, 0), 1.5f, SpriteEffects.None, 0f);
             _student.Draw(gameTime, spriteBatch);
