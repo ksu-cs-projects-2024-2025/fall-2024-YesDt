@@ -43,7 +43,7 @@ namespace HackersDayOut.Screens
         private SpriteFont _choice6;
         private SpriteFont _choice7;
         private SpriteFont _choice8;
-
+        
 
 
         private Random random = new Random();
@@ -90,10 +90,12 @@ namespace HackersDayOut.Screens
 
         public float InvalidAnswer = 0;
 
-        public Minigame2()
-        {
+        public LockedDoorPy Door;
 
-        }
+        public Minigame2(LockedDoorPy LockedDoor)
+        {
+            Door = LockedDoor;
+         }
         public override void Activate()
         {
             _graphics = ScreenManager.Game.GraphicsDevice;
@@ -274,7 +276,12 @@ namespace HackersDayOut.Screens
             if (Succeeded)
             {
                 _successTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                if (_successTimer > 4) ScreenManager.RemoveScreen(this);
+                if (_successTimer > 4)
+                {
+                    Door.State = doorState.Opening;
+                    ExitScreen();
+                    ScreenManager.RemoveScreen(this);
+                }
 
             }
         }
@@ -287,6 +294,8 @@ namespace HackersDayOut.Screens
             _spriteBatch.Begin();
             _spriteBatch.Draw(_screen, new Rectangle(0, 0, 800, 500), Color.White);
             _spriteBatch.DrawString(_objective, "Find the correct word", new Vector2(70, 75), Color.Red);
+            _spriteBatch.DrawString(_objective, "Use W A S D \nfor the left side...", new Vector2(45, 200), Color.Black, 0f, new Vector2(0, 0), 0.45f, SpriteEffects.None, 0);
+            _spriteBatch.DrawString(_objective, "And the arrow keys \nfor the right!", new Vector2(500, 200), Color.Black, 0f, new Vector2(0, 0), 0.45f, SpriteEffects.None, 0);
             _spriteBatch.DrawString(_problem, MiniGameProblem, new Vector2(100, 125), Color.Black);
             foreach(var b in _buttons1)
             {
@@ -310,7 +319,7 @@ namespace HackersDayOut.Screens
             _spriteBatch.DrawString(_answer2, Half2, new Vector2(430, 360), Color.Black);
 
             if (InvalidAnswer > 0) _spriteBatch.Draw(_invalid, new Rectangle(300, 400, 200, 110), Color.White);
-            if (Succeeded) _spriteBatch.Draw(_success, new Rectangle(500, -20, 200, 300), Color.White);
+            if (Succeeded) _spriteBatch.Draw(_success, new Rectangle(600, -20, 200, 300), Color.White);
 
             _spriteBatch.End();
             base.Draw(gameTime);

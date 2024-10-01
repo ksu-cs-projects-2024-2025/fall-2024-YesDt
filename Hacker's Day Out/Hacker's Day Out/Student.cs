@@ -40,7 +40,7 @@ namespace HackersDayOut
         private BoundingRectangle _feet;
 
         private double _animationTimer;
-        private double _interactTimer;
+
 
         private short _animationFrame;
 
@@ -59,6 +59,10 @@ namespace HackersDayOut
         public bool CanInteract1 = false;
 
         public bool CanInteract2 = false;
+
+        public double Interact1Timer;
+
+        public double Interact2Timer;
 
         public Action action;
 
@@ -104,7 +108,7 @@ namespace HackersDayOut
 
             CollisionHandling(rectangle);
 
-            if(action != Action.InteractingUp || action != Action.InteractingSide)
+            if (action != Action.InteractingUp && action != Action.InteractingSide)
             {
                 if (_currentKeyboardState.IsKeyDown(Keys.A) ||
                _currentKeyboardState.IsKeyDown(Keys.Left))
@@ -136,23 +140,17 @@ namespace HackersDayOut
                 if ((CanInteract1) && _currentKeyboardState.IsKeyDown(Keys.E))
                 {
                     action = Action.InteractingUp;
+                    _animationTimer = 0;
+                    _animationFrame = 0;
                 }
 
                 if ((CanInteract2) && _currentKeyboardState.IsKeyDown(Keys.E))
                 {
                     action = Action.InteractingSide;
+                    _animationTimer = 0;
+                    _animationFrame = 0;
                 }
-            }
-            if(action == Action.InteractingSide || action == Action.InteractingUp)
-            {
-                _interactTimer += gameTime.ElapsedGameTime.TotalSeconds;
-                if (_interactTimer > 3)
-                {
-                    action = Action.Idle;
-                }
-            }
-
-            if (!(_currentKeyboardState.IsKeyDown(Keys.A) ||
+                if (!(_currentKeyboardState.IsKeyDown(Keys.A) ||
                    _currentKeyboardState.IsKeyDown(Keys.Left)) &&
                    !(_currentKeyboardState.IsKeyDown(Keys.D) ||
                    _currentKeyboardState.IsKeyDown(Keys.Right))
@@ -164,10 +162,34 @@ namespace HackersDayOut
                    _currentKeyboardState.IsKeyDown(Keys.Down))
                    &&
                    (!_currentKeyboardState.IsKeyDown(Keys.H))
+                   && (action != Action.InteractingSide && action != Action.InteractingUp)
                    )
-            {
-                action = Action.Idle;
+                {
+                    action = Action.Idle;
+                }
             }
+            if (action == Action.InteractingUp)
+            {
+                Interact1Timer += gameTime.ElapsedGameTime.TotalSeconds;
+                if (Interact1Timer > 3)
+                {
+                    action = Action.Idle;
+                    Interact1Timer = 0;
+                }
+
+            }
+            if (action == Action.InteractingSide)
+            {
+                Interact2Timer += gameTime.ElapsedGameTime.TotalSeconds;
+                if (Interact2Timer > 3)
+                {
+                    action = Action.Idle;
+                    Interact2Timer = 0;
+                }
+
+            }
+
+
 
             _bounds.X = Position.X - 48;
             _bounds.Y = Position.Y - 48;
@@ -178,7 +200,7 @@ namespace HackersDayOut
         {
             rectangle = rect;
 
-            
+
             if (_feet.CollidesWith(rect))
             {
 
@@ -207,6 +229,10 @@ namespace HackersDayOut
             {
                 CanInteract1 = true;
             }
+            else
+            {
+                CanInteract1 = false;
+            }
         }
 
         public void InteractHandlingTwo(BoundingCircle cir)
@@ -215,6 +241,10 @@ namespace HackersDayOut
             if (_bounds.CollidesWith(cir))
             {
                 CanInteract2 = true;
+            }
+            else
+            {
+                CanInteract2 = false;
             }
         }
         /// <summary>
@@ -226,14 +256,14 @@ namespace HackersDayOut
         {
 
             SpriteEffects spriteEffects = (Flipped) ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
-            
-            
+
+
             switch ((int)action)
             {
                 case 1:
 
                     _animationTimer += gameTime.ElapsedGameTime.TotalSeconds;
-                    if(_animationTimer > 0.1)
+                    if (_animationTimer > 0.1)
                     {
                         _animationFrame++;
                         if (_animationFrame > 7)
@@ -247,28 +277,18 @@ namespace HackersDayOut
 
                 case 2:
                     _animationTimer += gameTime.ElapsedGameTime.TotalSeconds;
-                    if (_animationTimer > 0.15)
+                    if (_animationTimer > 0.15 && _animationFrame < 6)
                     {
                         _animationFrame++;
-                        if (_animationFrame > 6)
-                        {
-                            _animationFrame = 0;
-
-                        }
                         _animationTimer -= 0.15;
                     }
                     break;
 
                 case 3:
                     _animationTimer += gameTime.ElapsedGameTime.TotalSeconds;
-                    if (_animationTimer > 0.15)
+                    if (_animationTimer > 0.15 && _animationFrame < 6)
                     {
                         _animationFrame++;
-                        if (_animationFrame > 6)
-                        {
-                            _animationFrame = 0;
-
-                        }
                         _animationTimer -= 0.15;
                     }
                     break;
@@ -285,7 +305,7 @@ namespace HackersDayOut
                         }
                         _animationTimer -= 0.2;
                     }
-                    if(_animationFrame == 3)
+                    if (_animationFrame == 3)
                     {
                         if (_animationTimer > 0.8)
                         {
@@ -296,10 +316,10 @@ namespace HackersDayOut
                     break;
 
             }
-           
+
 
             var source = new Rectangle(_animationFrame * 149, (int)action * 386, 147, 385);
-            if (CanInteract1 || CanInteract2) spriteBatch.Draw(_interactButton, new Rectangle((int)Position.X + 5, (int)Position.Y - 20, 50, 50), Color.White);
+            if (CanInteract1 || CanInteract2) spriteBatch.Draw(_interactButton, new Rectangle((int)Position.X + 5, (int)Position.Y - 120, 90, 60), Color.White);
             spriteBatch.Draw(_texture, Position, source, Color.White, 0f, new Vector2(80, 120), 0.75f, spriteEffects, 0); //new Vector2(76, 192)
 
 

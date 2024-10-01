@@ -22,7 +22,7 @@ namespace HackersDayOut.Screens
         private Texture2D _compLab;
         private Texture2D _overlay;
 
-        private Student _student = new Student(new Vector2(200, 250));
+        private Student _student = new Student(new Vector2(200, 280));
 
         private float _pauseAlpha;
         private readonly InputAction _pauseAction;
@@ -31,9 +31,20 @@ namespace HackersDayOut.Screens
 
         public Texture2D circle;
 
-        public Texture2D circle2;
+        public BoundingCircle cir;
+
+        public BoundingCircle cir2;
 
         public Computer[] computers;
+
+        public LockedDoorPy Door;
+
+        public bool ComputerCode = false; 
+
+        public static PythonBook pyBook;
+
+        public static bool PythonCodeCollected = false;
+
 
         public ComputerRoom()
         {
@@ -56,25 +67,33 @@ namespace HackersDayOut.Screens
             _compLab = _content.Load<Texture2D>("Sprite-comlabv1");
             _overlay = _content.Load<Texture2D>("Sprite-comlabv1overlay");
             circle = _content.Load<Texture2D>("circle");
+           
 
+            pyBook = new PythonBook(new Vector2(400, 300));
+            pyBook.LoadContent(_content);
 
             _boundaries = new BoundingRectangle[]
                 {
                     new BoundingRectangle(50, -100, 40, 1000),
-                    new BoundingRectangle(0, 230, 1000, 14),
-                    new BoundingRectangle(140, 230, 200, 40),
-                    new BoundingRectangle(1100, -100, 40, 1000),
+                    new BoundingRectangle(0, 240, 1070, 14),
+                    new BoundingRectangle(140, 230, 200, 70),
+                    new BoundingRectangle(1040, 234, 40, 20),
+                    new BoundingRectangle(1040, 400, 40, 400),
 
                 };
+
+            cir = new BoundingCircle(new Vector2(240, 200), 10f);
+            cir2 = new BoundingCircle(new Vector2(1050, 280), 50f);
             computers = new Computer[]
             {
-                new Computer(new Vector2(200, 100)),
+                new Computer(new Vector2(240, 140)),
             };
-            foreach(var c in computers)
+            foreach (var c in computers)
             {
                 c.LoadContent(_content);
             }
-
+            Door = new LockedDoorPy(new Vector2(1015, 250), new BoundingRectangle(1050, 260, 80, 130), false);
+            Door.LoadContent(_content);
 
         }
 
@@ -129,10 +148,52 @@ namespace HackersDayOut.Screens
                 MediaPlayer.Resume();
 
                 _student.Update(gameTime);
-                foreach(var r in _boundaries)
+                foreach (var r in _boundaries)
                 {
                     _student.CollisionHandling(r);
                 }
+                _student.CollisionHandling(Door.Bounds);
+                if(pyBook.Collected)
+                {
+                    _student.InteractHandlingOne(cir);
+                }
+                
+                if (Door.State == doorState.Closed && PythonCodeCollected)
+                {
+                    _student.InteractHandlingTwo(cir2);
+                }
+                else
+                {
+                    Door.Bounds = new BoundingRectangle(-10000, -100000, 1, 1);
+                }
+
+                if (_student.Interact1Timer > 2)
+                {
+
+                    ScreenManager.AddScreen(new Minigame1(), player);
+                    _student.Interact1Timer = 0;
+                    _student.action = Action.Idle;
+                    _student.CanInteract1 = false;
+
+                }
+                if (_student.Interact2Timer > 2)
+                {
+
+                    ScreenManager.AddScreen(new Minigame2(Door), player);
+                    _student.Interact2Timer = 0;
+                    _student.action = Action.Idle;
+                    _student.CanInteract2 = false;
+
+                }
+                if(_student.Bounds.CollidesWith(pyBook.Bounds))
+                {
+                    pyBook.Collected = true;
+                    pyBook.Bounds = new BoundingRectangle(-100000, -100000, 1, 1);
+                }
+                //if (PythonCodeCollected)
+                //{
+                //    ScreenManager.RemoveScreen(Minigame1());
+                //}
 
             }
         }
@@ -151,21 +212,25 @@ namespace HackersDayOut.Screens
 
 
             transform = Matrix.CreateTranslation(offset, 0, 0);
-           
+
             spriteBatch.Begin(transformMatrix: transform);
 
             //transform = Matrix.CreateTranslation(offset, 0, 0);
             //_fireworks.Transform = transform;
             // spriteBatch.Begin(transformMatrix: transform);
 
-           // spriteBatch.Begin();
+            // spriteBatch.Begin();
             spriteBatch.Draw(_compLab, new Rectangle(0, 0, 1150, 500), Color.White);
             foreach (var c in computers)
             {
                 c.Draw(gameTime, spriteBatch);
             }
+            if (!pyBook.Collected) pyBook.Draw(gameTime, spriteBatch);
+            else
+            {
 
-
+            }
+            Door.Draw(gameTime, spriteBatch);
             //spriteBatch.Draw(_level, new Vector2(0, 0), null, Color.White, 0f, new Vector2(0, 0), 1.5f, SpriteEffects.None, 0f);
             _student.Draw(gameTime, spriteBatch);
             spriteBatch.Draw(circle, new Vector2(_student.Bounds.Left, _student.Bounds.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
@@ -176,6 +241,11 @@ namespace HackersDayOut.Screens
             spriteBatch.Draw(circle, new Vector2(_student.FeetBounds.Left, _student.FeetBounds.Top), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             spriteBatch.Draw(circle, new Vector2(_student.FeetBounds.Right, _student.FeetBounds.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             spriteBatch.Draw(circle, new Vector2(_student.FeetBounds.Right, _student.FeetBounds.Top), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(circle, new Vector2(Door.Bounds.Left, Door.Bounds.Bottom), null, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(circle, new Vector2(Door.Bounds.Left, Door.Bounds.Top), null, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(circle, new Vector2(Door.Bounds.Right, Door.Bounds.Bottom), null, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(circle, new Vector2(Door.Bounds.Right, Door.Bounds.Top), null, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+
             //spriteBatch.Draw(_overlay, new Rectangle(0, 1, 1150, 500), Color.White);
             foreach (var c in _boundaries)
             {
@@ -184,7 +254,8 @@ namespace HackersDayOut.Screens
                 spriteBatch.Draw(circle, new Vector2(c.Right, c.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
                 spriteBatch.Draw(circle, new Vector2(c.Right, c.Top), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             }
-
+            spriteBatch.Draw(circle, cir.Center, Color.Orange);
+            spriteBatch.Draw(circle, cir2.Center, Color.Orange);
             spriteBatch.End();
 
 

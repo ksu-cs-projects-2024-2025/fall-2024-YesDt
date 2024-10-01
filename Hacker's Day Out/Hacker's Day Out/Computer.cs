@@ -29,7 +29,7 @@ namespace HackersDayOut
         }
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(_texture, pos, new Rectangle(0, 0, 400, 302), Color.White, 0f, new Vector2(200, 152), 0.35f, SpriteEffects.None, 0);
+            spriteBatch.Draw(_texture, pos, new Rectangle(0, 0, 400, 302), Color.White, 0f, new Vector2(200, 152), 0.45f, SpriteEffects.None, 0);
         }
     }
 }
