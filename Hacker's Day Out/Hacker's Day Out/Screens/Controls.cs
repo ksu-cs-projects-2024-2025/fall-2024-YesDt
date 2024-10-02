@@ -39,8 +39,8 @@ namespace HackersDayOut.Screens
             //_controlsEntry.Text = "WASD or the arrow keys to move.";
             //_InteractEntry.Text = "Press E to Interact.";
 
-            _controlsEntry.Text = "Hello";
-            _InteractEntry.Text = "World";
+            _controlsEntry.Text = "WASD or arrow keys to move";
+            _InteractEntry.Text = "E to interact";
         }
 
     }

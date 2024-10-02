@@ -15,12 +15,15 @@ namespace HackersDayOut.Screens
         public PauseMenuScreen() : base("Paused")
         {
             var resumeGameMenuEntry = new MenuEntry("Resume Game");
+            var inventoryEntry = new MenuEntry("Inventory");
             var quitGameMenuEntry = new MenuEntry("Quit Game");
 
             resumeGameMenuEntry.Selected += OnCancel;
+            inventoryEntry.Selected += InventoryEntrySelected;
             quitGameMenuEntry.Selected += QuitGameMenuEntrySelected;
 
             MenuEntries.Add(resumeGameMenuEntry);
+            MenuEntries.Add(inventoryEntry);
             MenuEntries.Add(quitGameMenuEntry);
         }
 
@@ -32,6 +35,11 @@ namespace HackersDayOut.Screens
             confirmQuitMessageBox.Accepted += ConfirmQuitMessageBoxAccepted;
 
             ScreenManager.AddScreen(confirmQuitMessageBox, ControllingPlayer);
+        }
+
+        private void InventoryEntrySelected(object sender, PlayerIndexEventArgs e)
+        {
+            ScreenManager.AddScreen(new Inventory(), e.PlayerIndex);
         }
 
         // This uses the loading screen to transition from the game back to the main menu screen.

@@ -255,7 +255,7 @@ namespace HackersDayOut.Screens
                 {
                     Answer = Answer + Half1 + Half2;
                     if (RandomNum == 1 && Answer == "Turing") Succeeded = true;
-                    else if (RandomNum == 2 && Answer == "Insertion") Succeeded = true;
+                    else if (RandomNum == 2 && Answer == "Quick") Succeeded = true;
                     else
                     {
                         InvalidAnswer += (float)gameTime.ElapsedGameTime.TotalSeconds;

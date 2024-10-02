@@ -71,7 +71,7 @@ namespace HackersDayOut
             }
 
             var source = new Rectangle(animationFrame * 124, 0, 124, 133);
-            spriteBatch.Draw(texture, position, source, Color.White, 0f, new Vector2(62, 166), 0.75f, SpriteEffects.None, 0);
+            spriteBatch.Draw(texture, position, source, Color.White, 0f, new Vector2(0, 0), 0.55f, SpriteEffects.None, 0);
         }
     }
 }

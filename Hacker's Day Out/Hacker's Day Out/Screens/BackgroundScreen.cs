@@ -37,7 +37,7 @@ namespace HackersDayOut.Screens
             if (_content == null)
                 _content = new ContentManager(ScreenManager.Game.Services, "Content");
 
-            _backgroundTexture = _content.Load<Texture2D>("blank");
+            _backgroundTexture = _content.Load<Texture2D>("gradient");
         }
 
         public override void Unload()
@@ -56,6 +56,7 @@ namespace HackersDayOut.Screens
 
         public override void Draw(GameTime gameTime)
         {
+
             var spriteBatch = ScreenManager.SpriteBatch;
             var viewport = ScreenManager.GraphicsDevice.Viewport;
             var fullscreen = new Rectangle(0, 0, viewport.Width, viewport.Height);
