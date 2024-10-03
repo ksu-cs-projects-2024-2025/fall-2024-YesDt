@@ -319,7 +319,7 @@ namespace HackersDayOut.Screens
             _spriteBatch.DrawString(_answer2, Half2, new Vector2(430, 360), Color.Black);
 
             if (InvalidAnswer > 0) _spriteBatch.Draw(_invalid, new Rectangle(300, 400, 200, 110), Color.White);
-            if (Succeeded) _spriteBatch.Draw(_success, new Rectangle(600, -20, 200, 300), Color.White);
+            if (Succeeded) _spriteBatch.Draw(_success, new Rectangle(300, 200, 200, 150), Color.White);
 
             _spriteBatch.End();
             base.Draw(gameTime);

@@ -221,7 +221,7 @@ namespace HackersDayOut.Screens
 
             #endregion
 
-            if ((RandomNum == 1) && (Answer.Contains("% 2")))
+            if ((RandomNum == 1) && ((Answer.Contains("%2")) || (Answer.Contains("% 2"))))
             {
                 succeeded = true;
             }
@@ -251,9 +251,9 @@ namespace HackersDayOut.Screens
             _spriteBatch.Begin();
             _spriteBatch.Draw(_screen, new Rectangle(0, 0, 800, 500), Color.White);
             _spriteBatch.DrawString(_objective, "COMPLETE THE LINE", new Vector2(350, 300), Color.Red, 0f, new Vector2(200, 200), 1.0f, SpriteEffects.None, 0f);
-            _spriteBatch.DrawString(_objective, "type in the blanks!", new Vector2(240, 350), Color.Red, 0f, new Vector2(200, 200), 0.75f, SpriteEffects.None, 0f);
+            _spriteBatch.DrawString(_objective, "type in the blanks!", new Vector2(350, 350), Color.Red, 0f, new Vector2(200, 200), 0.75f, SpriteEffects.None, 0f);
             _spriteBatch.DrawString(_problem, MiniGameProblem, new Vector2(200, 250), Color.Black);
-            _spriteBatch.DrawString(_answer, Answer, new Vector2(200, 350), Color.Black);
+            _spriteBatch.DrawString(_answer, Answer, new Vector2(300, 350), Color.Black);
             if (succeeded) _spriteBatch.Draw(_success, new Rectangle(500, 100, 300, 300), Color.White);
             _spriteBatch.End();
             base.Draw(gameTime);

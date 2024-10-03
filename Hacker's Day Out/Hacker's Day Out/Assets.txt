@@ -1,0 +1,38 @@
+﻿gradient.png, blank.png, and background.png are from the MonoGame port of the XNA Game State Management Sample, available at:
+
+https://github.com/tomizechsterson/game-state-management-monogame
+
+and relased under the MIT License
+
+
+Content/circle.png - created by Nathan Bean and released under public domain
+
+
+Sprite_student - created by Darius Tyson using AESprite and released under public domain
+
+MinigameCompSceen - created by Darius Tyson using AESprite and released under public domain
+
+MinigameDoorScreen - created by Darius Tyson using AESprite and released under public domain
+
+MVPcomplete - created by Darius Tyson using AESprite and released under public domain
+
+Python_Information - created by Darius Tyson using AESprite and released under public domain
+
+Sprite_book_python - created by Darius Tyson using AESprite and released under public domain
+
+Sprite_button - created by Darius Tyson using AESprite and released under public domain
+
+Sprite_computer - created by Darius Tyson using AESprite and released under public domain
+
+Sprite_interact - created by Darius Tyson using AESprite and released under public domain
+
+Sprite_invalid - created by Darius Tyson using AESprite and released under public domain
+
+Sprite_reglockeddoor - created by Darius Tyson using AESprite and released under public domain
+
+Sprite_success - created by Darius Tyson using AESprite and released under public domain
+
+Sprite-comlabv1 - created by Darius Tyson using AESprite and released under public domain
+
+Spriet-comlabv1overlay - created by Darius Tyson using AESprite and released under public domain
+

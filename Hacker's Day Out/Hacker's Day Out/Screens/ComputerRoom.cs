@@ -69,7 +69,7 @@ namespace HackersDayOut.Screens
             circle = _content.Load<Texture2D>("circle");
            
 
-            pyBook = new PythonBook(new Vector2(400, 300));
+            pyBook = new PythonBook(new Vector2(400, 250));
             pyBook.LoadContent(_content);
 
             _boundaries = new BoundingRectangle[]
