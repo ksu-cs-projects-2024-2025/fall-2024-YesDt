@@ -165,6 +165,18 @@
 /processorParam:TextureFormat=Color
 /build:Python_Information.png
 
+#begin Sprite_bomb.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprite_bomb.png
+
 #begin Sprite_book_python.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -189,6 +201,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprite_button.png
 
+#begin Sprite_cannon.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprite_cannon.png
+
 #begin Sprite_computer.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -200,6 +224,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprite_computer.png
+
+#begin Sprite_firewall.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprite_firewall.png
 
 #begin Sprite_interact.png
 /importer:TextureImporter

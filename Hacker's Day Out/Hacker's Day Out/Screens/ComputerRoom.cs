@@ -29,6 +29,8 @@ namespace HackersDayOut.Screens
 
         private BoundingRectangle[] _boundaries;
 
+        private Random random = new Random();
+
         public Texture2D circle;
 
         public BoundingCircle cir;
@@ -44,6 +46,8 @@ namespace HackersDayOut.Screens
         public static PythonBook pyBook;
 
         public static bool PythonCodeCollected = false;
+
+        public int RandInt;
 
 
         public ComputerRoom()
@@ -175,8 +179,9 @@ namespace HackersDayOut.Screens
 
                 if (_student.Interact1Timer > 2)
                 {
-
-                    ScreenManager.AddScreen(new Minigame1(), player);
+                    RandInt = random.Next(1, 3);
+                    if(RandInt == 1) ScreenManager.AddScreen(new Minigame1(), player);
+                    else ScreenManager.AddScreen(new Minigame3(), player);
                     _student.Interact1Timer = 0;
                     _student.action = Action.Idle;
                     _student.CanInteract1 = false;
@@ -184,14 +189,15 @@ namespace HackersDayOut.Screens
                 }
                 if (_student.Interact2Timer > 2)
                 {
-
-                    ScreenManager.AddScreen(new Minigame2(Door), player);
+                    RandInt = random.Next(1, 3);
+                    if (RandInt == 1) ScreenManager.AddScreen(new Minigame2(Door), player);
+                    else ScreenManager.AddScreen(new Minigame4(Door), player);
                     _student.Interact2Timer = 0;
                     _student.action = Action.Idle;
                     _student.CanInteract2 = false;
 
                 }
-                if(_student.Bounds.CollidesWith(pyBook.Bounds))
+                if(_student.FeetBounds.CollidesWith(pyBook.Bounds))
                 {
                     pyBook.Collected = true;
                     
