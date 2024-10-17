@@ -235,7 +235,7 @@ namespace HackersDayOut.Screens
                 _successTimer += (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if (_successTimer > 4)
                 {
-                    ComputerRoom.PythonCodeCollected = true;
+                    ScreenManager.PythonCodeCollected = true;
                     ExitScreen();
                     ScreenManager.RemoveScreen(this);
                 }

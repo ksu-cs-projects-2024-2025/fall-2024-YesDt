@@ -31,7 +31,7 @@ namespace HackersDayOut.Screens
 
         private void PlayGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
-            ScreenManager.AddScreen(new ComputerRoom(), e.PlayerIndex);
+            ScreenManager.AddScreen(new Hallway1(new Vector2(200, 280)), e.PlayerIndex);
         }
 
         private void ControlsEntrySelected(object sender, PlayerIndexEventArgs e)

@@ -24,6 +24,7 @@ namespace HackersDayOut.StateManagement
     /// </summary>
     public class ScreenManager : DrawableGameComponent
     {
+        public static bool PythonCodeCollected = false;
         private readonly List<GameScreen> _screens = new List<GameScreen>();
         private readonly List<GameScreen> _tmpScreensList = new List<GameScreen>();
 

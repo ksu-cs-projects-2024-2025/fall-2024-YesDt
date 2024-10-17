@@ -22,7 +22,8 @@ namespace HackersDayOut.Screens
         private Texture2D _compLab;
         private Texture2D _overlay;
 
-        private Student _student = new Student(new Vector2(200, 280));
+
+        private Student _student;
 
         private float _pauseAlpha;
         private readonly InputAction _pauseAction;
@@ -32,6 +33,8 @@ namespace HackersDayOut.Screens
         private Random random = new Random();
 
         public Texture2D circle;
+
+        public Vector2 SpawnPosition;
 
         public BoundingCircle cir;
 
@@ -45,13 +48,14 @@ namespace HackersDayOut.Screens
 
         public static PythonBook pyBook;
 
-        public static bool PythonCodeCollected = false;
+       
 
         public int RandInt;
 
 
-        public ComputerRoom()
+        public ComputerRoom(Vector2 sp)
         {
+            _student = new Student(sp);
             TransitionOnTime = TimeSpan.FromSeconds(1.5);
             TransitionOffTime = TimeSpan.FromSeconds(0.5);
 
@@ -103,7 +107,7 @@ namespace HackersDayOut.Screens
             }
             Door = new LockedDoorPy(new Vector2(1015, 250), new BoundingRectangle(1050, 260, 140, 130), false);
             Door.LoadContent(_content);
-            PythonCodeCollected = false;
+            ScreenManager.PythonCodeCollected = false;
 
         }
 
@@ -163,12 +167,12 @@ namespace HackersDayOut.Screens
                     _student.CollisionHandling(r);
                 }
                 _student.CollisionHandling(Door.Bounds);
-                if(pyBook.Collected && !PythonCodeCollected)
+                if(pyBook.Collected && !ScreenManager.PythonCodeCollected)
                 {
                     _student.InteractHandlingOne(cir);
                 }
                 
-                if (Door.State == doorState.Closed && PythonCodeCollected)
+                if (Door.State == doorState.Closed && ScreenManager.PythonCodeCollected)
                 {
                     _student.InteractHandlingTwo(cir2);
                 }
@@ -206,7 +210,7 @@ namespace HackersDayOut.Screens
 
                 if(_student.Position.X > 1090)
                 {
-                    LoadingScreen.Load(ScreenManager, false, player, new MVPCompleteScreen());
+                    RoomTransfer rt1 = new RoomTransfer(ScreenManager, this, new Hallway1(new Vector2(200, 280)), ControllingPlayer);
                 }
                 //if (PythonCodeCollected)
                 //{
