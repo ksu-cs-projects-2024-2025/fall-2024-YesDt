@@ -76,9 +76,12 @@ namespace HackersDayOut.Screens
             _overlay = _content.Load<Texture2D>("Sprite-comlabv1overlay");
             circle = _content.Load<Texture2D>("circle");
            
-
-            pyBook = new PythonBook(new Vector2(400, 250));
-            pyBook.LoadContent(_content);
+            if(!ScreenManager.PythonBookCollected)
+            {
+                pyBook = new PythonBook(new Vector2(400, 250));
+                pyBook.LoadContent(_content);
+            }
+            
 
             _boundaries = new BoundingRectangle[]
                 {
@@ -107,7 +110,7 @@ namespace HackersDayOut.Screens
             }
             //Door = new LockedDoorPy(new Vector2(1015, 250), new BoundingRectangle(1050, 260, 140, 130), false);
             //Door.LoadContent(_content);
-            ScreenManager.PythonCodeCollected = false;
+            
 
         }
 
@@ -167,7 +170,7 @@ namespace HackersDayOut.Screens
                     _student.CollisionHandling(r);
                 }
                 //_student.CollisionHandling(Door.Bounds);
-                if(pyBook.Collected && !ScreenManager.PythonCodeCollected)
+                if(ScreenManager.PythonBookCollected && !ScreenManager.PythonCodeCollected)
                 {
                     _student.InteractHandlingOne(cir);
                 }
@@ -203,14 +206,14 @@ namespace HackersDayOut.Screens
                 //}
                 if(_student.FeetBounds.CollidesWith(pyBook.Bounds))
                 {
-                    pyBook.Collected = true;
+                    ScreenManager.PythonBookCollected = true;
                     
                     pyBook.Bounds = new BoundingRectangle(-100000, -100000, 1, 1);
                 }
 
                 if(_student.Position.X > 1090)
                 {
-                    RoomTransfer rt1 = new RoomTransfer(ScreenManager, this, new Hallway1(new Vector2(200, 280)), ControllingPlayer);
+                    RoomTransfer rt1 = new RoomTransfer(ScreenManager, this, new Hallway1(new Vector2(170, 230)), ControllingPlayer);
                 }
                 //if (PythonCodeCollected)
                 //{
@@ -247,7 +250,7 @@ namespace HackersDayOut.Screens
             {
                 c.Draw(gameTime, spriteBatch);
             }
-            if (!pyBook.Collected) pyBook.Draw(gameTime, spriteBatch);
+            if (!ScreenManager.PythonBookCollected) pyBook.Draw(gameTime, spriteBatch);
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Left, pyBook.Bounds.Top), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Left, pyBook.Bounds.Bottom), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Right, pyBook.Bounds.Top), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);

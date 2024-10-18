@@ -43,6 +43,11 @@ namespace HackersDayOut.StateManagement
 
         public GameState gameState;
 
+
+        public static bool Door1Opened;
+
+        public static bool PythonBookCollected;
+
         public Game Game { get; private set; }
 
         /// <summary>

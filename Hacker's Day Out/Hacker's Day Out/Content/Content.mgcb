@@ -285,6 +285,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprite_invalid.png
 
+#begin Sprite_pylockeddoor2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprite_pylockeddoor2.png
+
 #begin Sprite_reglockeddoor.png
 /importer:TextureImporter
 /processor:TextureProcessor

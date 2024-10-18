@@ -31,7 +31,8 @@ namespace HackersDayOut.Screens
 
         private void PlayGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
-            ScreenManager.AddScreen(new Hallway1(new Vector2(200, 280)), e.PlayerIndex);
+            ScreenManager.PythonBookCollected = false;
+            ScreenManager.AddScreen(new Hallway1(new Vector2(200, 280)), e.PlayerIndex);//Hallway1(new Vector2(200, 280))
         }
 
         private void ControlsEntrySelected(object sender, PlayerIndexEventArgs e)

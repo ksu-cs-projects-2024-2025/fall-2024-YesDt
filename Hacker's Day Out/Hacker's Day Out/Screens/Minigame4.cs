@@ -318,11 +318,12 @@ namespace HackersDayOut.Screens
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
             _spriteBatch.Draw(_screen, new Rectangle(0, 0, 800, 500), Color.White);
-            _spriteBatch.DrawString(_objective, "DEFUSE THE BOMB", new Vector2(70, 75), Color.Red);
-            _spriteBatch.DrawString(_objective, "Select up to 4 buttons.", new Vector2(70, 200), Color.Black, 0f, new Vector2(0, 0), 0.45f, SpriteEffects.None, 0);
-            _spriteBatch.DrawString(_objective, "Use W A S D \nfor the left side...", new Vector2(45, 200), Color.Black, 0f, new Vector2(0, 0), 0.45f, SpriteEffects.None, 0);
-            _spriteBatch.DrawString(_objective, "And the arrow keys \nfor the right!", new Vector2(500, 200), Color.Black, 0f, new Vector2(0, 0), 0.45f, SpriteEffects.None, 0);
-            _spriteBatch.DrawString(_problem, MiniGameProblem, new Vector2(100, 125), Color.Black, 0f, new Vector2(0, 0), 0.80f, SpriteEffects.None, 0);
+            _spriteBatch.DrawString(_objective, "DEFUSE THE BOMB", new Vector2(150, 25), Color.Red);
+            _spriteBatch.DrawString(_objective, "Select up to 4 buttons.", new Vector2(70, 80), Color.Black, 0f, new Vector2(0, 0), 0.45f, SpriteEffects.None, 0);
+            _spriteBatch.DrawString(_objective, "W A S D \nfor the left side...", new Vector2(25, 200), Color.Black, 0f, new Vector2(0, 0), 0.40f, SpriteEffects.None, 0);
+            _spriteBatch.DrawString(_objective, "Arrow keys \nfor the right!", new Vector2(475, 200), Color.Black, 0f, new Vector2(0, 0), 0.40f, SpriteEffects.None, 0);
+            _spriteBatch.DrawString(_problem, MiniGameProblem, new Vector2(60, 125), Color.Black, 0f, new Vector2(0, 0), 0.70f, SpriteEffects.None, 0);
+            _spriteBatch.Draw(_bomb, new Vector2(280, 200), bombSource, Color.White);
             foreach (var b in _buttons1)
             {
                 b.Draw(gameTime, _spriteBatch);
@@ -332,20 +333,35 @@ namespace HackersDayOut.Screens
             {
                 b.Draw(gameTime, _spriteBatch);
             }
-            _spriteBatch.DrawString(_choice1, _button1, new Vector2(69, 270), Color.Black);
-            _spriteBatch.DrawString(_choice2, _button2, new Vector2(3, 335), Color.Black);
-            _spriteBatch.DrawString(_choice3, _button3, new Vector2(137, 335), Color.Black);
-            _spriteBatch.DrawString(_choice4, _button4, new Vector2(69, 400), Color.Black);
-            _spriteBatch.DrawString(_choice5, _button5, new Vector2(639, 270), Color.Black);
-            _spriteBatch.DrawString(_choice6, _button6, new Vector2(573, 335), Color.Black);
-            _spriteBatch.DrawString(_choice7, _button7, new Vector2(703, 335), Color.Black);
-            _spriteBatch.DrawString(_choice8, _button8, new Vector2(639, 400), Color.Black);
+            if (RandomNum == 1)
+            {
+                _spriteBatch.DrawString(_choice1, _button1, new Vector2(69, 270), Color.Black, 0f, new Vector2(0, 0), 0.80f, SpriteEffects.None, 0);
+                _spriteBatch.DrawString(_choice2, _button2, new Vector2(3, 335), Color.Black, 0f, new Vector2(0, 0), 0.80f, SpriteEffects.None, 0);
+                _spriteBatch.DrawString(_choice3, _button3, new Vector2(137, 335), Color.Black, 0f, new Vector2(0, 0), 0.80f, SpriteEffects.None, 0);
+                _spriteBatch.DrawString(_choice4, _button4, new Vector2(69, 400), Color.Black, 0f, new Vector2(0, 0), 0.80f, SpriteEffects.None, 0);
+                _spriteBatch.DrawString(_choice5, _button5, new Vector2(639, 270), Color.Black, 0f, new Vector2(0, 0), 0.80f, SpriteEffects.None, 0);
+                _spriteBatch.DrawString(_choice6, _button6, new Vector2(573, 335), Color.Black, 0f, new Vector2(0, 0), 0.80f, SpriteEffects.None, 0);
+                _spriteBatch.DrawString(_choice7, _button7, new Vector2(703, 335), Color.Black, 0f, new Vector2(0, 0), 0.80f, SpriteEffects.None, 0);
+                _spriteBatch.DrawString(_choice8, _button8, new Vector2(639, 400), Color.Black, 0f, new Vector2(0, 0), 0.80f, SpriteEffects.None, 0);
+            }
+            else
+            {
+                _spriteBatch.DrawString(_choice1, _button1, new Vector2(69, 270), Color.Black);
+                _spriteBatch.DrawString(_choice2, _button2, new Vector2(3, 335), Color.Black);
+                _spriteBatch.DrawString(_choice3, _button3, new Vector2(137, 335), Color.Black);
+                _spriteBatch.DrawString(_choice4, _button4, new Vector2(69, 400), Color.Black);
+                _spriteBatch.DrawString(_choice5, _button5, new Vector2(639, 270), Color.Black);
+                _spriteBatch.DrawString(_choice6, _button6, new Vector2(573, 335), Color.Black);
+                _spriteBatch.DrawString(_choice7, _button7, new Vector2(703, 335), Color.Black);
+                _spriteBatch.DrawString(_choice8, _button8, new Vector2(639, 400), Color.Black);
+            }
 
-            _spriteBatch.DrawString(_answer1, Answer, new Vector2(270, 360), Color.Black);
-            _spriteBatch.Draw(_bomb, new Vector2(220, 230), bombSource, Color.White);
+            if(RandomNum ==1)_spriteBatch.DrawString(_answer1, Answer, new Vector2(240, 360), Color.White, 0f, new Vector2(0,0), 0.45f, SpriteEffects.None, 0);
+            else _spriteBatch.DrawString(_answer1, Answer, new Vector2(280, 360), Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0);
+
 
             if (InvalidAnswer > 0) _spriteBatch.Draw(_invalid, new Rectangle(300, 400, 200, 110), Color.White);
-            if (Succeeded) _spriteBatch.Draw(_success, new Rectangle(300, 200, 200, 150), Color.White);
+            if (Succeeded) _spriteBatch.Draw(_success, new Rectangle(300, 120, 200, 100), Color.White);
 
             _spriteBatch.End();
             base.Draw(gameTime);

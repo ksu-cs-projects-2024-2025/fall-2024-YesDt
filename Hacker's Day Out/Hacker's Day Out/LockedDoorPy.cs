@@ -25,13 +25,14 @@ namespace HackersDayOut
         private bool _flipped;
         private double _animationTimer;
         private double _animationFrame;
-
+        private int _alignment;
 
         public BoundingRectangle Bounds;
         public doorState State;
 
-        public LockedDoorPy(Vector2 Position, BoundingRectangle bounds, bool flipped)
+        public LockedDoorPy(int Alignment, Vector2 Position, BoundingRectangle bounds, bool flipped)
         {
+            _alignment = Alignment;
             _pos = Position;
             Bounds = bounds;
             _flipped = flipped;
@@ -39,7 +40,8 @@ namespace HackersDayOut
 
         public void LoadContent(ContentManager content)
         {
-            _texture = content.Load<Texture2D>("Sprite_reglockeddoor");
+            if (_alignment == 1) _texture = content.Load<Texture2D>("Sprite_reglockeddoor");
+            else _texture = content.Load<Texture2D>("Sprite_pylockeddoor2");
         }
 
         public void Update(GameTime gameTime)
@@ -72,7 +74,8 @@ namespace HackersDayOut
                     _animationFrame = 0;
                     break;
             }
-            spriteBatch.Draw(_texture, _pos, source, Color.White, 0.00f, new Vector2(104, 160), 1.0f, spriteEffects, 0);
+            if (_alignment ==1)spriteBatch.Draw(_texture, _pos, source, Color.White, 0.00f, new Vector2(0, 0), 1.0f, spriteEffects, 0);
+            else spriteBatch.Draw(_texture, _pos, source, Color.White, 0.00f, new Vector2(0, 0), 1.2f, spriteEffects, 0);
         }
     }
 }
