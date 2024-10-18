@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using SharpDX.Direct2D1.Effects;
 using System.Reflection.Metadata;
+using Microsoft.Xna.Framework.Media;
 
 namespace HackersDayOut.Screens
 {
@@ -35,6 +36,8 @@ namespace HackersDayOut.Screens
 
         private double _successTimer;
 
+        private int _book;
+
         public string MiniGameProblem;
 
         public string Answer = " ";
@@ -42,9 +45,9 @@ namespace HackersDayOut.Screens
         public bool succeeded;
 
         public int RandomNum;
-        public Minigame1()
+        public Minigame1(int Book)
         {
-
+            _book = Book;
         }
 
         public override void Activate()
@@ -67,23 +70,30 @@ namespace HackersDayOut.Screens
 
 
             RandomNum = random.Next(1, 3);
-            if (RandomNum == 1)
+            switch(_book)
             {
-                MiniGameProblem = "numlist = [1, 2, 3, 4, 5, 6] \n" +
-                    "Print('Divisible by 2:') + \n" +
-                    "for num in numlist: \n" +
-                    "   if num _ _ == 0 \n" +
-                    "       print(num)";
-            }
-            else
-            {
-                MiniGameProblem = "num1 = 50 \n" +
-                    "num2 = 19 \n" +
-                    "result = _ _ _ \n" +
-                    "Print('50 + 19 =', result)";
+                case 1:
+                    if (RandomNum == 1)
+                    {
+                        MiniGameProblem = "numlist = [1, 2, 3, 4, 5, 6] \n" +
+                            "Print('Divisible by 2:') + \n" +
+                            "for num in numlist: \n" +
+                            "   if num _ _ == 0 \n" +
+                            "       print(num)";
+                    }
+                    else
+                    {
+                        MiniGameProblem = "num1 = 50 \n" +
+                            "num2 = 19 \n" +
+                            "result = _ _ _ \n" +
+                            "Print('50 + 19 =', result)";
 
-            }
+                    }
+                    break;
 
+                default:
+                    break;
+            }
 
         }
 
@@ -219,6 +229,12 @@ namespace HackersDayOut.Screens
                 }
             }
 
+            if(_currentKeyboardState.IsKeyDown(Keys.Escape))
+            {
+                ExitScreen();
+                ScreenManager.RemoveScreen(this);
+            }
+
             #endregion
 
             if ((RandomNum == 1) && ((Answer.Contains("%2")) || (Answer.Contains("% 2"))))
@@ -242,6 +258,8 @@ namespace HackersDayOut.Screens
 
             }
         }
+
+       
 
         public override void Draw(GameTime gameTime)
         {

@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using SharpDX.Direct2D1.Effects;
 using System.Reflection.Metadata;
+using Microsoft.Xna.Framework.Media;
 
 namespace HackersDayOut.Screens
 {
@@ -47,6 +48,8 @@ namespace HackersDayOut.Screens
 
         private bool _cannonGoOff;
 
+        private int _book;
+
         public string MiniGameProblem;
 
         public string Answer = " ";
@@ -54,9 +57,9 @@ namespace HackersDayOut.Screens
         public bool succeeded;
 
         public int RandomNum;
-        public Minigame3()
+        public Minigame3(int Book)
         {
-
+            _book = Book;
         }
 
         public override void Activate()
@@ -81,23 +84,33 @@ namespace HackersDayOut.Screens
 
 
             RandomNum = random.Next(1, 3);
-            if (RandomNum == 1)
+            switch(_book)
             {
-                MiniGameProblem = "list = [3,6,9] \n" +
-                    "sum = 0 \n" +
-                    "for i in list: \n" +
-                    "   sum = sum + i \n" +
-                    "What is sum after the loop?";
-            }
-            else
-            {
-                MiniGameProblem = "number1 = 2\n" +
-                    "number2 = 5 \n" +
-                    "number3 = number1 * number2\n" +
-                    "number3 = number2\n" +
-                    "What is number3 now?";
+                case 1:
+                    if (RandomNum == 1)
+                    {
+                        MiniGameProblem = "list = [3,6,9] \n" +
+                            "sum = 0 \n" +
+                            "for i in list: \n" +
+                            "   sum = sum + i \n" +
+                            "What is sum after the loop?";
+                    }
+                    else
+                    {
+                        MiniGameProblem = "number1 = 2\n" +
+                            "number2 = 5 \n" +
+                            "number3 = number1 * number2\n" +
+                            "number3 = number2\n" +
+                            "What is number3 now?";
 
+                    }
+                    break;
+
+
+                default:
+                    break;
             }
+            
 
 
         }
@@ -233,6 +246,11 @@ namespace HackersDayOut.Screens
                     if (Answer.Length > 0) Answer = Answer.Remove(Answer.Length - 1);
                 }
             }
+            if (_currentKeyboardState.IsKeyDown(Keys.Escape))
+            {
+                ExitScreen();
+                ScreenManager.RemoveScreen(this);
+            }
 
             #endregion
 
@@ -260,6 +278,7 @@ namespace HackersDayOut.Screens
 
             }
         }
+
 
         public override void Draw(GameTime gameTime)
         {

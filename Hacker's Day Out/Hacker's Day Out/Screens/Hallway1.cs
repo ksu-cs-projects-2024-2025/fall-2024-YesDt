@@ -67,8 +67,8 @@ namespace HackersDayOut.Screens
                     new BoundingRectangle(0, 0, 315, 354),
                     new BoundingRectangle(490, 0, 395, 354),
                     new BoundingRectangle(845, 0, 435, 340),
-                    new BoundingRectangle(1040, 224, 40, 40),
-                    new BoundingRectangle(1040, 400, 40, 400),
+                    
+                    new BoundingRectangle(1000, 360, 120, 50),
                     new BoundingRectangle(0, 500, 1090, 70),
                   
 
@@ -138,6 +138,10 @@ namespace HackersDayOut.Screens
                 {
                     RoomTransfer rt1 = new RoomTransfer(ScreenManager, this, new ComputerRoom(new Vector2(985, 210)), ControllingPlayer);
                 }
+                //if (_student.Position.X > 1010 && _student.Position.Y < 185 )
+                //{
+                //    RoomTransfer rt1 = new RoomTransfer(ScreenManager, this, new ComputerRoom(new Vector2(985, 210)), ControllingPlayer);
+                //}
 
                 //if (PythonCodeCollected)
                 //{

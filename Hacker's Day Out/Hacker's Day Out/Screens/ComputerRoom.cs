@@ -38,11 +38,11 @@ namespace HackersDayOut.Screens
 
         public BoundingCircle cir;
 
-        public BoundingCircle cir2;
+        //public BoundingCircle cir2;
 
         public Computer[] computers;
 
-        public LockedDoorPy Door;
+        //public LockedDoorPy Door;
 
         public bool ComputerCode = false; 
 
@@ -96,7 +96,7 @@ namespace HackersDayOut.Screens
                 };
 
             cir = new BoundingCircle(new Vector2(240, 200), 10f);
-            cir2 = new BoundingCircle(new Vector2(1050, 280), 50f);
+            //cir2 = new BoundingCircle(new Vector2(1050, 280), 50f);
             computers = new Computer[]
             {
                 new Computer(new Vector2(240, 140)),
@@ -105,8 +105,8 @@ namespace HackersDayOut.Screens
             {
                 c.LoadContent(_content);
             }
-            Door = new LockedDoorPy(new Vector2(1015, 250), new BoundingRectangle(1050, 260, 140, 130), false);
-            Door.LoadContent(_content);
+            //Door = new LockedDoorPy(new Vector2(1015, 250), new BoundingRectangle(1050, 260, 140, 130), false);
+            //Door.LoadContent(_content);
             ScreenManager.PythonCodeCollected = false;
 
         }
@@ -166,41 +166,41 @@ namespace HackersDayOut.Screens
                 {
                     _student.CollisionHandling(r);
                 }
-                _student.CollisionHandling(Door.Bounds);
+                //_student.CollisionHandling(Door.Bounds);
                 if(pyBook.Collected && !ScreenManager.PythonCodeCollected)
                 {
                     _student.InteractHandlingOne(cir);
                 }
                 
-                if (Door.State == doorState.Closed && ScreenManager.PythonCodeCollected)
-                {
-                    _student.InteractHandlingTwo(cir2);
-                }
-                if(Door.State != doorState.Closed)
-                {
-                    Door.Bounds = new BoundingRectangle(-10000, -100000, 1, 1);
-                }
+                //if (Door.State == doorState.Closed && ScreenManager.PythonCodeCollected)
+                //{
+                //    _student.InteractHandlingTwo(cir2);
+                //}
+                //if(Door.State != doorState.Closed)
+                //{
+                //    Door.Bounds = new BoundingRectangle(-10000, -100000, 1, 1);
+                //}
 
                 if (_student.Interact1Timer > 2)
                 {
                     RandInt = random.Next(1, 3);
-                    if(RandInt == 1) ScreenManager.AddScreen(new Minigame1(), player);
-                    else ScreenManager.AddScreen(new Minigame3(), player);
+                    if(RandInt == 1) ScreenManager.AddScreen(new Minigame1(1), player);
+                    else ScreenManager.AddScreen(new Minigame3(1), player);
                     _student.Interact1Timer = 0;
                     _student.action = Action.Idle;
                     _student.CanInteract1 = false;
 
                 }
-                if (_student.Interact2Timer > 2)
-                {
-                    RandInt = random.Next(1, 3);
-                    if (RandInt == 1) ScreenManager.AddScreen(new Minigame2(Door), player);
-                    else ScreenManager.AddScreen(new Minigame4(Door), player);
-                    _student.Interact2Timer = 0;
-                    _student.action = Action.Idle;
-                    _student.CanInteract2 = false;
+                //if (_student.Interact2Timer > 2)
+                //{
+                //    RandInt = random.Next(1, 3);
+                //    if (RandInt == 1) ScreenManager.AddScreen(new Minigame2(Door), player);
+                //    else ScreenManager.AddScreen(new Minigame4(Door), player);
+                //    _student.Interact2Timer = 0;
+                //    _student.action = Action.Idle;
+                //    _student.CanInteract2 = false;
 
-                }
+                //}
                 if(_student.FeetBounds.CollidesWith(pyBook.Bounds))
                 {
                     pyBook.Collected = true;
@@ -253,7 +253,7 @@ namespace HackersDayOut.Screens
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Right, pyBook.Bounds.Top), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Right, pyBook.Bounds.Bottom), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
 
-            Door.Draw(gameTime, spriteBatch);
+            //Door.Draw(gameTime, spriteBatch);
             //spriteBatch.Draw(_level, new Vector2(0, 0), null, Color.White, 0f, new Vector2(0, 0), 1.5f, SpriteEffects.None, 0f);
             _student.Draw(gameTime, spriteBatch);
             //spriteBatch.Draw(circle, new Vector2(_student.Bounds.Left, _student.Bounds.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);

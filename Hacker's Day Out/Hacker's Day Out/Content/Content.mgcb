@@ -177,6 +177,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprite_bomb.png
 
+#begin Sprite_book_Java.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprite_book_Java.png
+
 #begin Sprite_book_python.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -212,6 +224,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprite_cannon.png
+
+#begin Sprite_computer_Java.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprite_computer_Java.png
 
 #begin Sprite_computer.png
 /importer:TextureImporter
