@@ -62,3 +62,9 @@ C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bi
 C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Release\net6.0-windows\Content\Sprite_student.xnb
 C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Release\net6.0-windows\Content\Sprite_success.xnb
 C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Release\net6.0-windows\Content\Hallway1.xnb
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Release\net6.0-windows\Content\Sprite_bomb.xnb
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Release\net6.0-windows\Content\Sprite_book_Java.xnb
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Release\net6.0-windows\Content\Sprite_cannon.xnb
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Release\net6.0-windows\Content\Sprite_computer_Java.xnb
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Release\net6.0-windows\Content\Sprite_firewall.xnb
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Release\net6.0-windows\Content\Sprite_pylockeddoor2.xnb

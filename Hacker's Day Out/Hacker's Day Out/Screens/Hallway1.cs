@@ -79,7 +79,7 @@ namespace HackersDayOut.Screens
 
                 };
 
-            cir = new BoundingCircle(new Vector2(320, 180), 10f);
+            cir = new BoundingCircle(new Vector2(380, 180), 10f);
             
 
         }

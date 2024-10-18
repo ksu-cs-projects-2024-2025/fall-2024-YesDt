@@ -251,6 +251,11 @@ namespace HackersDayOut.Screens
                             break;
                     }
                 }
+                if (_currentKeyboardState.IsKeyDown(Keys.Escape))
+                {
+                    ExitScreen();
+                    ScreenManager.RemoveScreen(this);
+                }
                 if (LeftSelect && RightSelect)
                 {
                     Answer = Answer + Half1 + Half2;
