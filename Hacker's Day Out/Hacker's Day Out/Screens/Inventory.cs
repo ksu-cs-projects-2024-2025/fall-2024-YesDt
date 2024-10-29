@@ -19,7 +19,7 @@ namespace HackersDayOut.Screens
             exitEntry.Selected += OnCancel;
 
 
-            if (ComputerRoom.pyBook.Collected) MenuEntries.Add(PythonEntry);
+            if (ScreenManager.PythonBookCollected) MenuEntries.Add(PythonEntry);
             MenuEntries.Add(exitEntry);
         }
 

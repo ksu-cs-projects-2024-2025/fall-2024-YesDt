@@ -299,7 +299,7 @@ namespace HackersDayOut.Screens
             _spriteBatch.Begin();
             _spriteBatch.Draw(_screen, new Rectangle(0, 0, 800, 500), Color.White);
             _spriteBatch.DrawString(_objective, "Find the correct word", new Vector2(70, 75), Color.Red);
-            _spriteBatch.DrawString(_objective, "Use W A S D \nfor the left side...", new Vector2(45, 200), Color.Black, 0f, new Vector2(0, 0), 0.45f, SpriteEffects.None, 0);
+            _spriteBatch.DrawString(_objective, "Use W A S D \nfor the left side...", new Vector2(45, 200), Color.Black, 0f, new Vector2(0, 0), 0.5f, SpriteEffects.None, 0);
             _spriteBatch.DrawString(_objective, "And the arrow keys \nfor the right!", new Vector2(500, 200), Color.Black, 0f, new Vector2(0, 0), 0.45f, SpriteEffects.None, 0);
             _spriteBatch.DrawString(_problem, MiniGameProblem, new Vector2(100, 125), Color.Black);
             foreach(var b in _buttons1)
