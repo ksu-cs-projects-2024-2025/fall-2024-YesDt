@@ -36,7 +36,7 @@ namespace HackersDayOut.Screens
 
         public BoundingCircle cir;
 
-        public static LockedDoorPy ObjDoor = new LockedDoorPy(2, new Vector2(344, 85), new BoundingRectangle(305, 85, 200, 250), false);
+        public static LockedDoorPy ObjDoor = new LockedDoorPy(2, new Vector2(344, 85), 1.2f, new BoundingRectangle(305, 85, 200, 250), false);
 
         public int RandInt;
 

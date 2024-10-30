@@ -27,13 +27,16 @@ namespace HackersDayOut
         private double _animationFrame;
         private int _alignment;
 
+
+        public float Scale;
         public BoundingRectangle Bounds;
         public doorState State;
 
-        public LockedDoorPy(int Alignment, Vector2 Position, BoundingRectangle bounds, bool flipped)
+        public LockedDoorPy(int Alignment, Vector2 Position, float s, BoundingRectangle bounds, bool flipped)
         {
             _alignment = Alignment;
             _pos = Position;
+            Scale = s;
             Bounds = bounds;
             _flipped = flipped;
         }
@@ -74,8 +77,8 @@ namespace HackersDayOut
                     _animationFrame = 0;
                     break;
             }
-            if (_alignment ==1)spriteBatch.Draw(_texture, _pos, source, Color.White, 0.00f, new Vector2(0, 0), 1.0f, spriteEffects, 0);
-            else spriteBatch.Draw(_texture, _pos, source, Color.White, 0.00f, new Vector2(0, 0), 1.2f, spriteEffects, 0);
+            if (_alignment ==1)spriteBatch.Draw(_texture, _pos, source, Color.White, 0.00f, new Vector2(0, 0), Scale, spriteEffects, 0);
+            else spriteBatch.Draw(_texture, _pos, source, Color.White, 0.00f, new Vector2(0, 0), Scale, spriteEffects, 0);
         }
     }
 }
