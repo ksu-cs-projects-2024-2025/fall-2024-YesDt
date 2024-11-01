@@ -146,6 +146,10 @@ namespace HackersDayOut.Screens
                 {
                     RoomTransfer rt1 = new RoomTransfer(ScreenManager, this, new ComputerRoom(new Vector2(985, 210)), ControllingPlayer);
                 }
+                if(_student.Position.X >= 1090 && _student.Position.Y > 253)
+                {
+                    RoomTransfer rt2 = new RoomTransfer(ScreenManager, this, new Hallway2(new Vector2(1065, 215)), ControllingPlayer);
+                }
 
                 _student.CollisionHandling(ObjDoor.Bounds);
                 if (ObjDoor.State == doorState.Closed && ScreenManager.PythonCodeCollected)

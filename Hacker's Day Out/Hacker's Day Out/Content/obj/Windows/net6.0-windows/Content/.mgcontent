@@ -5,9 +5,14 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/blank.png</File>
+    <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/C_Information.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/circle.png</File>
+    <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/CSharp_Information.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/gradient.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Hallway1.png</File>
+    <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Hallway2.png</File>
+    <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Hallway3.png</File>
+    <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Java_Information.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/MenuFont.spritefont</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/MG1answer.spritefont</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/MG1objective.spritefont</File>
@@ -25,11 +30,18 @@
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_book_python.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_button.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_cannon.png</File>
+    <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_Clockeddoor.png</File>
+    <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_Clockeddoor2.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_computer_Java.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_computer.png</File>
+    <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_CSharplockeddoor.png</File>
+    <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_CSharplockeddoor2.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_firewall.png</File>
+    <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_Gym.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_interact.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_invalid.png</File>
+    <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_Javalockeddoor.png</File>
+    <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_Javalockeddoor2.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_pylockeddoor2.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_reglockeddoor.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_student.png</File>
@@ -39,6 +51,18 @@
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Title.spritefont</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
