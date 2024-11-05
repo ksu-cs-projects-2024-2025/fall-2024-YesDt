@@ -67,7 +67,7 @@ namespace HackersDayOut.Screens
                     new BoundingRectangle(50, -50, 40, 1000),
                    // new BoundingRectangle(0, 450, 40, 1000),
                     new BoundingRectangle(0, 0, 1300, 334),
-                     new BoundingRectangle(1150, 380, 770, 50),
+                     new BoundingRectangle(1150, 360, 770, 70),
                     //new BoundingRectangle(490, 0, 395, 354),
                     //new BoundingRectangle(845, 0, 435, 340),
 

@@ -12,6 +12,7 @@
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Hallway1.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Hallway2.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Hallway3.png</File>
+    <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Hallwayupper1.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Java_Information.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/MenuFont.spritefont</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/MG1answer.spritefont</File>
@@ -37,6 +38,7 @@
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_CSharplockeddoor.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_CSharplockeddoor2.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_firewall.png</File>
+    <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_Gym_Hoops.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_Gym.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_interact.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_invalid.png</File>
@@ -51,6 +53,8 @@
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Title.spritefont</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
