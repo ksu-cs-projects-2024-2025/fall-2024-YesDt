@@ -152,7 +152,7 @@ namespace HackersDayOut.Screens
                 }
                 if (_student.Position.X > 1014 && _student.Position.Y < 205)
                 {
-                    RoomTransfer rt3 = new RoomTransfer(ScreenManager, this, new Hallway3(new Vector2(200, 280)), ControllingPlayer);
+                    RoomTransfer rt3 = new RoomTransfer(ScreenManager, this, new Hallway3(new Vector2(1035, 255)), ControllingPlayer);
                 }
 
                 _student.CollisionHandling(ObjDoor.Bounds);
@@ -172,7 +172,7 @@ namespace HackersDayOut.Screens
                 }
                 if (ObjDoor.State != doorState.Closed)
                 {
-                    ObjDoor.Bounds = new BoundingRectangle(-10000, -100000, 1, 1);
+                    ObjDoor.Bounds = new BoundingRectangle(305, 185, 60, 200);
                 }
                 //if (_student.Position.X > 1010 && _student.Position.Y < 185 )
                 //{

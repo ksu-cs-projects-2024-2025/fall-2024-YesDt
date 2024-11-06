@@ -81,4 +81,6 @@ C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bi
 C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Content\Sprite_Gym.xnb
 C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Content\Sprite_Gym_Hoops.xnb
 C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Content\Hallway3.xnb
-C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Content\Hallwayupper1.xnb
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Content\Test.xnb
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Content\UpperHallway.xnb
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Content\Sprite_Classroom2.xnb

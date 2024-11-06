@@ -12,7 +12,6 @@
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Hallway1.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Hallway2.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Hallway3.png</File>
-    <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Hallwayupper1.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Java_Information.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/MenuFont.spritefont</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/MG1answer.spritefont</File>
@@ -31,6 +30,7 @@
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_book_python.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_button.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_cannon.png</File>
+    <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_Classroom2.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_Clockeddoor.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_Clockeddoor2.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_computer_Java.png</File>
@@ -50,9 +50,13 @@
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite_success.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite-comlabv1.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Sprite-comlabv1overlay.png</File>
+    <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Test.png</File>
     <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Title.spritefont</File>
+    <File>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/UpperHallway.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

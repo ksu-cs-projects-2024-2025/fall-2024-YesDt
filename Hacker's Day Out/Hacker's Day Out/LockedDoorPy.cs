@@ -49,10 +49,7 @@ namespace HackersDayOut
 
         public void Update(GameTime gameTime)
         {
-            if (State == doorState.Opening || State == doorState.Open)
-            {
-                Bounds = new BoundingRectangle(-100000, -100000, 1, 1);
-            }
+            
         }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)

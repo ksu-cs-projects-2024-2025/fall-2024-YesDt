@@ -46,7 +46,7 @@ namespace HackersDayOut.Screens
 
         public bool ComputerCode = false; 
 
-        public static PythonBook pyBook;
+        //public static PythonBook pyBook;
 
        
 
@@ -76,11 +76,11 @@ namespace HackersDayOut.Screens
             _overlay = _content.Load<Texture2D>("Sprite-comlabv1overlay");
             circle = _content.Load<Texture2D>("circle");
            
-            if(!ScreenManager.PythonBookCollected)
-            {
-                pyBook = new PythonBook(new Vector2(400, 250));
-                pyBook.LoadContent(_content);
-            }
+            //if(!ScreenManager.PythonBookCollected)
+            //{
+            //    pyBook = new PythonBook(new Vector2(400, 250));
+            //    pyBook.LoadContent(_content);
+            //}
             
 
             _boundaries = new BoundingRectangle[]
@@ -204,12 +204,12 @@ namespace HackersDayOut.Screens
                 //    _student.CanInteract2 = false;
 
                 //}
-                if(_student.FeetBounds.CollidesWith(pyBook.Bounds))
-                {
-                    ScreenManager.PythonBookCollected = true;
+                //if(_student.FeetBounds.CollidesWith(pyBook.Bounds))
+                //{
+                //    ScreenManager.PythonBookCollected = true;
                     
-                    pyBook.Bounds = new BoundingRectangle(-100000, -100000, 1, 1);
-                }
+                //    pyBook.Bounds = new BoundingRectangle(-100000, -100000, 1, 1);
+                //}
 
                 if(_student.Position.X > 1090)
                 {
@@ -250,7 +250,7 @@ namespace HackersDayOut.Screens
             {
                 c.Draw(gameTime, spriteBatch);
             }
-            if (!ScreenManager.PythonBookCollected) pyBook.Draw(gameTime, spriteBatch);
+           // if (!ScreenManager.PythonBookCollected) pyBook.Draw(gameTime, spriteBatch);
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Left, pyBook.Bounds.Top), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Left, pyBook.Bounds.Bottom), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Right, pyBook.Bounds.Top), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);

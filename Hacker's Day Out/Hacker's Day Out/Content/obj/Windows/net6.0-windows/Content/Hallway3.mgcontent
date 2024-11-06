@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Hallway3.png</SourceFile>
-  <SourceTime>2024-11-05T04:20:10.5647809-06:00</SourceTime>
+  <SourceTime>2024-11-05T04:49:07.0158533-06:00</SourceTime>
   <DestFile>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/bin/Windows/Content/Hallway3.xnb</DestFile>
-  <DestTime>2024-11-05T04:20:40.9131588-06:00</DestTime>
+  <DestTime>2024-11-05T04:52:31.4562698-06:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T06:44:56-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
