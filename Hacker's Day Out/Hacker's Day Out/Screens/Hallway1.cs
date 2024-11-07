@@ -36,7 +36,7 @@ namespace HackersDayOut.Screens
 
         public BoundingCircle cir;
 
-        public static LockedDoorPy ObjDoor = new LockedDoorPy(2, new Vector2(344, 85), 1.2f, new BoundingRectangle(305, 85, 200, 250), false);
+        public static LockedDoorPy ObjDoor = new LockedDoorPy(2, new Vector2(344, 87), 1.2f, new BoundingRectangle(305, 87, 200, 250), false);
 
         public int RandInt;
 
@@ -172,7 +172,7 @@ namespace HackersDayOut.Screens
                 }
                 if (ObjDoor.State != doorState.Closed)
                 {
-                    ObjDoor.Bounds = new BoundingRectangle(305, 185, 60, 200);
+                    ObjDoor.Bounds = new BoundingRectangle(305, 187, 60, 200);
                 }
                 //if (_student.Position.X > 1010 && _student.Position.Y < 185 )
                 //{

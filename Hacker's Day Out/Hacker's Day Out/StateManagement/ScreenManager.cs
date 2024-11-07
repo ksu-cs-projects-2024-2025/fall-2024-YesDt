@@ -48,6 +48,12 @@ namespace HackersDayOut.StateManagement
 
         public static bool PythonBookCollected;
 
+        public static bool JavaBookCollected;
+
+        public static bool CBookCollected;
+
+        public static bool CSharpBookCollected;
+
         public Game Game { get; private set; }
 
         /// <summary>

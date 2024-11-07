@@ -86,9 +86,10 @@ namespace HackersDayOut.Screens
                 {
                     new BoundingRectangle(30, -100, 40, 1000),
                     new BoundingRectangle(0, 120, 1090, 14),
-                    new BoundingRectangle(830, 194, 40, 1000),
+                    new BoundingRectangle(680, 114, 1000, 80),
+                    new BoundingRectangle(820, 184, 40, 1000),
                     //new BoundingRectangle(1040, 400, 40, 400),
-                    new BoundingRectangle(0, 600, 1090, 70),
+                    new BoundingRectangle(200, 600, 1090, 70),
                     //new BoundingRectangle(140, 230, 220, 70),
                     //new BoundingRectangle(340, 230, 220, 70),
                     //new BoundingRectangle(540, 230, 220, 70),
@@ -191,9 +192,9 @@ namespace HackersDayOut.Screens
                     pyBook.Bounds = new BoundingRectangle(-100000, -100000, 1, 1);
                 }
 
-                if (_student.Position.X > 1090)
+                if (_student.Position.Y > 430)
                 {
-                    RoomTransfer rt1 = new RoomTransfer(ScreenManager, this, new Hallway1(new Vector2(170, 230)), ControllingPlayer);
+                    RoomTransfer rt1 = new RoomTransfer(ScreenManager, this, new Hallway3(new Vector2(380, 230)), ControllingPlayer);
                 }
                 //if (PythonCodeCollected)
                 //{
