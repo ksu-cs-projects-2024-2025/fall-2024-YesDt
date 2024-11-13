@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/Java_Information.png</SourceFile>
-  <SourceTime>2024-10-30T02:52:00.1498307-05:00</SourceTime>
+  <SourceTime>2024-11-13T02:22:58.0381647-06:00</SourceTime>
   <DestFile>C:/Users/dtyso/source/repos/fall-2024-YesDt/Hacker's Day Out/Hacker's Day Out/Content/bin/Windows/Content/Java_Information.xnb</DestFile>
-  <DestTime>2024-10-31T22:21:34.572628-05:00</DestTime>
+  <DestTime>2024-11-13T03:08:31.8662663-06:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T06:44:56-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

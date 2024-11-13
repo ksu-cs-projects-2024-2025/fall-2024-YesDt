@@ -36,7 +36,9 @@ namespace HackersDayOut.Screens
 
         public BoundingCircle cir;
 
-        public static LockedDoorPy ObjDoor = new LockedDoorPy(2, new Vector2(344, 87), 1.2f, new BoundingRectangle(305, 87, 200, 250), false);
+        public static LockedDoorPy ObjDoor = new LockedDoorPy(2, 4, new Vector2(344, 87), 1.2f, new BoundingRectangle(305, 87, 200, 250), false);
+
+        public LockedDoorPy Door;
 
         public int RandInt;
 
@@ -80,7 +82,10 @@ namespace HackersDayOut.Screens
                 };
 
             cir = new BoundingCircle(new Vector2(380, 180), 10f);
-            
+
+            Door = new LockedDoorPy(1, 1, new Vector2(-30, 100), 1.2f, new BoundingRectangle(-9999, -9999, 1, 1), true);
+            Door.LoadContent(_content);
+            Door.State = doorState.Open;
 
         }
         public override void Deactivate()
@@ -163,8 +168,8 @@ namespace HackersDayOut.Screens
                 if (_student.Interact1Timer > 2)
                 {
                     RandInt = random.Next(1, 3);
-                    if (RandInt == 1) ScreenManager.AddScreen(new Minigame2(ObjDoor), player);
-                    else ScreenManager.AddScreen(new Minigame4(ObjDoor), player);
+                    if (RandInt == 1) ScreenManager.AddScreen(new Minigame2(ObjDoor, 4), player);
+                    else ScreenManager.AddScreen(new Minigame4(ObjDoor, 4), player);
                     _student.Interact1Timer = 0;
                     _student.action = Action.Idle;
                     _student.CanInteract1 = false;
@@ -210,7 +215,7 @@ namespace HackersDayOut.Screens
             // spriteBatch.Begin();
             spriteBatch.Draw(_Halls1, new Rectangle(0, -20, 1150, 520), Color.White);
             ObjDoor.Draw(gameTime, spriteBatch);
-          
+            Door.Draw(gameTime, spriteBatch);
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Left, pyBook.Bounds.Top), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Left, pyBook.Bounds.Bottom), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Right, pyBook.Bounds.Top), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);

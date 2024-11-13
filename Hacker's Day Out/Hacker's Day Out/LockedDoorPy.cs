@@ -26,25 +26,48 @@ namespace HackersDayOut
         private double _animationTimer;
         private double _animationFrame;
         private int _alignment;
+        private int _doorlock;
 
 
         public float Scale;
         public BoundingRectangle Bounds;
         public doorState State;
 
-        public LockedDoorPy(int Alignment, Vector2 Position, float s, BoundingRectangle bounds, bool flipped)
+        public LockedDoorPy(int Alignment, int DoorLock, Vector2 Position, float s, BoundingRectangle bounds, bool flipped)
         {
             _alignment = Alignment;
             _pos = Position;
             Scale = s;
             Bounds = bounds;
             _flipped = flipped;
+            _doorlock = DoorLock;
         }
 
         public void LoadContent(ContentManager content)
         {
-            if (_alignment == 1) _texture = content.Load<Texture2D>("Sprite_reglockeddoor");
-            else _texture = content.Load<Texture2D>("Sprite_pylockeddoor2");
+            switch (_doorlock)
+            {
+                case 1:
+                    if (_alignment == 1) _texture = content.Load<Texture2D>("Sprite_reglockeddoor");
+                    else _texture = content.Load<Texture2D>("Sprite_pylockeddoor2");
+                    break;
+                case 2:
+                    if (_alignment == 1) _texture = content.Load<Texture2D>("Sprite_Javalockeddoor");
+                    else _texture = content.Load<Texture2D>("Sprite_Javalockeddoor2");
+                    break;
+                case 3:
+                    if (_alignment == 1) _texture = content.Load<Texture2D>("Sprite_Clockeddoor");
+                    else _texture = content.Load<Texture2D>("Sprite_Clockeddoor2");
+                    break;
+                case 4:
+                    if (_alignment == 1) _texture = content.Load<Texture2D>("Sprite_CSharplockeddoor");
+                    else _texture = content.Load<Texture2D>("Sprite_CSharplockeddoor2");
+                    break;
+
+                default:
+                    break;
+            }
+            
         }
 
         public void Update(GameTime gameTime)

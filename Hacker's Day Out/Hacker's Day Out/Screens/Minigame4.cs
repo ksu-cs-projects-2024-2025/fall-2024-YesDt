@@ -12,6 +12,8 @@ using SharpDX.Direct2D1.Effects;
 using System.Reflection.Metadata;
 //using SharpDX.Direct2D1;
 using SharpDX.Direct3D9;
+using SharpDX.Direct2D1;
+using SpriteBatch = Microsoft.Xna.Framework.Graphics.SpriteBatch;
 
 namespace HackersDayOut.Screens
 {
@@ -64,6 +66,8 @@ namespace HackersDayOut.Screens
 
         private int _selectedButtonIndex = 0;
 
+        private int _book;
+
         private string _button1 = "";
         private string _button2 = "";
         private string _button3 = "";
@@ -98,10 +102,11 @@ namespace HackersDayOut.Screens
 
         public LockedDoorPy Door;
 
-        public Minigame4(LockedDoorPy LockedDoor)
+        public Minigame4(LockedDoorPy LockedDoor, int Book)
         {
             Door = LockedDoor;
-        }
+            _book = Book;
+         }
         public override void Activate()
         {
             _graphics = ScreenManager.Game.GraphicsDevice;
@@ -152,34 +157,126 @@ namespace HackersDayOut.Screens
             foreach (var b in _buttons2) b.LoadContent(_content);
 
             //_debugCircle = _content.Load<Texture2D>("circle");
-
             RandomNum = random.Next(1, 3);
-            if (RandomNum == 1)
+            switch (_book)
             {
-                MiniGameProblem = "What are the sorting algorithms mentioned \n " +
-                    "in the textbook?";
-                _button1 = _button1 + "Insert ";
-                _button2 = _button2 + "Select ";
-                _button3 = _button3 + "Quick ";
-                _button4 = _button4 + "Heap ";
-                _button5 = _button5 + "Bubble ";
-                _button6 = _button6 + "Bucket ";
-                _button7 = _button7 + "Shell ";
-                _button8 = _button8 + "Merge ";
+                case (1):
+                    if (RandomNum == 1)
+                    {
+                        MiniGameProblem = "What are the sorting algorithms mentioned \n " +
+                            "in the textbook?";
+                        _button1 = _button1 + "Insert ";
+                        _button2 = _button2 + "Select ";
+                        _button3 = _button3 + "Quick ";
+                        _button4 = _button4 + "Heap ";
+                        _button5 = _button5 + "Bubble ";
+                        _button6 = _button6 + "Bucket ";
+                        _button7 = _button7 + "Shell ";
+                        _button8 = _button8 + "Merge ";
+                    }
+                    else
+                    {
+                        MiniGameProblem = "What are the operations commonly used in Python \n" +
+                            "Besides '+'?";
+                        _button1 = _button1 + "^ ";
+                        _button2 = _button2 + "( ";
+                        _button3 = _button3 + "/ ";
+                        _button4 = _button4 + "- ";
+                        _button5 = _button5 + ") ";
+                        _button6 = _button6 + "* ";
+                        _button7 = _button7 + "% ";
+                        _button8 = _button8 + "! ";
+                    }
+                    break;
+                case (2):
+                    if (RandomNum == 1)
+                    {
+                        MiniGameProblem = "What are the primitive types that are\n " +
+                            "bigger than 2 bytes?";
+                        _button1 = _button1 + "Byte ";
+                        _button2 = _button2 + "Int ";
+                        _button3 = _button3 + "Short ";
+                        _button4 = _button4 + "Long ";
+                        _button5 = _button5 + "Float ";
+                        _button6 = _button6 + "Double ";
+                        _button7 = _button7 + "Char ";
+                        _button8 = _button8 + "Boolean ";
+                    }
+                    else
+                    {
+                        MiniGameProblem = "What indexes in the array {1, 5, 6, 3, 8, 2, 7, 4}\n" +
+                            "are even numbers?";
+                        _button1 = _button1 + "0 ";
+                        _button2 = _button2 + "1 ";
+                        _button3 = _button3 + "2 ";
+                        _button4 = _button4 + "3 ";
+                        _button5 = _button5 + "4 ";
+                        _button6 = _button6 + "5 ";
+                        _button7 = _button7 + "6 ";
+                        _button8 = _button8 + "7 ";
+                    }
+                    break;
+                case (3):
+                    if (RandomNum == 1)
+                    {
+                        MiniGameProblem = "What are the 4 \n " +
+                            "iterative loops?";
+                        _button1 = _button1 + "If ";
+                        _button2 = _button2 + "Else if ";
+                        _button3 = _button3 + "Else ";
+                        _button4 = _button4 + "Switch ";
+                        _button5 = _button5 + "For ";
+                        _button6 = _button6 + "For each ";
+                        _button7 = _button7 + "While ";
+                        _button8 = _button8 + "Do while ";
+                    }
+                    else
+                    {
+                        MiniGameProblem = "What are the functions commonly used\n" +
+                            "in C, specifically?";
+                        _button1 = _button1 + "* ";
+                        _button2 = _button2 + "+ ";
+                        _button3 = _button3 + "% ";
+                        _button4 = _button4 + "| ";
+                        _button5 = _button5 + "** ";
+                        _button6 = _button6 + "& ";
+                        _button7 = _button7 + "? ";
+                        _button8 = _button8 + "^ ";
+                    }
+                    break;
+                case (4):
+                    if (RandomNum == 1)
+                    {
+                        MiniGameProblem = "What are the main aspects of \n " +
+                            "object-oriented programming?";
+                        _button1 = _button1 + "Pointers ";
+                        _button2 = _button2 + "Pushing ";
+                        _button3 = _button3 + "Polymorph ";
+                        _button4 = _button4 + "Branching ";
+                        _button5 = _button5 + "Abstract ";
+                        _button6 = _button6 + "Merging ";
+                        _button7 = _button7 + "Inherit ";
+                        _button8 = _button8 + "Encapsu\n" +
+                            "-late ";
+                    }
+                    else
+                    {
+                        MiniGameProblem = "What are 4 concepts of polymorphism\n" +
+                            "from the textbook?";
+                        _button1 = _button1 + "Basic ";
+                        _button2 = _button2 + "Base/Sub ";
+                        _button3 = _button3 + "Static ";
+                        _button4 = _button4 + "Dynamic ";
+                        _button5 = _button5 + "Virtual ";
+                        _button6 = _button6 + "Acidic ";
+                        _button7 = _button7 + "Error ";
+                        _button8 = _button8 + "Override ";
+                    }
+                    break;
+                default:
+                    break;
             }
-            else
-            {
-                MiniGameProblem = "What are the operations commonly used in Python? \n" +
-                    "Besides '+'?";
-                _button1 = _button1 + "^ ";
-                _button2 = _button2 + "( ";
-                _button3 = _button3 + "/ ";
-                _button4 = _button4 + "- ";
-                _button5 = _button5 + ") ";
-                _button6 = _button6 + "* ";
-                _button7 = _button7 + "% ";
-                _button8 = _button8 + "! ";
-            }
+            
 
 
         }
@@ -265,29 +362,112 @@ namespace HackersDayOut.Screens
                 }
                 if (ButtonsPressed == 4)
                 {
-                    if (RandomNum == 1 && Answer.Contains("Insert") && Answer.Contains("Quick") && Answer.Contains("Bubble") && Answer.Contains("Merge")) Succeeded = true;
-                    else if (RandomNum == 2 && Answer.Contains("-") && Answer.Contains("*") && Answer.Contains("/") && Answer.Contains("%")) Succeeded = true;
-                    else
+                    switch(_book)
                     {
-                        
-                        foreach(var b in _buttons1)
-                        {
-                            if (b.IsPressed) b.IsPressed = false;
-                        }
-                        foreach (var b in _buttons2)
-                        {
-                            if (b.IsPressed) b.IsPressed = false;
-                        }
-                        InvalidAnswer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                        if (InvalidAnswer > 2)
-                        {
-                            Answer = "";
-                            
-                            InvalidAnswer = 0;
-                            ButtonsPressed = 0;
-                        }
+                        case (1):
+                            if (RandomNum == 1 && Answer.Contains("Insert") && Answer.Contains("Quick") && Answer.Contains("Bubble") && Answer.Contains("Merge")) Succeeded = true;
+                            else if (RandomNum == 2 && Answer.Contains("-") && Answer.Contains("*") && Answer.Contains("/") && Answer.Contains("%")) Succeeded = true;
+                            else
+                            {
 
+                                foreach (var b in _buttons1)
+                                {
+                                    if (b.IsPressed) b.IsPressed = false;
+                                }
+                                foreach (var b in _buttons2)
+                                {
+                                    if (b.IsPressed) b.IsPressed = false;
+                                }
+                                InvalidAnswer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                                if (InvalidAnswer > 2)
+                                {
+                                    Answer = "";
+
+                                    InvalidAnswer = 0;
+                                    ButtonsPressed = 0;
+                                }
+
+                            }
+                            break;
+                        case (2):
+                            if (RandomNum == 1 && Answer.Contains("Int") && Answer.Contains("Long") && Answer.Contains("Float") && Answer.Contains("Double")) Succeeded = true;
+                            else if (RandomNum == 2 && Answer.Contains("2") && Answer.Contains("4") && Answer.Contains("5") && Answer.Contains("7")) Succeeded = true;
+                            else
+                            {
+
+                                foreach (var b in _buttons1)
+                                {
+                                    if (b.IsPressed) b.IsPressed = false;
+                                }
+                                foreach (var b in _buttons2)
+                                {
+                                    if (b.IsPressed) b.IsPressed = false;
+                                }
+                                InvalidAnswer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                                if (InvalidAnswer > 2)
+                                {
+                                    Answer = "";
+
+                                    InvalidAnswer = 0;
+                                    ButtonsPressed = 0;
+                                }
+
+                            }
+                            break;
+                        case (3):
+                            if (RandomNum == 1 && Answer.Contains("For") && Answer.Contains("For each") && Answer.Contains("While") && Answer.Contains("Do while")) Succeeded = true;
+                            else if (RandomNum == 2 && Answer.Contains("*") && Answer.Contains("%") && Answer.Contains("**") && Answer.Contains("&")) Succeeded = true;
+                            else
+                            {
+
+                                foreach (var b in _buttons1)
+                                {
+                                    if (b.IsPressed) b.IsPressed = false;
+                                }
+                                foreach (var b in _buttons2)
+                                {
+                                    if (b.IsPressed) b.IsPressed = false;
+                                }
+                                InvalidAnswer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                                if (InvalidAnswer > 2)
+                                {
+                                    Answer = "";
+
+                                    InvalidAnswer = 0;
+                                    ButtonsPressed = 0;
+                                }
+
+                            }
+                            break;
+                        case (4):
+                            if (RandomNum == 1 && Answer.Contains("Polymorph") && Answer.Contains("Abstract") && Answer.Contains("Inherit") && Answer.Contains("Encapsulate")) Succeeded = true;
+                            else if (RandomNum == 2 && Answer.Contains("Base/Sub") && Answer.Contains("Static") && Answer.Contains("Virtual") && Answer.Contains("Override")) Succeeded = true;
+                            else
+                            {
+
+                                foreach (var b in _buttons1)
+                                {
+                                    if (b.IsPressed) b.IsPressed = false;
+                                }
+                                foreach (var b in _buttons2)
+                                {
+                                    if (b.IsPressed) b.IsPressed = false;
+                                }
+                                InvalidAnswer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                                if (InvalidAnswer > 2)
+                                {
+                                    Answer = "";
+
+                                    InvalidAnswer = 0;
+                                    ButtonsPressed = 0;
+                                }
+
+                            }
+                            break;
+                        default:
+                            break;
                     }
+                   
                 }
             }
 
@@ -338,7 +518,7 @@ namespace HackersDayOut.Screens
             {
                 b.Draw(gameTime, _spriteBatch);
             }
-            if (RandomNum == 1)
+            if (RandomNum == 1 && _book != 4)
             {
                 _spriteBatch.DrawString(_choice1, _button1, new Vector2(69, 270), Color.Black, 0f, new Vector2(0, 0), 0.80f, SpriteEffects.None, 0);
                 _spriteBatch.DrawString(_choice2, _button2, new Vector2(3, 335), Color.Black, 0f, new Vector2(0, 0), 0.80f, SpriteEffects.None, 0);
@@ -348,6 +528,17 @@ namespace HackersDayOut.Screens
                 _spriteBatch.DrawString(_choice6, _button6, new Vector2(573, 335), Color.Black, 0f, new Vector2(0, 0), 0.80f, SpriteEffects.None, 0);
                 _spriteBatch.DrawString(_choice7, _button7, new Vector2(703, 335), Color.Black, 0f, new Vector2(0, 0), 0.80f, SpriteEffects.None, 0);
                 _spriteBatch.DrawString(_choice8, _button8, new Vector2(639, 400), Color.Black, 0f, new Vector2(0, 0), 0.80f, SpriteEffects.None, 0);
+            }
+            else if (_book == 4)
+            {
+                _spriteBatch.DrawString(_choice1, _button1, new Vector2(69, 270), Color.Black, 0f, new Vector2(0, 0), 0.55f, SpriteEffects.None, 0);
+                _spriteBatch.DrawString(_choice2, _button2, new Vector2(3, 335), Color.Black, 0f, new Vector2(0, 0), 0.55f, SpriteEffects.None, 0);
+                _spriteBatch.DrawString(_choice3, _button3, new Vector2(137, 335), Color.Black, 0f, new Vector2(0, 0), 0.55f, SpriteEffects.None, 0);
+                _spriteBatch.DrawString(_choice4, _button4, new Vector2(69, 400), Color.Black, 0f, new Vector2(0, 0), 0.55f, SpriteEffects.None, 0);
+                _spriteBatch.DrawString(_choice5, _button5, new Vector2(639, 270), Color.Black, 0f, new Vector2(0, 0), 0.55f, SpriteEffects.None, 0);
+                _spriteBatch.DrawString(_choice6, _button6, new Vector2(573, 335), Color.Black, 0f, new Vector2(0, 0), 0.55f, SpriteEffects.None, 0);
+                _spriteBatch.DrawString(_choice7, _button7, new Vector2(703, 335), Color.Black, 0f, new Vector2(0, 0), 0.55f, SpriteEffects.None, 0);
+                _spriteBatch.DrawString(_choice8, _button8, new Vector2(639, 400), Color.Black, 0f, new Vector2(0, 0), 0.55f, SpriteEffects.None, 0);
             }
             else
             {
@@ -361,7 +552,8 @@ namespace HackersDayOut.Screens
                 _spriteBatch.DrawString(_choice8, _button8, new Vector2(639, 400), Color.Black);
             }
 
-            if(RandomNum ==1)_spriteBatch.DrawString(_answer1, Answer, new Vector2(240, 360), Color.White, 0f, new Vector2(0,0), 0.45f, SpriteEffects.None, 0);
+            if(RandomNum ==1 && _book != 4)_spriteBatch.DrawString(_answer1, Answer, new Vector2(240, 360), Color.White, 0f, new Vector2(0,0), 0.45f, SpriteEffects.None, 0);
+            else if(_book == 4) _spriteBatch.DrawString(_answer1, Answer, new Vector2(240, 360), Color.White, 0f, new Vector2(0, 0), 0.45f, SpriteEffects.None, 0);
             else _spriteBatch.DrawString(_answer1, Answer, new Vector2(280, 360), Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0);
 
 

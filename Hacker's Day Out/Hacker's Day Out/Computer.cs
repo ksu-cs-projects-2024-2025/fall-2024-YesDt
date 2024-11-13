@@ -14,16 +14,35 @@ namespace HackersDayOut
     {
         private Texture2D _texture;
         private Vector2 pos;
+        private int _comp;
 
-        public Computer(Vector2 Pos)
+        public Computer(Vector2 Pos, int Comp)
         {
             pos = Pos;
-        }
+            _comp = Comp;
+         }
 
 
         public void LoadContent(ContentManager content)
         {
-            _texture = content.Load<Texture2D>("Sprite_computer");
+            switch(_comp)
+            {
+                case (1):
+                    _texture = content.Load<Texture2D>("Sprite_computer");
+                    break;
+                case (2):
+                    _texture = content.Load<Texture2D>("Sprite_computer_Java");
+                    break;
+                case (3):
+                    _texture = content.Load<Texture2D>("Sprite_computer_C");
+                    break;
+                case (4):
+                    _texture = content.Load<Texture2D>("Sprite_computer_CSharp");
+                    break;
+                default:
+                    break;
+            }
+           
 
 
         }

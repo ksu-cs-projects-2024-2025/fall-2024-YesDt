@@ -90,3 +90,5 @@ C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bi
 C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Content\Sprite_C3Tables.xnb
 C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Content\Sprite_book_C.xnb
 C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Content\Sprite_book_CSharp.xnb
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Content\Sprite_computer_C.xnb
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Content\Sprite_computer_CSharp.xnb

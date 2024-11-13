@@ -42,7 +42,7 @@ namespace HackersDayOut.Screens
 
         public Computer[] computers;
 
-        //public LockedDoorPy Door;
+        
 
         public bool ComputerCode = false; 
 
@@ -102,15 +102,19 @@ namespace HackersDayOut.Screens
             //cir2 = new BoundingCircle(new Vector2(1050, 280), 50f);
             computers = new Computer[]
             {
-                new Computer(new Vector2(240, 140)),
+                new Computer(new Vector2(240, 140), 1),
+                new Computer(new Vector2(450, 140), 2),
+                new Computer(new Vector2(660, 140), 3),
+                new Computer(new Vector2(870, 140), 4),
             };
             foreach (var c in computers)
             {
                 c.LoadContent(_content);
             }
-            //Door = new LockedDoorPy(new Vector2(1015, 250), new BoundingRectangle(1050, 260, 140, 130), false);
-            //Door.LoadContent(_content);
+
             
+            
+
 
         }
 
@@ -256,7 +260,7 @@ namespace HackersDayOut.Screens
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Right, pyBook.Bounds.Top), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Right, pyBook.Bounds.Bottom), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
 
-            //Door.Draw(gameTime, spriteBatch);
+            
             //spriteBatch.Draw(_level, new Vector2(0, 0), null, Color.White, 0f, new Vector2(0, 0), 1.5f, SpriteEffects.None, 0f);
             _student.Draw(gameTime, spriteBatch);
             //spriteBatch.Draw(circle, new Vector2(_student.Bounds.Left, _student.Bounds.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);

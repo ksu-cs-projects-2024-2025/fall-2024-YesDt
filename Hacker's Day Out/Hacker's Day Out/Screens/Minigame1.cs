@@ -90,6 +90,61 @@ namespace HackersDayOut.Screens
 
                     }
                     break;
+                case 2:
+                    if (RandomNum == 1)
+                    {
+                        MiniGameProblem = "boolean dobirdsfly = ______;\n" +
+                            "if(dobirdsfly);\n" +
+                            "System.out.println(yes);\n"+
+                            "//output is yes;";
+
+
+                    }
+                    else
+                    {
+                        MiniGameProblem = "float dec = _____f; \n" +
+                            "num1 = 5; \n" +
+                            "System.out.println(num1 - dec);\n" +
+                            "//result is 2.5";
+
+                    }
+                    break;
+                case 3:
+                    if (RandomNum == 1)
+                    {
+                        MiniGameProblem = "int num = 45; \n" +
+                            "int* point = ____ _____;\n" +
+                            "printf('%d,'num);\n" +
+                            "printf('%p,'point); \n" +
+                            "//the output is num(45) and the address of num";
+                    }
+                    else
+                    {
+                        MiniGameProblem = "num1 = 50 \n" +
+                            "num2 = 0 \n" +
+                            "for(int i = 0; i ____ ____; i++)\n" +
+                            "num2 += 2;\n" +
+                            "//by the end of the loop, num2 = 100";
+
+                    }
+                    break;
+                case 4:
+                    if (RandomNum == 1)
+                    {
+                        MiniGameProblem = "public class Question1 \n" +
+                            "   _____ int num = 24; \n" +
+                            "//num can be accessible in other classes, \n but it will have to be instantiated";
+                    }
+                    else
+                    {
+                        MiniGameProblem = "public class Question2 \n" +
+                            "_____ string word = 'can this be accessed';\n" +
+                        "   public class OtherClass \n" +
+                            "Question2.word = 'yes'\n" +
+                            "//num can be accessible, \n but can't be instantiated";
+
+                    }
+                    break;
 
                 default:
                     break;
@@ -237,14 +292,53 @@ namespace HackersDayOut.Screens
 
             #endregion
 
-            if ((RandomNum == 1) && ((Answer.Contains("%2")) || (Answer.Contains("% 2"))))
+            switch(_book)
             {
-                succeeded = true;
+                case (1):
+                    if ((RandomNum == 1) && ((Answer.Contains("%2")) || (Answer.Contains("% 2"))))
+                    {
+                        succeeded = true;
+                    }
+                    if ((RandomNum == 2) && (Answer.Contains("num1 + num2")))
+                    {
+                        succeeded = true;
+                    }
+                    break;
+                case (2):
+                    if ((RandomNum == 1) && (Answer == "true") || (Answer == "True"))
+                    {
+                        succeeded = true;
+                    }
+                    if ((RandomNum == 2) && (Answer.Contains("2.5")))
+                    {
+                        succeeded = true;
+                    }
+                    break;
+                case 3:
+                    if ((RandomNum == 1) && ((Answer.Contains("&num"))))
+                    {
+                        succeeded = true;
+                    }
+                    if ((RandomNum == 2) && (Answer.Contains("< 50")))
+                    {
+                        succeeded = true;
+                    }
+                    break;
+                case 4:
+                    if ((RandomNum == 1) && (Answer == "public" || Answer == "Public"))
+                    {
+                        succeeded = true;
+                    }
+                    if ((RandomNum == 2) && (Answer == "static" || Answer == "Static"))
+                    {
+                        succeeded = true;
+                    }
+                    break;
+                default:
+                    break;
             }
-            if ((RandomNum == 2) && (Answer.Contains("num1 + num2")))
-            {
-                succeeded = true;
-            }
+
+            
 
             if (succeeded)
             {
@@ -270,7 +364,7 @@ namespace HackersDayOut.Screens
             _spriteBatch.Draw(_screen, new Rectangle(0, 0, 800, 500), Color.White);
             _spriteBatch.DrawString(_objective, "COMPLETE THE LINE", new Vector2(350, 300), Color.Red, 0f, new Vector2(200, 200), 1.0f, SpriteEffects.None, 0f);
             _spriteBatch.DrawString(_objective, "type in the blanks!", new Vector2(350, 350), Color.Red, 0f, new Vector2(200, 200), 0.75f, SpriteEffects.None, 0f);
-            _spriteBatch.DrawString(_problem, MiniGameProblem, new Vector2(200, 230), Color.Black, 0f, new Vector2(0,0), 2.0f, SpriteEffects.None, 0f);
+            _spriteBatch.DrawString(_problem, MiniGameProblem, new Vector2(200, 230), Color.Black, 0f, new Vector2(0,0), 1.4f, SpriteEffects.None, 0f);
             _spriteBatch.DrawString(_answer, Answer, new Vector2(300, 350), Color.Black);
             if (succeeded) _spriteBatch.Draw(_success, new Rectangle(500, 100, 300, 300), Color.White);
             _spriteBatch.End();

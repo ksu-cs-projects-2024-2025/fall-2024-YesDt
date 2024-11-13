@@ -105,7 +105,54 @@ namespace HackersDayOut.Screens
 
                     }
                     break;
+                case (2):
+                    if (RandomNum == 1)
+                    {
+                        MiniGameProblem = "int[] list = new int[5] \n" +
+                           
+                            "What is the first index of elements?";
+                    }
+                    else
+                    {
+                        MiniGameProblem = "char[] word = new char[11]\n" +
+                            "word = {'intelligent'}\n" +
+                            "What is char[4] (the char at index 4)?";
 
+                    }
+                    break;
+                case (3):
+                    if (RandomNum == 1)
+                    {
+                        MiniGameProblem = "int num = 10 \n" +
+                            "int i = 0\n" +
+                            "while(i < num)\n" +
+                            "Which variable do you update \nto avoid an infinite loop?";
+                    }
+                    else
+                    {
+                        MiniGameProblem = "if (num == 1)\n" +
+                            "else if (num == 2)\n" +
+                            "else if (num == 3)\n" +
+                            "what is a simplified type of loop?";
+
+                    }
+                    break;
+                case (4):
+                    if (RandomNum == 1)
+                    {
+                        MiniGameProblem = "public class Question3 \n" +
+
+                            "Which modifier should the class be \nso only derived classes can access?";
+                    }
+                    else
+                    {
+                        MiniGameProblem = "public abstract class Question4\n" +
+                            "   virtual int number \n" +
+                            "public class InheritingClass: Question4\n" +
+                            "what modifier should this class use \n to override Question4's virtual int?";
+
+                    }
+                    break;
 
                 default:
                     break;
@@ -253,18 +300,53 @@ namespace HackersDayOut.Screens
             }
 
             #endregion
-
-            if ((RandomNum == 1) && ((Answer == "18") || Answer == " 18"))
+            switch(_book)
             {
-                _cannonGoOff = true;
-
-                //succeeded = true;
+                case (1):
+                    if ((RandomNum == 1) && ((Answer == "18") || Answer == " 18"))
+                    {
+                        _cannonGoOff = true;                  
+                    }
+                    if ((RandomNum == 2) && ((Answer == "5") || Answer == " 5"))
+                    {
+                        _cannonGoOff = true;
+                    }
+                    break;
+                case (2):
+                    if ((RandomNum == 1) && ((Answer == "0")))
+                    {
+                        _cannonGoOff = true;
+                    }
+                    if ((RandomNum == 2) && ((Answer == "l")))
+                    {
+                        _cannonGoOff = true;
+                    }
+                    break;
+                case (3):
+                    if ((RandomNum == 1) && ((Answer == "i")))
+                    {
+                        _cannonGoOff = true;
+                    }
+                    if ((RandomNum == 2) && ((Answer == "switch" || Answer == "Switch")))
+                    {
+                        _cannonGoOff = true;
+                    }
+                    break;
+                case (4):
+                    if ((RandomNum == 1) && ((Answer == "protected") || (Answer == "Protected")))
+                    {
+                        _cannonGoOff = true;
+                    }
+                    if ((RandomNum == 2) && ((Answer == "override" || Answer == "Override")))
+                    {
+                        _cannonGoOff = true;
+                    }
+                    break;
+                default:
+                    break;
             }
-            if ((RandomNum == 2) && ((Answer == "5") || Answer == " 5"))
-            {
-                _cannonGoOff = true;
-               // succeeded = true;
-            }
+            
+            
 
             if (succeeded)
             {
@@ -324,7 +406,7 @@ namespace HackersDayOut.Screens
             
             _spriteBatch.Draw(_cannon, new Vector2(40, 330), cSource, Color.White);
             _spriteBatch.Draw(_firewall, new Vector2(580, 190), fSource, Color.White);
-            _spriteBatch.DrawString(_answer, Answer, new Vector2(240, 350), Color.White);
+            _spriteBatch.DrawString(_answer, Answer, new Vector2(280, 350), Color.White);
 
             if (succeeded) _spriteBatch.Draw(_success, new Rectangle(500, 100, 300, 300), Color.White);
             _spriteBatch.End();

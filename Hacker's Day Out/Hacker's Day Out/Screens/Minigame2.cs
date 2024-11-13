@@ -63,6 +63,8 @@ namespace HackersDayOut.Screens
 
         private int _selectedButtonIndex = 0;
 
+        private int _book;
+
         private string _button1 = "";
         private string _button2 = "";
         private string _button3 = "";
@@ -92,9 +94,10 @@ namespace HackersDayOut.Screens
 
         public LockedDoorPy Door;
 
-        public Minigame2(LockedDoorPy LockedDoor)
+        public Minigame2(LockedDoorPy LockedDoor, int Book)
         {
             Door = LockedDoor;
+            _book = Book;
          }
         public override void Activate()
         {
@@ -146,33 +149,130 @@ namespace HackersDayOut.Screens
             //_debugCircle = _content.Load<Texture2D>("circle");
 
             RandomNum = random.Next(1, 3);
-            if (RandomNum == 1)
+
+            switch (_book)
             {
-                MiniGameProblem = "The hypothetical computing \n" +
-                    "machine was made in 1936 by\n" +
-                    "Alan _________ ";
-                _button1 = _button1 + "Jack";
-                _button2 = _button2 + "Tur";
-                _button3 = _button3 + "Harr";
-                _button4 = _button4 + "Jon";
-                _button5 = _button5 + "ing";
-                _button6 = _button6 + "son";
-                _button7 = _button7 + "es";
-                _button8 = _button8 + "ison";
+                case (1):
+                    if (RandomNum == 1)
+                    {
+                        MiniGameProblem = "The hypothetical computing \n" +
+                            "machine was made in 1936 by\n" +
+                            "Alan _________ ";
+                        _button1 = _button1 + "Jack";
+                        _button2 = _button2 + "Tur";
+                        _button3 = _button3 + "Harr";
+                        _button4 = _button4 + "Jon";
+                        _button5 = _button5 + "ing";
+                        _button6 = _button6 + "son";
+                        _button7 = _button7 + "es";
+                        _button8 = _button8 + "ison";
+                    }
+                    else
+                    {
+                        MiniGameProblem = "The fastest algorithm to sort \n " + "in Python is \n" +
+                            "_________ sort";
+                        _button1 = _button1 + "Inser";
+                        _button2 = _button2 + "Qui";
+                        _button3 = _button3 + "Bub";
+                        _button4 = _button4 + "Mer";
+                        _button5 = _button5 + "ge";
+                        _button6 = _button6 + "ck";
+                        _button7 = _button7 + "tion";
+                        _button8 = _button8 + "ble";
+                    }
+                    break;
+                case (2):
+                    if (RandomNum == 1)
+                    {
+                        MiniGameProblem = "Java was originally \n" +
+                            "developed in May 1995 by\n" +
+                            "James _________ ";
+                        _button1 = _button1 + "Gos";
+                        _button2 = _button2 + "Tur";
+                        _button3 = _button3 + "Robi";
+                        _button4 = _button4 + "Con";
+                        _button5 = _button5 + "ing";
+                        _button6 = _button6 + "ns";
+                        _button7 = _button7 + "roy";
+                        _button8 = _button8 + "ling";
+                    }
+                    else
+                    {
+                        MiniGameProblem = "In object oriented programming, \n " + "an instance of a class is \n" +
+                            "an _________";
+                        _button1 = _button1 + "vari";
+                        _button2 = _button2 + "cla";
+                        _button3 = _button3 + "str";
+                        _button4 = _button4 + "Obj";
+                        _button5 = _button5 + "ect";
+                        _button6 = _button6 + "ss";
+                        _button7 = _button7 + "ing";
+                        _button8 = _button8 + "ble";
+                    }
+                    break;
+                case (3):
+                    if (RandomNum == 1)
+                    {
+                        MiniGameProblem = "C is a general-purpose\n" +
+                            "language made in 1972 by\n" +
+                            "Dennis _________ ";
+                        _button1 = _button1 + "Be";
+                        _button2 = _button2 + "Tur";
+                        _button3 = _button3 + "Gos";
+                        _button4 = _button4 + "Ritc";
+                        _button5 = _button5 + "an";
+                        _button6 = _button6 + "ing";
+                        _button7 = _button7 + "hie";
+                        _button8 = _button8 + "ling";
+                    }
+                    else
+                    {
+                        MiniGameProblem = "In C, \n " + "the & symbol gets a variable's \n" +
+                            "memory _________";
+                        _button1 = _button1 + "add";
+                        _button2 = _button2 + "ca";
+                        _button3 = _button3 + "di";
+                        _button4 = _button4 + "but";
+                        _button5 = _button5 + "sk";
+                        _button6 = _button6 + "ress";
+                        _button7 = _button7 + "ton";
+                        _button8 = _button8 + "rd";
+                    }
+                    break;
+                case (4):
+                    if (RandomNum == 1)
+                    {
+                        MiniGameProblem = "C# was developed\n" +
+                            "in 2002 by\n" +
+                            "_________ ";
+                        _button1 = _button1 + "Ritc";
+                        _button2 = _button2 + "Kon";
+                        _button3 = _button3 + "Micro";
+                        _button4 = _button4 + "App";
+                        _button5 = _button5 + "soft";
+                        _button6 = _button6 + "le";
+                        _button7 = _button7 + "ami";
+                        _button8 = _button8 + "hie";
+                    }
+                    else
+                    {
+                        MiniGameProblem = "In C#, \n " + "what does it mean for a class to extend another? \n" +
+                            "_________";
+                        _button1 = _button1 + "Inh";
+                        _button2 = _button2 + "Poi";
+                        _button3 = _button3 + "Over";
+                        _button4 = _button4 + "Abst";
+                        _button5 = _button5 + "ride";
+                        _button6 = _button6 + "ract";
+                        _button7 = _button7 + "erit";
+                        _button8 = _button8 + "nt";
+                    }
+                    break;
+                default:
+                    break;
             }
-            else
-            {
-                MiniGameProblem = "The fastest algorithm to sort \n " + "in Python is \n" +
-                    "_________ sort";
-                _button1 = _button1 + "Inser";
-                _button2 = _button2 + "Qui";
-                _button3 = _button3 + "Bub";
-                _button4 = _button4 + "Mer";
-                _button5 = _button5 + "ge";
-                _button6 = _button6 + "ck";
-                _button7 = _button7 + "tion";
-                _button8 = _button8 + "ble";
-            }
+
+           
             
 
         }
@@ -259,22 +359,80 @@ namespace HackersDayOut.Screens
                 if (LeftSelect && RightSelect)
                 {
                     Answer = Answer + Half1 + Half2;
-                    if (RandomNum == 1 && Answer == "Turing") Succeeded = true;
-                    else if (RandomNum == 2 && Answer == "Quick") Succeeded = true;
-                    else
+                    switch(_book)
                     {
-                        InvalidAnswer += (float)gameTime.ElapsedGameTime.TotalSeconds;
-                        if (InvalidAnswer > 2)
-                        {
-                            Answer = "";
-                            Half1 = "";
-                            Half2 = "";
-                            LeftSelect = false;
-                            RightSelect = false;
-                            InvalidAnswer = 0;
-                        }
-
+                        case (1):
+                            if (RandomNum == 1 && Answer == "Turing") Succeeded = true;
+                            else if (RandomNum == 2 && Answer == "Quick") Succeeded = true;
+                            else
+                            {
+                                InvalidAnswer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                                if (InvalidAnswer > 2)
+                                {
+                                    Answer = "";
+                                    Half1 = "";
+                                    Half2 = "";
+                                    LeftSelect = false;
+                                    RightSelect = false;
+                                    InvalidAnswer = 0;
+                                }
+                            }
+                            break;
+                        case (2):
+                            if (RandomNum == 1 && Answer == "Gosling") Succeeded = true;
+                            else if (RandomNum == 2 && Answer == "Quick") Succeeded = true;
+                            else
+                            {
+                                InvalidAnswer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                                if (InvalidAnswer > 2)
+                                {
+                                    Answer = "";
+                                    Half1 = "";
+                                    Half2 = "";
+                                    LeftSelect = false;
+                                    RightSelect = false;
+                                    InvalidAnswer = 0;
+                                }
+                            }
+                            break;
+                        case (3):
+                            if (RandomNum == 1 && Answer == "Ritchie") Succeeded = true;
+                            else if (RandomNum == 2 && Answer == "address") Succeeded = true;
+                            else
+                            {
+                                InvalidAnswer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                                if (InvalidAnswer > 2)
+                                {
+                                    Answer = "";
+                                    Half1 = "";
+                                    Half2 = "";
+                                    LeftSelect = false;
+                                    RightSelect = false;
+                                    InvalidAnswer = 0;
+                                }
+                            }
+                            break;
+                        case (4):
+                            if (RandomNum == 1 && Answer == "Microsoft") Succeeded = true;
+                            else if (RandomNum == 2 && Answer == "Inherit") Succeeded = true;
+                            else
+                            {
+                                InvalidAnswer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                                if (InvalidAnswer > 2)
+                                {
+                                    Answer = "";
+                                    Half1 = "";
+                                    Half2 = "";
+                                    LeftSelect = false;
+                                    RightSelect = false;
+                                    InvalidAnswer = 0;
+                                }
+                            }
+                            break;
+                        default:
+                            break;
                     }
+                    
                 }
             }
 
