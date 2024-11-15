@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
 using HackersDayOut.Collisions;
+using System.IO;
 
 namespace HackersDayOut.Screens
 {
@@ -194,6 +195,9 @@ namespace HackersDayOut.Screens
 
                 if (_student.Position.Y > 430)
                 {
+                    string text = File.ReadAllText("progress.txt");
+                    string replaced = text.Replace("RoomClassroom1", "RoomHallway3");
+                    File.WriteAllText("progress.txt", replaced);
                     RoomTransfer rt1 = new RoomTransfer(ScreenManager, this, new Hallway3(new Vector2(380, 230)), ControllingPlayer);
                 }
                 //if (PythonCodeCollected)

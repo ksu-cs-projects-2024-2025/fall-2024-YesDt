@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace HackersDayOut.Screens
 {
@@ -133,10 +134,16 @@ namespace HackersDayOut.Screens
             //}
             if (ObjDoor3.State != doorState.Closed)
             {
+                string text = File.ReadAllText("progress.txt");
+                string replaced = text.Replace("Door3Locked", "Door3Unlocked");
+                File.WriteAllText("progress.txt", replaced);
                 ObjDoor3.Bounds = new BoundingRectangle(-10000, -100000, 1, 1);
             }
             if (ObjDoor4.State != doorState.Closed)
             {
+                string text = File.ReadAllText("progress.txt");
+                string replaced = text.Replace("Door4Locked", "Door4Unlocked");
+                File.WriteAllText("progress.txt", replaced);
                 ObjDoor4.Bounds = new BoundingRectangle(-10000, -100000, 1, 1);
             }
 
@@ -219,18 +226,30 @@ namespace HackersDayOut.Screens
                
                 if (_student.Position.X > 930 && _student.Position.Y < 130)
                 {
+                    string text = File.ReadAllText("progress.txt");
+                    string replaced = text.Replace("RoomHallway3", "RoomHallway1");
+                    File.WriteAllText("progress.txt", replaced);
                     RoomTransfer rt1 = new RoomTransfer(ScreenManager, this, new Hallway1(new Vector2(1020, 253)), ControllingPlayer);
                 }
                 if (_student.Position.X < 380 && _student.Position.Y < 138)
                 {
+                    string text = File.ReadAllText("progress.txt");
+                    string replaced = text.Replace("RoomHallway3", "RoomClassroom1");
+                    File.WriteAllText("progress.txt", replaced);
                     RoomTransfer rt2 = new RoomTransfer(ScreenManager, this, new Classroom1(new Vector2(165, 253)), ControllingPlayer);
                 }
                 if (_student.Position.X < 90)
                 {
+                    string text = File.ReadAllText("progress.txt");
+                    string replaced = text.Replace("RoomHallway3", "RoomClassroom2");
+                    File.WriteAllText("progress.txt", replaced);
                     RoomTransfer rt3 = new RoomTransfer(ScreenManager, this, new Classroom2(new Vector2(955, 178)), ControllingPlayer);
                 }
                 if (_student.Position.X > 1954)
                 {
+                    string text = File.ReadAllText("progress.txt");
+                    string replaced = text.Replace("RoomHallway3", "RoomClassroom3");
+                    File.WriteAllText("progress.txt", replaced);
                     RoomTransfer rt4 = new RoomTransfer(ScreenManager, this, new Classroom3(new Vector2(165, 178)), ControllingPlayer);
                 }
 

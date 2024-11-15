@@ -12,7 +12,8 @@ using System.IO;
 using HackersDayOut.Screens;
 using HackersDayOut.StateManagement;
 
-namespace HackersDayOut.Screens;
+
+namespace HackersDayOut.Screens
 {
     public class PlayGameOptions : MenuScreen
     {
@@ -49,7 +50,7 @@ namespace HackersDayOut.Screens;
             string text = File.ReadAllText("progress.txt");
 
             if (text.Contains("Door1Unlocked")) Hallway1.ObjDoor.State = doorState.Open;
-            if (text.Contains("Door2Unlocked")) Hallway3.ObjDoor2.State = doorState.Open;
+            
             if (text.Contains("Door3Unlocked")) Hallway3.ObjDoor3.State = doorState.Open;
             if (text.Contains("Door4Unlocked")) Hallway3.ObjDoor4.State = doorState.Open;
             if (text.Contains("Door5Unlocked")) Hallway2.ObjDoor5.State = doorState.Open;
@@ -91,12 +92,13 @@ namespace HackersDayOut.Screens;
             ScreenManager.CSharpBookCollected = false;
             ScreenManager.CSharpCodeCollected = false;
 
-            File.WriteAllText("progress.txt", "Door1: Locked, Door2: Locked, Door3: Locked, Door4: Locked, Door5: Locked, Door6: Locked, Door7: Locked \n" +
-                "Pybook: Missing, Pycode: Missing, Javabook: Missing, Javacode: Missing, Cbook: Missing, Ccode: Missing, CSharpbook: Missing, CSharpcode: Missing \n"
-                + "Room: Hallway1");
+            File.WriteAllText("progress.txt", "Door1Locked, Door3Locked, Door4Locked, Door5Locked, Door6Locked, Door7Locked \n" +
+                "PybookMissing, PycodeMissing, JavabookMissing, JavacodeMissing, CbookMissing, CcodeMissing, CSharpbookMissing, CSharpcodeMissing \n"
+                + "RoomHallway1");
             LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new Hallway1(new Vector2(200, 280)));
 
         }
-
     }
 }
+
+    

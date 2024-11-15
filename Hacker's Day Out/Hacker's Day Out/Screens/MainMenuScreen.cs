@@ -9,13 +9,14 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
+
 namespace HackersDayOut.Screens
 {
     public class MainMenuScreen : MenuScreen
     {
         public MainMenuScreen() : base("Hacker's Day Out")
         {
-
+           
             var playGameMenuEntry = new MenuEntry("Play Game");
             var controlsEntry = new MenuEntry("Controls");
             var exitMenuEntry = new MenuEntry("Exit");

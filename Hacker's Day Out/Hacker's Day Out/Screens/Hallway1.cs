@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
 using HackersDayOut.Collisions;
 using Microsoft.VisualBasic.Devices;
+using System.IO;
 
 
 namespace HackersDayOut.Screens
@@ -116,6 +117,9 @@ namespace HackersDayOut.Screens
             if(ScreenManager.Door1Opened)
             {
                 ObjDoor.State = doorState.Open;
+                string text = File.ReadAllText("progress.txt");
+                string replaced = text.Replace("Door1Locked", "Door1Unlocked");
+                File.WriteAllText("progress.txt", replaced);
             }
 
         }
@@ -149,14 +153,23 @@ namespace HackersDayOut.Screens
                 }
                 if (_student.Position.X < 70)
                 {
+                    string text = File.ReadAllText("progress.txt");
+                    string replaced = text.Replace("RoomHallway1", "RoomCompLab");
+                    File.WriteAllText("progress.txt", replaced);
                     RoomTransfer rt1 = new RoomTransfer(ScreenManager, this, new ComputerRoom(new Vector2(985, 210)), ControllingPlayer);
                 }
                 if(_student.Position.X >= 1090 && _student.Position.Y > 253)
                 {
+                    string text = File.ReadAllText("progress.txt");
+                    string replaced = text.Replace("RoomHallway1", "RoomHallway2");
+                    File.WriteAllText("progress.txt", replaced);
                     RoomTransfer rt2 = new RoomTransfer(ScreenManager, this, new Hallway2(new Vector2(1035, 215)), ControllingPlayer);
                 }
                 if (_student.Position.X > 1014 && _student.Position.Y < 205)
                 {
+                    string text = File.ReadAllText("progress.txt");
+                    string replaced = text.Replace("RoomHallway1", "RoomHallway3");
+                    File.WriteAllText("progress.txt", replaced);
                     RoomTransfer rt3 = new RoomTransfer(ScreenManager, this, new Hallway3(new Vector2(1035, 255)), ControllingPlayer);
                 }
 

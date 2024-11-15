@@ -3,6 +3,7 @@ using HackersDayOut.StateManagement;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.IO;
 
 namespace HackersDayOut
 {
@@ -15,6 +16,7 @@ namespace HackersDayOut
 
         public Game1()
         {
+            File.WriteAllText("progress.txt", "");
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;

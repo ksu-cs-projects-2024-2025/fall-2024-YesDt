@@ -256,7 +256,7 @@ namespace HackersDayOut.Screens
                     }
                     else
                     {
-                        MiniGameProblem = "In C#, \n " + "what does it mean for a class to extend another? \n" +
+                        MiniGameProblem = "In C#, \n " + "what does it mean for a class to \n extend another? \n" +
                             "_________";
                         _button1 = _button1 + "Inh";
                         _button2 = _button2 + "Poi";
@@ -271,9 +271,10 @@ namespace HackersDayOut.Screens
                 default:
                     break;
             }
-
-           
             
+
+
+
 
         }
         public override void Deactivate()
@@ -380,7 +381,7 @@ namespace HackersDayOut.Screens
                             break;
                         case (2):
                             if (RandomNum == 1 && Answer == "Gosling") Succeeded = true;
-                            else if (RandomNum == 2 && Answer == "Quick") Succeeded = true;
+                            else if (RandomNum == 2 && Answer == "Object") Succeeded = true;
                             else
                             {
                                 InvalidAnswer += (float)gameTime.ElapsedGameTime.TotalSeconds;

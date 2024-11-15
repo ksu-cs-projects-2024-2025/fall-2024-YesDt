@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
 using HackersDayOut.Collisions;
+using System.IO;
 
 namespace HackersDayOut.Screens
 {
@@ -91,7 +92,7 @@ namespace HackersDayOut.Screens
 
                 };
 
-            cir = new BoundingCircle(new Vector2(240, 200), 10f);
+            cir = new BoundingCircle(new Vector2(1045, 200), 10f);
             //cir2 = new BoundingCircle(new Vector2(1050, 280), 50f);
 
             //Door = new LockedDoorPy(new Vector2(1015, 250), new BoundingRectangle(1050, 260, 140, 130), false);
@@ -165,26 +166,29 @@ namespace HackersDayOut.Screens
                 //    _student.InteractHandlingOne(cir);
                 //}
 
-                //if (Door.State == doorState.Closed && ScreenManager.PythonCodeCollected)
-                //{
-                //    _student.InteractHandlingTwo(cir2);
-                //}
-                //if(Door.State != doorState.Closed)
-                //{
-                //    Door.Bounds = new BoundingRectangle(-10000, -100000, 1, 1);
-                //}
+                if (ObjDoor6.State == doorState.Closed && ScreenManager.PythonCodeCollected)
+                {
+                    _student.InteractHandlingOne(cir);
+                }
+                if (ObjDoor6.State != doorState.Closed)
+                {
+                    string text = File.ReadAllText("progress.txt");
+                    string replaced = text.Replace("Door6Locked", "Door6Unlocked");
+                    File.WriteAllText("progress.txt", replaced);
+                    ObjDoor6.Bounds = new BoundingRectangle(-10000, -100000, 1, 1);
+                }
 
 
-                //if (_student.Interact2Timer > 2)
-                //{
-                //    RandInt = random.Next(1, 3);
-                //    if (RandInt == 1) ScreenManager.AddScreen(new Minigame2(Door), player);
-                //    else ScreenManager.AddScreen(new Minigame4(Door), player);
-                //    _student.Interact2Timer = 0;
-                //    _student.action = Action.Idle;
-                //    _student.CanInteract2 = false;
+                if (_student.Interact1Timer > 2)
+                {
+                    RandInt = random.Next(1, 3);
+                    if (RandInt == 1) ScreenManager.AddScreen(new Minigame2(ObjDoor6, 2), player);
+                    else ScreenManager.AddScreen(new Minigame4(ObjDoor6, 2), player);
+                    _student.Interact1Timer = 0;
+                    _student.action = Action.Idle;
+                    _student.CanInteract1 = false;
 
-                //}
+                }
                 if (_student.FeetBounds.CollidesWith(cBook.Bounds))
                 {
                     ScreenManager.CBookCollected = true;
@@ -194,6 +198,9 @@ namespace HackersDayOut.Screens
 
                 if (_student.Position.X < 65)
                 {
+                    string text = File.ReadAllText("progress.txt");
+                    string replaced = text.Replace("RoomGym", "RoomHallway2");
+                    File.WriteAllText("progress.txt", replaced);
                     RoomTransfer rt1 = new RoomTransfer(ScreenManager, this, new Hallway2(new Vector2(1900, 240)), ControllingPlayer);
                 }
                 //if (PythonCodeCollected)

@@ -1,0 +1,3 @@
+Door1Locked, Door3Locked, Door4Locked, Door5Locked, Door6Locked, Door7Locked 
+PybookMissing, PycodeMissing, JavabookMissing, JavacodeMissing, CbookMissing, CcodeMissing, CSharpbookMissing, CSharpcodeMissing 
+RoomClassroom1
