@@ -161,7 +161,7 @@ namespace HackersDayOut.Screens
                 }
 
                 _student.CollisionHandling(ObjDoor.Bounds);
-                if (ObjDoor.State == doorState.Closed && ScreenManager.PythonCodeCollected)
+                if (ObjDoor.State == doorState.Closed && ScreenManager.CSharpCodeCollected)
                 {
                     _student.InteractHandlingOne(cir);
                 }
@@ -188,6 +188,10 @@ namespace HackersDayOut.Screens
                 //{
                 //    ScreenManager.RemoveScreen(Minigame1());
                 //}
+                if(_student.Position.Y < 50)
+                {
+                    ScreenManager.AddScreen(new Ending(), ControllingPlayer);
+                }
 
             }
         }

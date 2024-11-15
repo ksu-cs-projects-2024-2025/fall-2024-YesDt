@@ -34,9 +34,13 @@ namespace HackersDayOut.Screens
 
         public BoundingCircle cir;
 
+        public BoundingCircle cir2;
+
         public static LockedDoorPy ObjDoor2 = new LockedDoorPy(2, 1, new Vector2(260, 54), 1.2f, new BoundingRectangle(235, 71, 140, 250), false);
 
         public static LockedDoorPy ObjDoor3 = new LockedDoorPy(1, 1, new Vector2(40, 100), 1.2f, new BoundingRectangle(15, 330, 80, 100), true);
+
+        public static LockedDoorPy ObjDoor4 = new LockedDoorPy(1, 3, new Vector2(1770, 100), 1.2f, new BoundingRectangle(1940, 330, 80, 100), false);
 
         public int RandInt;
 
@@ -65,7 +69,8 @@ namespace HackersDayOut.Screens
             ObjDoor2.Bounds = new BoundingRectangle(235, 185, 60, 200);
 
             ObjDoor3.LoadContent(_content);
-          
+            ObjDoor4.LoadContent(_content);
+
 
             circle = _content.Load<Texture2D>("circle");
 
@@ -83,7 +88,7 @@ namespace HackersDayOut.Screens
                     new BoundingRectangle(1930, -40, 60, 384),
                     //new BoundingRectangle(0, 0, 315, 354),
                     //new BoundingRectangle(490, 0, 395, 354),
-                   new BoundingRectangle(1950, 400, 40, 1000),
+                   new BoundingRectangle(1940, 400, 50, 1000),
 
                     //new BoundingRectangle(1000, 360, 120, 50),
                     new BoundingRectangle(0, 500, 1090, 70),
@@ -93,6 +98,7 @@ namespace HackersDayOut.Screens
                 };
 
             cir = new BoundingCircle(new Vector2(70, 240), 40f);
+            cir2 = new BoundingCircle(new Vector2(1820, 240), 40f);
 
 
         }
@@ -128,6 +134,10 @@ namespace HackersDayOut.Screens
             if (ObjDoor3.State != doorState.Closed)
             {
                 ObjDoor3.Bounds = new BoundingRectangle(-10000, -100000, 1, 1);
+            }
+            if (ObjDoor4.State != doorState.Closed)
+            {
+                ObjDoor4.Bounds = new BoundingRectangle(-10000, -100000, 1, 1);
             }
 
         }
@@ -174,18 +184,36 @@ namespace HackersDayOut.Screens
 
                 _student.CollisionHandling(ObjDoor2.Bounds);
                 _student.CollisionHandling(ObjDoor3.Bounds);
+                _student.CollisionHandling(ObjDoor4.Bounds);
                 if (ObjDoor3.State == doorState.Closed && ScreenManager.PythonCodeCollected)
                 {
                     _student.InteractHandlingTwo(cir);
                 }
+                if (ObjDoor4.State == doorState.Closed && ScreenManager.CCodeCollected)
+                {
+                    _student.InteractHandlingTwo(cir2);
+                }
                 if (_student.Interact2Timer > 2)
                 {
-                    RandInt = random.Next(1, 3);
-                    if (RandInt == 1) ScreenManager.AddScreen(new Minigame2(ObjDoor3, 1), player);
-                    else ScreenManager.AddScreen(new Minigame4(ObjDoor3, 1), player);
-                    _student.Interact2Timer = 0;
-                    _student.action = Action.Idle;
-                    _student.CanInteract2 = false;
+                    if(ScreenManager.CCodeCollected)
+                    {
+                        RandInt = random.Next(1, 3);
+                        if (RandInt == 1) ScreenManager.AddScreen(new Minigame2(ObjDoor4, 3), player);
+                        else ScreenManager.AddScreen(new Minigame4(ObjDoor4, 3), player);
+                        _student.Interact2Timer = 0;
+                        _student.action = Action.Idle;
+                        _student.CanInteract2 = false;
+                    }
+                    else
+                    {
+                        RandInt = random.Next(1, 3);
+                        if (RandInt == 1) ScreenManager.AddScreen(new Minigame2(ObjDoor3, 1), player);
+                        else ScreenManager.AddScreen(new Minigame4(ObjDoor3, 1), player);
+                        _student.Interact2Timer = 0;
+                        _student.action = Action.Idle;
+                        _student.CanInteract2 = false;
+                    }
+                    
 
                 }
                
@@ -238,6 +266,7 @@ namespace HackersDayOut.Screens
             spriteBatch.Draw(_Halls1, new Rectangle(0, -20, 2050, 520), Color.White);
             ObjDoor2.Draw(gameTime, spriteBatch);
             ObjDoor3.Draw(gameTime, spriteBatch);
+            ObjDoor4.Draw(gameTime, spriteBatch);
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Left, pyBook.Bounds.Top), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Left, pyBook.Bounds.Bottom), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Right, pyBook.Bounds.Top), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);

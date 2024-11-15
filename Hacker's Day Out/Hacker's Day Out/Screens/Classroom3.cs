@@ -36,9 +36,9 @@ namespace HackersDayOut.Screens
 
         public Vector2 SpawnPosition;
 
+        public static LockedDoorPy ObjDoor7 = new LockedDoorPy(2, 3, new Vector2(684, 0), 1.2f, new BoundingRectangle(653, 0, 230, 250), false);
 
-
-        //public BoundingCircle cir2;
+        public BoundingCircle cir;
 
 
 
@@ -106,10 +106,10 @@ namespace HackersDayOut.Screens
                 };
 
 
-            //cir2 = new BoundingCircle(new Vector2(1050, 280), 50f);
+            cir = new BoundingCircle(new Vector2(1050, 280), 50f);
 
             //Door = new LockedDoorPy(new Vector2(1015, 250), new BoundingRectangle(1050, 260, 140, 130), false);
-            //Door.LoadContent(_content);
+            ObjDoor7.LoadContent(_content);
 
 
         }
@@ -169,17 +169,17 @@ namespace HackersDayOut.Screens
                 {
                     _student.CollisionHandling(r);
                 }
-                //_student.CollisionHandling(Door.Bounds);
+                _student.CollisionHandling(ObjDoor7.Bounds);
 
 
-                //if (Door.State == doorState.Closed && ScreenManager.PythonCodeCollected)
-                //{
-                //    _student.InteractHandlingTwo(cir2);
-                //}
-                //if(Door.State != doorState.Closed)
-                //{
-                //    Door.Bounds = new BoundingRectangle(-10000, -100000, 1, 1);
-                //}
+                if (ObjDoor7.State == doorState.Closed && ScreenManager.CCodeCollected)
+                {
+                    _student.InteractHandlingTwo(cir);
+                }
+                if (ObjDoor7.State != doorState.Closed)
+                {
+                    ObjDoor7.Bounds = new BoundingRectangle(-10000, -100000, 1, 1);
+                }
 
 
                 //if (_student.Interact2Timer > 2)
@@ -236,7 +236,9 @@ namespace HackersDayOut.Screens
 
             // spriteBatch.Begin();
             spriteBatch.Draw(_classroom, new Rectangle(0, 0, 1400, 500), Color.White);
+           
             if (!ScreenManager.CSharpBookCollected) CSBook.Draw(gameTime, spriteBatch);
+            ObjDoor7.Draw(gameTime, spriteBatch);
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Left, pyBook.Bounds.Top), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Left, pyBook.Bounds.Bottom), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Right, pyBook.Bounds.Top), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);

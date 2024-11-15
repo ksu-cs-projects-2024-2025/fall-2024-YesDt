@@ -48,7 +48,7 @@ namespace HackersDayOut.Screens
 
        public static CBook cBook;
 
-
+       public static LockedDoorPy ObjDoor6 = new LockedDoorPy(2, 2, new Vector2(979, 133), 1.22f, new BoundingRectangle(935, 138, 350, 240), false);
 
         public int RandInt;
 
@@ -82,12 +82,12 @@ namespace HackersDayOut.Screens
                 {
                     new BoundingRectangle(-10, 350, 100, 90),
                     new BoundingRectangle(-10, 580, 100, 1000),
-                    new BoundingRectangle(-50, 300, 1000, 80),
+                    new BoundingRectangle(-50, 300, 1020, 80),
                     new BoundingRectangle(-40, 254, 2000, 80),
-                    new BoundingRectangle(1140, 300, 1000, 80),
+                    new BoundingRectangle(1140, 300, 1010, 80),
                     new BoundingRectangle(1900, 224, 40, 1000),
                     //new BoundingRectangle(1040, 400, 40, 400),
-                    new BoundingRectangle(0, 1300, 1090, 70),
+                    new BoundingRectangle(0, 1300, 5090, 70),
 
                 };
 
@@ -95,7 +95,7 @@ namespace HackersDayOut.Screens
             //cir2 = new BoundingCircle(new Vector2(1050, 280), 50f);
 
             //Door = new LockedDoorPy(new Vector2(1015, 250), new BoundingRectangle(1050, 260, 140, 130), false);
-            //Door.LoadContent(_content);
+            ObjDoor6.LoadContent(_content);
             if (!ScreenManager.CBookCollected)
             {
                 cBook = new CBook(new Vector2(1000, 290));
@@ -159,8 +159,8 @@ namespace HackersDayOut.Screens
                 {
                     _student.CollisionHandling(r);
                 }
-                //_student.CollisionHandling(Door.Bounds);
-                //if(ScreenManager.PythonBookCollected && !ScreenManager.PythonCodeCollected)
+                _student.CollisionHandling(ObjDoor6.Bounds);
+                //if(ScreenManager.JavaBookCollected && !ScreenManager.JavaCodeCollected)
                 //{
                 //    _student.InteractHandlingOne(cir);
                 //}
@@ -236,7 +236,7 @@ namespace HackersDayOut.Screens
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Right, pyBook.Bounds.Top), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             //spriteBatch.Draw(circle, new Vector2(pyBook.Bounds.Right, pyBook.Bounds.Bottom), null, Color.Green, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
 
-            //Door.Draw(gameTime, spriteBatch);
+            ObjDoor6.Draw(gameTime, spriteBatch);
             //spriteBatch.Draw(_level, new Vector2(0, 0), null, Color.White, 0f, new Vector2(0, 0), 1.5f, SpriteEffects.None, 0f);
             _student.Draw(gameTime, spriteBatch);
             //spriteBatch.Draw(circle, new Vector2(_student.Bounds.Left, _student.Bounds.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
@@ -247,21 +247,21 @@ namespace HackersDayOut.Screens
             //spriteBatch.Draw(circle, new Vector2(_student.FeetBounds.Left, _student.FeetBounds.Top), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             //spriteBatch.Draw(circle, new Vector2(_student.FeetBounds.Right, _student.FeetBounds.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
             //spriteBatch.Draw(circle, new Vector2(_student.FeetBounds.Right, _student.FeetBounds.Top), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-            //spriteBatch.Draw(circle, new Vector2(Door.Bounds.Left, Door.Bounds.Bottom), null, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-            //spriteBatch.Draw(circle, new Vector2(Door.Bounds.Left, Door.Bounds.Top), null, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-            //spriteBatch.Draw(circle, new Vector2(Door.Bounds.Right, Door.Bounds.Bottom), null, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-            //spriteBatch.Draw(circle, new Vector2(Door.Bounds.Right, Door.Bounds.Top), null, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            //spriteBatch.Draw(circle, new Vector2(ObjDoor6.Bounds.Left, ObjDoor6.Bounds.Bottom), null, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            //spriteBatch.Draw(circle, new Vector2(ObjDoor6.Bounds.Left, ObjDoor6.Bounds.Top), null, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            //spriteBatch.Draw(circle, new Vector2(ObjDoor6.Bounds.Right, ObjDoor6.Bounds.Bottom), null, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            //spriteBatch.Draw(circle, new Vector2(ObjDoor6.Bounds.Right, ObjDoor6.Bounds.Top), null, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
 
 
             spriteBatch.Draw(_hoops, new Rectangle(0, 0, 2000, 1200), Color.White);
             ////spriteBatch.Draw(_overlay, new Rectangle(0, 1, 1150, 500), Color.White);
-            foreach (var c in _boundaries)
-            {
-                spriteBatch.Draw(circle, new Vector2(c.Left, c.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-                spriteBatch.Draw(circle, new Vector2(c.Left, c.Top), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-                spriteBatch.Draw(circle, new Vector2(c.Right, c.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-                spriteBatch.Draw(circle, new Vector2(c.Right, c.Top), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
-            }
+            //foreach (var c in _boundaries)
+            //{
+            //    spriteBatch.Draw(circle, new Vector2(c.Left, c.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            //    spriteBatch.Draw(circle, new Vector2(c.Left, c.Top), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            //    spriteBatch.Draw(circle, new Vector2(c.Right, c.Bottom), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            //    spriteBatch.Draw(circle, new Vector2(c.Right, c.Top), null, Color.Red, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0f);
+            //}
             //spriteBatch.Draw(circle, cir.Center, Color.Orange);
             //spriteBatch.Draw(circle, cir2.Center, Color.Orange);
             spriteBatch.End();

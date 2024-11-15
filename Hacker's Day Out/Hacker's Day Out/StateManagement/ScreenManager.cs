@@ -54,6 +54,12 @@ namespace HackersDayOut.StateManagement
 
         public static bool CSharpBookCollected;
 
+        public static bool JavaCodeCollected;
+
+        public static bool CCodeCollected;
+
+        public static bool CSharpCodeCollected;
+
         public Game Game { get; private set; }
 
         /// <summary>

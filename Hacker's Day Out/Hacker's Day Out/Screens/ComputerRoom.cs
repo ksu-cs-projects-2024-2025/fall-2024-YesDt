@@ -38,7 +38,11 @@ namespace HackersDayOut.Screens
 
         public BoundingCircle cir;
 
-        //public BoundingCircle cir2;
+        public BoundingCircle cir2;
+
+        public BoundingCircle cir3;
+
+        public BoundingCircle cir4;
 
         public Computer[] computers;
 
@@ -99,7 +103,9 @@ namespace HackersDayOut.Screens
                 };
 
             cir = new BoundingCircle(new Vector2(240, 200), 10f);
-            //cir2 = new BoundingCircle(new Vector2(1050, 280), 50f);
+            cir2 = new BoundingCircle(new Vector2(450, 280), 50f);
+            cir3 = new BoundingCircle(new Vector2(660, 280), 50f);
+            cir4 = new BoundingCircle(new Vector2(870, 280), 50f);
             computers = new Computer[]
             {
                 new Computer(new Vector2(240, 140), 1),
@@ -177,8 +183,62 @@ namespace HackersDayOut.Screens
                 if(ScreenManager.PythonBookCollected && !ScreenManager.PythonCodeCollected)
                 {
                     _student.InteractHandlingOne(cir);
+                    if (_student.Interact1Timer > 2)
+                    {
+                        RandInt = random.Next(1, 3);
+                        if (RandInt == 1) ScreenManager.AddScreen(new Minigame1(1), player);
+                        else ScreenManager.AddScreen(new Minigame3(1), player);
+                        _student.Interact1Timer = 0;
+                        _student.action = Action.Idle;
+                        _student.CanInteract1 = false;
+
+                    }
                 }
-                
+
+                if (ScreenManager.JavaBookCollected && !ScreenManager.JavaCodeCollected)
+                {
+                    _student.InteractHandlingOne(cir2);
+                    if (_student.Interact1Timer > 2)
+                    {
+                        RandInt = random.Next(1, 3);
+                        if (RandInt == 1) ScreenManager.AddScreen(new Minigame1(2), player);
+                        else ScreenManager.AddScreen(new Minigame3(2), player);
+                        _student.Interact1Timer = 0;
+                        _student.action = Action.Idle;
+                        _student.CanInteract1 = false;
+
+                    }
+                }
+
+                if (ScreenManager.CBookCollected && !ScreenManager.CCodeCollected)
+                {
+                    _student.InteractHandlingOne(cir3);
+                    if (_student.Interact1Timer > 2)
+                    {
+                        RandInt = random.Next(1, 3);
+                        if (RandInt == 1) ScreenManager.AddScreen(new Minigame1(3), player);
+                        else ScreenManager.AddScreen(new Minigame3(3), player);
+                        _student.Interact1Timer = 0;
+                        _student.action = Action.Idle;
+                        _student.CanInteract1 = false;
+
+                    }
+                }
+
+                if (ScreenManager.CSharpBookCollected && !ScreenManager.CSharpCodeCollected)
+                {
+                    _student.InteractHandlingOne(cir4);
+                    if (_student.Interact1Timer > 2)
+                    {
+                        RandInt = random.Next(1, 3);
+                        if (RandInt == 1) ScreenManager.AddScreen(new Minigame1(4), player);
+                        else ScreenManager.AddScreen(new Minigame3(4), player);
+                        _student.Interact1Timer = 0;
+                        _student.action = Action.Idle;
+                        _student.CanInteract1 = false;
+
+                    }
+                }
                 //if (Door.State == doorState.Closed && ScreenManager.PythonCodeCollected)
                 //{
                 //    _student.InteractHandlingTwo(cir2);
@@ -188,16 +248,7 @@ namespace HackersDayOut.Screens
                 //    Door.Bounds = new BoundingRectangle(-10000, -100000, 1, 1);
                 //}
 
-                if (_student.Interact1Timer > 2)
-                {
-                    RandInt = random.Next(1, 3);
-                    if(RandInt == 1) ScreenManager.AddScreen(new Minigame1(1), player);
-                    else ScreenManager.AddScreen(new Minigame3(1), player);
-                    _student.Interact1Timer = 0;
-                    _student.action = Action.Idle;
-                    _student.CanInteract1 = false;
 
-                }
                 //if (_student.Interact2Timer > 2)
                 //{
                 //    RandInt = random.Next(1, 3);
@@ -211,11 +262,11 @@ namespace HackersDayOut.Screens
                 //if(_student.FeetBounds.CollidesWith(pyBook.Bounds))
                 //{
                 //    ScreenManager.PythonBookCollected = true;
-                    
+
                 //    pyBook.Bounds = new BoundingRectangle(-100000, -100000, 1, 1);
                 //}
 
-                if(_student.Position.X > 1090)
+                if (_student.Position.X > 1090)
                 {
                     RoomTransfer rt1 = new RoomTransfer(ScreenManager, this, new Hallway1(new Vector2(170, 230)), ControllingPlayer);
                 }
