@@ -1,0 +1,37 @@
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Hacker's Day Out.exe
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Hacker's Day Out.deps.json
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Hacker's Day Out.runtimeconfig.json
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Hacker's Day Out.dll
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Hacker's Day Out.pdb
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Microsoft.CodeAnalysis.dll
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\MonoGame.Framework.dll
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\SharpDX.dll
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\SharpDX.Direct2D1.dll
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\SharpDX.Direct3D11.dll
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\SharpDX.Direct3D9.dll
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\SharpDX.DXGI.dll
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\SharpDX.Mathematics.dll
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\SharpDX.MediaFoundation.dll
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\SharpDX.XAudio2.dll
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\SharpDX.XInput.dll
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\runtimes\debian-x64\native\libuv.so
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\runtimes\fedora-x64\native\libuv.so
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\runtimes\opensuse-x64\native\libuv.so
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\runtimes\osx\native\libuv.dylib
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\runtimes\rhel-x64\native\libuv.so
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\runtimes\win7-arm\native\libuv.dll
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\runtimes\win7-x64\native\libuv.dll
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\bin\Debug\net6.0-windows\runtimes\win7-x86\native\libuv.dll
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\obj\Debug\net6.0-windows\Hacker's Day Out.csproj.AssemblyReference.cache
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\obj\Debug\net6.0-windows\Hacker's Day Out.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\obj\Debug\net6.0-windows\Hacker's Day Out.AssemblyInfoInputs.cache
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\obj\Debug\net6.0-windows\Hacker's Day Out.AssemblyInfo.cs
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\obj\Debug\net6.0-windows\Hacker's Day Out.csproj.CoreCompileInputs.cache
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\obj\Debug\net6.0-windows\Hacker's Day Out.csproj.CopyComplete
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\obj\Debug\net6.0-windows\Hacker's Day Out.dll
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\obj\Debug\net6.0-windows\refint\Hacker's Day Out.dll
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\obj\Debug\net6.0-windows\Hacker's Day Out.pdb
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\obj\Debug\net6.0-windows\Hacker's Day Out.genruntimeconfig.cache
+C:\Users\dtyso\source\repos\fall-2024-YesDt\Hacker's Day Out\Hacker's Day Out\obj\Debug\net6.0-windows\ref\Hacker's Day Out.dll
