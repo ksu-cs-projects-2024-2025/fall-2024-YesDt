@@ -52,7 +52,7 @@ namespace HackersDayOut.Screens
 
         public string MiniGameProblem;
 
-        public string Answer = " ";
+        public string Answer = "";
 
         public bool succeeded;
 

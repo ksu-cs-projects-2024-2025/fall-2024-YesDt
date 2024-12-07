@@ -201,7 +201,7 @@ namespace HackersDayOut.Screens
                 //{
                 //    ScreenManager.RemoveScreen(Minigame1());
                 //}
-                if(_student.Position.Y < 50)
+                if(_student.Position.Y < 80)
                 {
                     ScreenManager.AddScreen(new Ending(), ControllingPlayer);
                 }

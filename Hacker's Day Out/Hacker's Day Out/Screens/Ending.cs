@@ -51,7 +51,7 @@ namespace HackersDayOut.Screens
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Enter))
             {
                 
-                LoadingScreen.Load(ScreenManager, false, null, new MainMenuScreen());
+                LoadingScreen.Load(ScreenManager, false, null, new BackgroundScreen(), new MainMenuScreen());
             }
         }
 

@@ -40,7 +40,7 @@ namespace HackersDayOut.Screens
 
         public string MiniGameProblem;
 
-        public string Answer = " ";
+        public string Answer = "";
 
         public bool succeeded;
 
@@ -141,7 +141,7 @@ namespace HackersDayOut.Screens
                             "_____ string word = 'can this be accessed';\n" +
                         "   public class OtherClass \n" +
                             "Question2.word = 'yes'\n" +
-                            "//num can be accessible, \n but can't be instantiated";
+                            "//num can be accessible, but can't be instantiated";
 
                     }
                     break;

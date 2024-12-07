@@ -24,6 +24,8 @@ namespace HackersDayOut.Screens
         private readonly InputAction _menuSelect;
         private readonly InputAction _menuCancel;
 
+        private Texture2D _background;
+
         // Gets the list of menu entries, so derived classes can add or change the menu contents.
         protected IList<MenuEntry> MenuEntries => _menuEntries;
 
@@ -149,6 +151,7 @@ namespace HackersDayOut.Screens
             var font = ScreenManager.Font;
 
             spriteBatch.Begin();
+
 
             for (int i = 0; i < _menuEntries.Count; i++)
             {

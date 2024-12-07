@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using HackersDayOut.StateManagement;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -14,8 +15,11 @@ namespace HackersDayOut.Screens
 {
     public class MainMenuScreen : MenuScreen
     {
+     
+
         public MainMenuScreen() : base("Hacker's Day Out")
         {
+            
            
             var playGameMenuEntry = new MenuEntry("Play Game");
             var controlsEntry = new MenuEntry("Controls");
@@ -55,5 +59,7 @@ namespace HackersDayOut.Screens
         {
             ScreenManager.Game.Exit();
         }
+
+       
     }
 }

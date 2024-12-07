@@ -37,7 +37,7 @@ namespace HackersDayOut.Screens
             if (_content == null)
                 _content = new ContentManager(ScreenManager.Game.Services, "Content");
 
-            _backgroundTexture = _content.Load<Texture2D>("gradient");
+            _backgroundTexture = _content.Load<Texture2D>("HDO main menu");
         }
 
         public override void Unload()

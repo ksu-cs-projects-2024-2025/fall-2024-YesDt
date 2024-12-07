@@ -222,13 +222,13 @@ namespace HackersDayOut.Screens
                         MiniGameProblem = "What are the 4 \n " +
                             "iterative loops?";
                         _button1 = _button1 + "If ";
-                        _button2 = _button2 + "Else if ";
+                        _button2 = _button2 + "Elseif ";
                         _button3 = _button3 + "Else ";
                         _button4 = _button4 + "Switch ";
                         _button5 = _button5 + "For ";
-                        _button6 = _button6 + "For each ";
+                        _button6 = _button6 + "Foreach ";
                         _button7 = _button7 + "While ";
-                        _button8 = _button8 + "Do while ";
+                        _button8 = _button8 + "Dowhil ";
                     }
                     else
                     {
@@ -256,8 +256,7 @@ namespace HackersDayOut.Screens
                         _button5 = _button5 + "Abstract ";
                         _button6 = _button6 + "Merging ";
                         _button7 = _button7 + "Inherit ";
-                        _button8 = _button8 + "Encapsu\n" +
-                            "-late ";
+                        _button8 = _button8 + "Encapsu";
                     }
                     else
                     {
@@ -299,7 +298,7 @@ namespace HackersDayOut.Screens
                 _previousKeyboardState = _currentKeyboardState;
                 _currentKeyboardState = Keyboard.GetState();
                 Keys[] keys = _currentKeyboardState.GetPressedKeys();
-                if (keys.Length > 0 && !_previousKeyboardState.IsKeyDown(keys[0]))
+                if (keys.Length > 0 && !_previousKeyboardState.IsKeyDown(keys[0]) && ButtonsPressed < 4)
                 {
                     switch (keys[0])
                     {
@@ -327,7 +326,7 @@ namespace HackersDayOut.Screens
                             break;
                     }
                 }
-                if (keys.Length > 0 && !_previousKeyboardState.IsKeyDown(keys[0]))
+                if (keys.Length > 0 && !_previousKeyboardState.IsKeyDown(keys[0]) && ButtonsPressed < 4)
                 {
                     switch (keys[0])
                     {
@@ -360,7 +359,7 @@ namespace HackersDayOut.Screens
                     ExitScreen();
                     ScreenManager.RemoveScreen(this);
                 }
-                if (ButtonsPressed == 4)
+                if (ButtonsPressed >= 4)
                 {
                     switch(_book)
                     {
@@ -415,7 +414,7 @@ namespace HackersDayOut.Screens
                             }
                             break;
                         case (3):
-                            if (RandomNum == 1 && Answer.Contains("For") && Answer.Contains("For each") && Answer.Contains("While") && Answer.Contains("Do while")) Succeeded = true;
+                            if (RandomNum == 1 && Answer.Contains("For") && Answer.Contains("Foreach") && Answer.Contains("While") && Answer.Contains("Dowhil")) Succeeded = true;
                             else if (RandomNum == 2 && Answer.Contains("*") && Answer.Contains("%") && Answer.Contains("**") && Answer.Contains("&")) Succeeded = true;
                             else
                             {
@@ -440,7 +439,7 @@ namespace HackersDayOut.Screens
                             }
                             break;
                         case (4):
-                            if (RandomNum == 1 && Answer.Contains("Polymorph") && Answer.Contains("Abstract") && Answer.Contains("Inherit") && Answer.Contains("Encapsulate")) Succeeded = true;
+                            if (RandomNum == 1 && Answer.Contains("Polymorph") && Answer.Contains("Abstract") && Answer.Contains("Inherit") && Answer.Contains("Encapsu")) Succeeded = true;
                             else if (RandomNum == 2 && Answer.Contains("Base/Sub") && Answer.Contains("Static") && Answer.Contains("Virtual") && Answer.Contains("Override")) Succeeded = true;
                             else
                             {
@@ -529,7 +528,7 @@ namespace HackersDayOut.Screens
                 _spriteBatch.DrawString(_choice7, _button7, new Vector2(703, 335), Color.Black, 0f, new Vector2(0, 0), 0.80f, SpriteEffects.None, 0);
                 _spriteBatch.DrawString(_choice8, _button8, new Vector2(639, 400), Color.Black, 0f, new Vector2(0, 0), 0.80f, SpriteEffects.None, 0);
             }
-            else if (_book == 4)
+            else if (_book == 4 || (RandomNum == 1 && _book == 3))
             {
                 _spriteBatch.DrawString(_choice1, _button1, new Vector2(69, 270), Color.Black, 0f, new Vector2(0, 0), 0.55f, SpriteEffects.None, 0);
                 _spriteBatch.DrawString(_choice2, _button2, new Vector2(3, 335), Color.Black, 0f, new Vector2(0, 0), 0.55f, SpriteEffects.None, 0);
@@ -553,7 +552,7 @@ namespace HackersDayOut.Screens
             }
 
             if(RandomNum ==1 && _book != 4)_spriteBatch.DrawString(_answer1, Answer, new Vector2(240, 360), Color.White, 0f, new Vector2(0,0), 0.45f, SpriteEffects.None, 0);
-            else if(_book == 4) _spriteBatch.DrawString(_answer1, Answer, new Vector2(240, 360), Color.White, 0f, new Vector2(0, 0), 0.45f, SpriteEffects.None, 0);
+            else if(_book == 4 || (RandomNum == 1 && _book == 3)) _spriteBatch.DrawString(_answer1, Answer, new Vector2(240, 360), Color.White, 0f, new Vector2(0, 0), 0.45f, SpriteEffects.None, 0);
             else _spriteBatch.DrawString(_answer1, Answer, new Vector2(280, 360), Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0);
 
 

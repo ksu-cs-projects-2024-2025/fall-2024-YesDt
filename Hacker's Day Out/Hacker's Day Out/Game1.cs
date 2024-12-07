@@ -33,6 +33,7 @@ namespace HackersDayOut
         private void AddInitialScreens()
         {
             _screenManager.gameState = GameState.LevelOne;
+            _screenManager.AddScreen(new BackgroundScreen(), null);
             _screenManager.AddScreen(new MainMenuScreen(), null);
 
         }

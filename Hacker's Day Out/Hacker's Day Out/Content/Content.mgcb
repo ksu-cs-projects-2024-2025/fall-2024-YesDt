@@ -109,6 +109,18 @@
 /processorParam:TextureFormat=Color
 /build:Hallway3.png
 
+#begin HDO main menu.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:HDO main menu.png
+
 #begin Java_Information.png
 /importer:TextureImporter
 /processor:TextureProcessor
