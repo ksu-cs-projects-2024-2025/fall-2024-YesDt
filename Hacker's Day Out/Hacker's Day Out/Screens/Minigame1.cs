@@ -319,7 +319,7 @@ namespace HackersDayOut.Screens
                     {
                         succeeded = true;
                     }
-                    if ((RandomNum == 2) && (Answer.Contains("< 50")))
+                    if ((RandomNum == 2) && (Answer.Contains("< 50") || Answer.Contains("< num1") || Answer.Contains("<50") || Answer.Contains("<num1")))
                     {
                         succeeded = true;
                     }
