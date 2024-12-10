@@ -56,22 +56,22 @@ namespace HackersDayOut.Screens
             string text = File.ReadAllText("progress.txt");
 
             if (text.Contains("Door1Unlocked")) Hallway1.ObjDoor.State = doorState.Open;
-           // else Hallway1.ObjDoor.State = doorState.Closed;
+            else Hallway1.ObjDoor.State = doorState.Closed;
 
             if (text.Contains("Door3Unlocked")) Hallway3.ObjDoor3.State = doorState.Open;
-           // else Hallway3.ObjDoor3.State = doorState.Closed;
+            else Hallway3.ObjDoor3.State = doorState.Closed;
 
             if (text.Contains("Door4Unlocked")) Hallway3.ObjDoor4.State = doorState.Open;
-            //else Hallway3.ObjDoor4.State = doorState.Closed;
+            else Hallway3.ObjDoor4.State = doorState.Closed;
 
             if (text.Contains("Door5Unlocked")) Hallway2.ObjDoor5.State = doorState.Open;
-            //else Hallway2.ObjDoor5.State = doorState.Closed;
+            else Hallway2.ObjDoor5.State = doorState.Closed;
 
             if (text.Contains("Door6Unlocked")) Gym.ObjDoor6.State = doorState.Open;
-            //else Gym.ObjDoor6.State = doorState.Closed;
+            else Gym.ObjDoor6.State = doorState.Closed;
 
             if (text.Contains("Door7Unlocked")) Classroom3.ObjDoor7.State = doorState.Open;
-           // else Classroom3.ObjDoor7.State = doorState.Closed;
+            else Classroom3.ObjDoor7.State = doorState.Closed;
 
 
 
