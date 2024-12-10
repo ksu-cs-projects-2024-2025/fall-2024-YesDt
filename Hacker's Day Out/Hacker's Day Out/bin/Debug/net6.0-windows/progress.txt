@@ -1,4 +1,4 @@
 Door1Locked, Door3Unlocked, Door4Locked, Door5Locked, Door6Locked, Door7Locked 
 PybookMissing, PycodeMissing, JavabookMissing, JavacodeMissing, CbookMissing, CcodeMissing, CSharpbookMissing, CSharpcodeMissing 
-RoomHallway2 
+RoomClassroom2 
 Skin2

@@ -180,6 +180,10 @@ namespace HackersDayOut.Screens
                     File.WriteAllText("progress.txt", replaced);
                     ObjDoor5.Bounds = new BoundingRectangle(-10000, -100000, 1, 1);
                 }
+                else
+                {
+                    ObjDoor5.Bounds = new BoundingRectangle(1940, 330, 80, 200);
+                }
                 //if (_student.Position.X > 1010 && _student.Position.Y < 185 )
                 //{
                 //    RoomTransfer rt1 = new RoomTransfer(ScreenManager, this, new ComputerRoom(new Vector2(985, 210)), ControllingPlayer);

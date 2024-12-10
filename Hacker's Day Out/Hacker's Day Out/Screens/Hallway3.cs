@@ -139,12 +139,20 @@ namespace HackersDayOut.Screens
                 File.WriteAllText("progress.txt", replaced);
                 ObjDoor3.Bounds = new BoundingRectangle(-10000, -100000, 1, 1);
             }
+            else
+            {
+                ObjDoor3.Bounds = new BoundingRectangle(15, 330, 80, 100);
+            }
             if (ObjDoor4.State != doorState.Closed)
             {
                 string text = File.ReadAllText("progress.txt");
                 string replaced = text.Replace("Door4Locked", "Door4Unlocked");
                 File.WriteAllText("progress.txt", replaced);
                 ObjDoor4.Bounds = new BoundingRectangle(-10000, -100000, 1, 1);
+            }
+            else
+            {
+                ObjDoor4.Bounds = new BoundingRectangle(1940, 330, 80, 100);
             }
 
         }

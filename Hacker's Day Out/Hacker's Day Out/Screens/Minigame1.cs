@@ -315,7 +315,7 @@ namespace HackersDayOut.Screens
                     }
                     break;
                 case 3:
-                    if ((RandomNum == 1) && ((Answer.Contains("&num"))))
+                    if ((RandomNum == 1) && ((Answer.Contains("&num")) || (Answer.Contains("& num"))))
                     {
                         succeeded = true;
                     }

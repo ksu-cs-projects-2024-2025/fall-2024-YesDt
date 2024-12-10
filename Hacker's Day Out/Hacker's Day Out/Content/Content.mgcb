@@ -237,6 +237,12 @@
 /processorParam:TextureFormat=Color
 /build:MVPcomplete.png
 
+#begin Pickup_Special.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Pickup_Special.wav
+
 #begin Python_Information.png
 /importer:TextureImporter
 /processor:TextureProcessor

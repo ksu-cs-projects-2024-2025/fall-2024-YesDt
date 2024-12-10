@@ -192,6 +192,10 @@ namespace HackersDayOut.Screens
                 {
                     ObjDoor.Bounds = new BoundingRectangle(305, 187, 60, 200);
                 }
+                else
+                {
+                    ObjDoor.Bounds = new BoundingRectangle(305, 87, 200, 250);
+                }
                 //if (_student.Position.X > 1010 && _student.Position.Y < 185 )
                 //{
                 //    RoomTransfer rt1 = new RoomTransfer(ScreenManager, this, new ComputerRoom(new Vector2(985, 210)), ControllingPlayer);

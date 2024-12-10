@@ -9,6 +9,7 @@ using HackersDayOut.StateManagement;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 using HackersDayOut.Collisions;
 using System.IO;
 
@@ -19,6 +20,7 @@ namespace HackersDayOut.Screens
         private GraphicsDevice _graphics;
         private SpriteBatch _spriteBatch;
         private ContentManager _content;
+        private SoundEffect _bookCollect;
 
         private Texture2D _classroom;
         private Texture2D _overlay;
@@ -76,6 +78,7 @@ namespace HackersDayOut.Screens
             _classroom = _content.Load<Texture2D>("Sprite_Classroom3");
             _overlay = _content.Load<Texture2D>("Sprite_C3Tables");
             circle = _content.Load<Texture2D>("circle");
+            _bookCollect = _content.Load<SoundEffect>("Pickup_Special");
 
             if (!ScreenManager.CSharpBookCollected)
             {
@@ -184,6 +187,10 @@ namespace HackersDayOut.Screens
                     File.WriteAllText("progress.txt", replaced);
                     ObjDoor7.Bounds = new BoundingRectangle(-10000, -100000, 1, 1);
                 }
+                else
+                {
+                    ObjDoor7.Bounds = new BoundingRectangle(653, 0, 230, 250);
+                }
 
 
                 if (_student.Interact1Timer > 2)
@@ -198,6 +205,7 @@ namespace HackersDayOut.Screens
                 }
                 if (_student.FeetBounds.CollidesWith(CSBook.Bounds))
                 {
+                    _bookCollect.Play();
                     ScreenManager.CSharpBookCollected = true;
 
                     CSBook.Bounds = new BoundingRectangle(-100000, -100000, 1, 1);

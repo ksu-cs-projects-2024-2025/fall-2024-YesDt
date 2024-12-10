@@ -9,6 +9,7 @@ using HackersDayOut.StateManagement;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 using HackersDayOut.Collisions;
 using System.IO;
 
@@ -19,6 +20,7 @@ namespace HackersDayOut.Screens
         private GraphicsDevice _graphics;
         private SpriteBatch _spriteBatch;
         private ContentManager _content;
+        private SoundEffect _bookCollect;
 
         private Texture2D _classroom;
         private Texture2D _overlay;
@@ -75,6 +77,7 @@ namespace HackersDayOut.Screens
             _student.LoadContent(_content);
             _classroom = _content.Load<Texture2D>("Sprite_Classroom2");
             circle = _content.Load<Texture2D>("circle");
+            _bookCollect = _content.Load<SoundEffect>("Pickup_Special");
 
             if (!ScreenManager.PythonBookCollected)
             {
@@ -188,6 +191,7 @@ namespace HackersDayOut.Screens
                 //}
                 if (_student.FeetBounds.CollidesWith(pyBook.Bounds))
                 {
+                    _bookCollect.Play();
                     ScreenManager.PythonBookCollected = true;
 
                     pyBook.Bounds = new BoundingRectangle(-100000, -100000, 1, 1);
