@@ -60,6 +60,10 @@ namespace HackersDayOut.StateManagement
 
         public static bool CSharpCodeCollected;
 
+        public static bool GameWon = false;
+
+        public static bool WearingCostume = false;
+
         public Game Game { get; private set; }
 
         /// <summary>

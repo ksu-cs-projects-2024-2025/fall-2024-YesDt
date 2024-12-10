@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using HackersDayOut.StateManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -91,7 +92,8 @@ namespace HackersDayOut
         /// <param name="content">ContentManager</param>
         public void LoadContent(ContentManager content)
         {
-            _texture = content.Load<Texture2D>("Sprite_student");
+            if(ScreenManager.WearingCostume) _texture = content.Load<Texture2D>("Sprite_student2");
+            else _texture = content.Load<Texture2D>("Sprite_student");
             _interactButton = content.Load<Texture2D>("Sprite_interact");
 
 
